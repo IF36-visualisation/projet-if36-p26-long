@@ -17,7 +17,7 @@
 
 **Explication du pipeline**
 
-*On récupére la données, on la décrypte avec le logiciel ( siter ), puis les données sont stocker dans une base de données postgresql*
+*On récupère la données, on la décrypte avec le logiciel ( siter ), puis les données sont stockées dans une base de données postgresql*
 
 **Mise a disposition des credentials**
 
