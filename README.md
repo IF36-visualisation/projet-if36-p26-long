@@ -13,7 +13,7 @@
 
 **Provenance des données**
 
-*Grabbing sur le site HLTV*
+*Scraping sur le site HLTV*
 
 **Explication du pipeline**
 
