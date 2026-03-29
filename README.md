@@ -5,7 +5,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; Bienvenue dans les coulisses de Counter-Strike 2.
 Les fichiers .dem, ces boîtes noires du jeu, ne sont pas de simples replays : ce sont des flux de données brutes, enregistrant chaque tick du serveur avec la précision d’un horloger suisse. Ici, CS2 n’est pas qu’une question de réflexes, c’est un générateur de données, où chaque poulet sacrifié sur Inferno, chaque "Have Fun" lancé dans le chat, et chaque millimètre de déplacement est méticuleusement archivé.
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Notre mission ?** Nous allons analyser cette amas de données pour répondre a certaines questions. Par exemple décrypter si la politesse est une stratégie gagnante : un "Have Fun" dans le chat, est-ce un buff de victoire ou juste une prière avant de se faire one-tap ? Ou encore trancher la plus grande superstition de l’e-sport : sacrifier des poulets sur Inferno, est-ce un rituel sacré ou juste une façon de polluer notre base de données avec des cadavres de volailles ?
+&nbsp;&nbsp;&nbsp;&nbsp;**Notre mission ?** Nous allons analyser cet amas de données pour répondre a certaines questions. Par exemple décrypter si la politesse est une stratégie gagnante : un "Have Fun" dans le chat, est-ce un buff de victoire ou juste une prière avant de se faire one-tap ? Ou encore trancher la plus grande superstition de l’e-sport : sacrifier des poulets sur Inferno, est-ce un rituel sacré ou juste une façon de polluer notre base de données avec des cadavres de volailles ?
 
 &nbsp;&nbsp;&nbsp;&nbsp;**L’objectif final ?** Transformer ce chaos binaire en visualisations percutantes. Heatmaps des zones de décès, efficacité des équipements en fonction de l’économie, impact psychologique d’un clutch… Bref, donner un sens visuel à des milliers de ticks invisibles, pour révéler les schémas cachés derrière chaque victoire.
 
@@ -64,7 +64,7 @@ L'explosion ou le temps : Si la bombe est posée, le chronomètre passe à 40 se
 
 </div> <br>
 
-Ici on a 522 demo files enregistrer avec :
+Ici on a 522 demo files enregistrés avec :
 
 <div style="display:flex; justify-content : center; align-content:center;">
 
@@ -112,14 +112,14 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 
 ## Schema de la base de données
 
-*Les données sont stocker sous la forme :*
+*Les données sont stockées sous la forme :*
 
 <div style="display:flex; justify-content : center; align-content:center; flex-wrap:wrap">
 
 <div style="margin:20px">
 
 
-**demos** : *Information générale concernant le demo file*
+**demos** : *Informations générales concernant le demo file*
 | Colonne | Type | Commentaire |
 |---------|------|------|
 | **checksum** | `varchar` | Equivaut à l'identifiant de la partie |
@@ -144,7 +144,7 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 <div style="margin:20px">
 
 
-**maps** : *Information pour les cartes*
+**maps** : *Informations pour les cartes*
 | Colonne | Type | Commentaire |
 |---------|------|------|
 | **id** | `bigserial` | |
@@ -160,7 +160,7 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 <div style="margin:20px">
 
 
-**matches** : *Information relative à une partie*
+**matches** : *Informations relatives à une partie*
 | Colonne | Type | Commentaire |
 |---------|------|------|
 | **checksum** | `varchar` | Equivalent de l'id |
@@ -185,7 +185,7 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 <div style="margin:20px">
 
 
-**players** : *Informations divers sur le joueur en fin de partie*
+**players** : *Informations diverses sur le joueur en fin de partie*
 | Colonne | Type | Commentaire |
 |---------|------|------|
 | **id** | `bigserial` |
@@ -238,7 +238,7 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 
 <div style="margin:20px">
 
-**rounds** : *Information relative aux rounds*
+**rounds** : *Informations relatives aux rounds*
 | Colonne | Type | Commentaire |
 |---------|------|------|
 | **id** | `bigserial` |
@@ -925,7 +925,7 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 ---
 ### Prise de position concernant la base de données
 
-Nous avons retirer des tables vides généré par CSDM :
+Nous avons retiré des tables vides générées par CSDM :
 
 - steam_account_overrides
 - steam_account_tags
@@ -948,7 +948,7 @@ Nous avons retirer des tables vides généré par CSDM :
 - demo_paths
 - download_history
 
-*Certaines de ces tables vides étaient à prévoir car nos demo files ne contiennent que des parties compétitive avec bombe, donc sans otages.*
+*Certaines de ces tables vides étaient à prévoir car nos demo files ne contiennent que des parties compétitives avec bombe, donc sans otages.*
 
 De plus certaines tables ne sont pas utiles elle servent simplement au fonctionnement de l'application :
 - tags
@@ -958,7 +958,7 @@ De plus certaines tables ne sont pas utiles elle servent simplement au fonctionn
 
 <br>
 
-> On peut identifier des sous-groupes qui correspondent au rounds jouer dans une certaine map.
+> On peut identifier des sous-groupes qui correspondent aux rounds joués dans une certaine map.
 
 
 <br>
@@ -975,7 +975,7 @@ De plus certaines tables ne sont pas utiles elle servent simplement au fonctionn
 
 ### Comparaison ?
 
-### Problèmes possible ?
+### Problèmes possibles ?
 
 <br>
 
@@ -1007,6 +1007,6 @@ De plus certaines tables ne sont pas utiles elle servent simplement au fonctionn
 
 <br>
 
-> Nous nous gardons le droit d'enrichir se glossaire au fur et à mesure de nos analyses
+> Nous nous gardons le droit d'enrichir ce glossaire au fur et à mesure de nos analyses
 
 <br>
