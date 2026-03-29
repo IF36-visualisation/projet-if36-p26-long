@@ -1,0 +1,27 @@
+services:
+  database:
+    user: "999:999"
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DB=mydb
+    volumes:
+      - "./database:/var/lib/postgresql/data"
+    
+  
+  interfaceDB:
+    image: dbeaver/cloudbeaver:latest
+    volumes:
+      - "./cloudbeaver:/opt/cloudbeaver/workspace"
+    ports:
+      - "8978:8978"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      database:
+        condition: service_started
+
+
