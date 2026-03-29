@@ -10,9 +10,9 @@
 ## Table des Matières
 
 - [Introduction](#introduction)
-- [Information générale concernant Counter-Strike 2](#information-generale-concernant-counter---strike-2)
-- [Données](#donnees)
-- [Schema de la base de données](#schema-de-la-base-de-donnees)
+- [Information générale concernant Counter-Strike 2](#information-générale-concernant-counter-strike-2)
+- [Données](#données)
+- [Schema de la base de données](#schema-de-la-base-de-données)
 - [Plan d'analyse](#plan-danalyse)
 - [Glossaire](#glossaire)
 
@@ -1149,7 +1149,8 @@ Les données ne concernant que le pro play, aucun résultat n'est généralisabl
 <br>
 
 <div align="center">
-[Retour en haut](#-Projet-IF36--Counter---Strike-2)
+
+[Retour en haut](#projet-if36--counter-strike-2)
 
 </div>
 
