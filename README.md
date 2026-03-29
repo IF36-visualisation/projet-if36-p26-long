@@ -1142,3 +1142,9 @@ Les données ne concernant que le pro play, aucun résultat n'est généralisabl
 > Nous nous gardons le droit d'enrichir ce glossaire au fur et à mesure de nos analyses
 
 <br>
+<div align="center">
+    
+[Retour en haut](#-Projet-IF36-:-Counter-Strike-2)
+
+</div>
+
