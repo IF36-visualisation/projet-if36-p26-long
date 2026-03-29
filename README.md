@@ -995,7 +995,7 @@ De plus certaines tables ne sont pas utiles elle servent simplement au fonctionn
 
 <br>
 
-
+---
 
 ## Plan d'analyse
 
@@ -1009,7 +1009,7 @@ On retrouve:
 **Les questions par équipe**
 
 
-# Les stratégies
+### Les stratégies
 *Ici, les stratégies sont étudiés pour savoir lesquelles font gagner le plus souvent*
 
 Les données comparées pourraient inclure : la position moyenne des joueurs, les armes achetées, la position de la pose de la bombe, la position des kills, la gestion des rounds eco, sur quel site on désamorce le plus la bombe, une équipe utilise-t-elle plus de bombes smoke ou explosive… 
@@ -1017,7 +1017,7 @@ Les données comparées pourraient inclure : la position moyenne des joueurs, le
 Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 
 
-#**Les relations**
+### Les relations
 *Le but de ce type d’analyse est de discerner des relations entre les variables, permettant ainsi de prédire l’une en fonction de l’autre.*
 
 La grenade est-elle plus utilisée par les terro ou les CT ?
@@ -1032,7 +1032,7 @@ Quels ont été les maps les plus populaires ? Pourquoi ? (nombre d’action spe
 Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? (changement des joueurs, changement des stratégies, changement du coach)
 
 
-# Les probabilités
+###  Les probabilités
 *Chaque variable étudiée ici permet d’observer sa distribution ou sa probabilité pour proposer une prédiction de la valeur suite de cette même variable, ou d’une autre, correlée.*
 
 
@@ -1072,7 +1072,7 @@ On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name 
 
 
 
-# Les questions par équipe (esport)
+### Les questions par équipe (esport)
 
 - Un joueur gagne-t-il plus dans une équipe qu’une autre ? Si oui, quels sont les facteurs qui influencent le potentiel d’un joueur à bien jouer ou non
 
@@ -1083,7 +1083,7 @@ On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name 
 - Quelles sont les meilleures stratégies ?
 
 
-# Problèmes possibles ?
+### Problèmes possibles ?
 
 Notre banque de données est plutôt longue, ce qui est un avantage, mais requiert donc une organisation méticuleuse pour bien être exploitée.
 Notre base de données possède beaucoup d'entrées, mais sur une temporalité limitée; si l'on souhaite faire des études sur la durée, cela peut amener des complications liés à la récupération de données, quoi que faisable.
