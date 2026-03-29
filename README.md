@@ -1,11 +1,12 @@
+<div align="center">
 # Projet IF36 : Counter-Strike 2
 
 <div style="text-align: justify;">
-<div align="center">
-<div style="text-align: center;">
+
     <img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" width="500" style="margin-bottom: 20px;">
+
 </div>
-</div>
+
 ## Table des Matières
 
 - [Introduction](#-Introduction)
