@@ -1023,21 +1023,21 @@ On retrouve:
 
 
 ### Les stratégies
-*Ici, les stratégies sont étudiés pour savoir lesquelles font gagner le plus souvent*
+*Ici, les stratégies liés à l'équipement, ou encore à des pratiques individuelles sont étudiés pour savoir lesquelles font gagner le plus souvent*
 
-Les données comparées pourraient inclure : la position moyenne des joueurs, les armes achetées, la position de la pose de la bombe, la position des kills, la gestion des rounds eco, sur quel site on désamorce le plus la bombe, une équipe utilise-t-elle plus de bombes smoke ou explosive… 
+Les données comparées pourraient inclure : la position moyenne des joueurs, les armes achetées, la position de la pose de la bombe, la position des kills, la gestion des rounds eco, sur quel site on désamorce le plus la bombe, une équipe utilise-t-elle plus de bombes smoke ou explosive…
 …donc toute donnée pouvant refléter une quelconque stratégie. 
 Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 
 - L'économie détermine-t-elle vraiment l'issue d'un round ? -> Hypothèse : un "full buy" bat presque toujours un "eco". On croisera team_a_economy_type / team_b_economy_type avec winner_side dans la table rounds. 
 
-- Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ? ->
+- Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ?
 
-- Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ? ->
+- Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ?
 
-- Sur chaque map, quel site mène le plus souvent à la victoire des T ? ->
+- Sur chaque map, quel site mène le plus souvent à la victoire des T ?
 
-- Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ? ->
+- Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ?
 
 
 ### Les relations
@@ -1045,9 +1045,9 @@ Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 
 - La grenade est-elle plus utilisée par les terro ou les CT ?
 
-- Les 20% avec le moins de kills vs avec le plus de kills, qui tue le plus de poulet ? ->(comparaison)
+- Les 20% avec le moins de kills vs avec le plus de kills, qui tue le plus de poulet ? -> comparaison
 
-- Sur quels endroits de la map il y a le plus de kills ? -> (distribution)
+- Sur quels endroits de la map il y a le plus de kills ? -> distribution
 
 - Quel côté (T ou CT) a un avantage structurel selon les maps ? -> On s'attend à trouver des asymétries selon les cartes (ex : Inferno traditionnellement favorable aux T). On comparera winner_side par map_name 
 
@@ -1068,13 +1068,13 @@ Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 ### Les analyses sur le temps
 *Ces analyses permettent une compréhension sur le temps de l’évolution des tendances (certaines de ces questions risquent de ne pas avoir de réponse possible au vu la forme des données, ie limité dans le temps).*
 
-- Les techniques de jeu ont-elles évolué au cours du temps ? -> (évolution des métas)
+- Les techniques de jeu ont-elles évolué au cours du temps ? -> évolution des métas
 
-- Quelles armes sont les plus utilisées ? -> (comparaison)
+- Quelles armes sont les plus utilisées ? -> comparaison
 
-- Quels ont été les maps les plus populaires ? Pourquoi ? -> (nombre d’action spectaculaire, richesse des stratégies)
+- Quels ont été les maps les plus populaires ? Pourquoi ? -> nombre d’action spectaculaire, richesse des stratégies
 
-- Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? -> (changement des joueurs, changement des stratégies, changement du coach)
+- Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? -> changement des joueurs, changement des stratégies, changement du coach
 
 
 
@@ -1095,9 +1095,9 @@ En effet, la majorité des parties lancés sont anonymes, donc non-traçable dan
 
 Ainsi vous trouverez en dessous un echantillon de questions auquels nous n'apporterons pas de réponses:
 
-- Un joueur gagne-t-il plus dans une équipe qu’une autre ? Si oui, quels sont les facteurs qui influencent le potentiel d’un joueur à bien jouer ou non
+- Un joueur gagne-t-il plus dans une équipe qu’une autre ? Si oui, quels sont les facteurs qui influencent le potentiel d’un joueur à bien jouer ou non?
 
-- Y a t-il des maps qui favorisent certaines équipes ? (certaines équipes sont plus à l’aise sur certaines map)
+- Y a t-il des maps qui favorisent certaines équipes ?
 
 - Les équipes ont-elles des stratégies différentes ?
 
