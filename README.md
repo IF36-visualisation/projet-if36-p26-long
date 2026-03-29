@@ -1,12 +1,18 @@
 # Projet IF36 : Counter-Strike 2
 
 <div style="text-align: justify;">
-
-# Introduction
-
+<div align="center">
 <div style="text-align: center;">
     <img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" width="500" style="margin-bottom: 20px;">
 </div>
+</div>
+## Table des Matières
+
+- [Introduction](#-Introduction)
+
+
+# Introduction
+
 &nbsp;&nbsp;&nbsp;&nbsp; Bienvenue dans les coulisses de Counter-Strike 2.
 Les fichiers .dem, ces boîtes noires du jeu, ne sont pas de simples replays : ce sont des flux de données brutes, enregistrant chaque tick du serveur avec la précision d’un horloger suisse. Ici, CS2 n’est pas qu’une question de réflexes, c’est un générateur de données, où chaque poulet sacrifié sur Inferno, chaque "Have Fun" lancé dans le chat, et chaque millimètre de déplacement est méticuleusement archivé.
 
