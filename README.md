@@ -9,12 +9,12 @@
 
 ## Table des Matières
 
-- [Introduction](#-Introduction)
-- [Information générale concernant Counter-Strike 2](#-Information-générale-concernant-Counter---Strike-2)
-- [Données](#-Données)
-- [Schema de la base de données](#-Schema-de-la-base-de-données)
-- [Plan d'analyse](#-Plan-danalyse)
-- [Glossaire](#-Glossaire)
+- [Introduction](#-introduction)
+- [Information générale concernant Counter-Strike 2](#-information-générale-concernant-counter---strike-2)
+- [Données](#-données)
+- [Schema de la base de données](#-schema-de-la-base-de-données)
+- [Plan d'analyse](#-plan-danalyse)
+- [Glossaire](#-glossaire)
 
 
 # Introduction
