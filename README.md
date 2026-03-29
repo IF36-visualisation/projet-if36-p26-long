@@ -999,15 +999,82 @@ De plus certaines tables ne sont pas utiles elle servent simplement au fonctionn
 
 ## Plan d'analyse
 
+*Notre plan d’analyse est découpé en plusieurs parties, chacune ayant leur propre but et domaines d’analyse.*
+
+On retrouve:
+**Les stratégies**
 
 
-### Qu'est-ce que nous voulons savoir ?
+**Les stratégies**
+*Ici, les stratégies sont étudiés pour savoir lesquelles font gagner le plus souvent*
 
-### Qu'est-ce que je pense trouver ?
+Les données comparées pourraient inclure : la position moyenne des joueurs, les armes achetées, la position de la pose de la bombe, la position des kills, la gestion des rounds eco, sur quel site on désamorce le plus la bombe, une équipe utilise-t-elle plus de bombes smoke ou explosive… 
+…donc toute donnée pouvant refléter une quelconque stratégie. 
+Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 
-### Comparaison ?
+
+**Les relations**
+*Le but de ce type d’analyse est de discerner des relations entre les variables, permettant ainsi de prédire l’une en fonction de l’autre.*
+
+La grenade est-elle plus utilisée par les terro ou les CT ?
+Les 20% avec le moins de kills vs avec le plus de kills, qui tue le plus de poulet ? (comparaison)
+Sur quels endroits de la map il y a le plus de kills ? (distribution)
+Les analyses sur le temps
+Ces analyses permettent une compréhension sur le temps de l’évolution des tendances (à priori pas possible non plus vu la forme des données)
+
+Les techniques de jeu ont-elles évolué au cours du temps ? (évolution des métas) 
+Par exemple, quelles armes sont les plus utilisées ? (comparaison)
+Quels ont été les maps les plus populaires ? Pourquoi ? (nombre d’action spectaculaire, richesse des stratégies)
+Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? (changement des joueurs, changement des stratégies, changement du coach)
+
+
+**Les probabilités**
+*Chaque variable étudiée ici permet d’observer sa distribution ou sa probabilité pour proposer une prédiction de la valeur suite de cette même variable, ou d’une autre, correlée.*
+
+
+-Quelle est la probabilité de gagner un clutch (pourcentage pour chaque nombre de joueur: 1v5, 1v4, etc) ? probabilité
+
+-L'économie détermine-t-elle vraiment l'issue d'un round ?
+Hypothèse : un "full buy" bat presque toujours un "eco". On croisera team_a_economy_type / team_b_economy_type avec winner_side dans la table rounds. stratégie ?
+
+-Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ? stratégie ?
+
+-Quel côté (T ou CT) a un avantage structurel selon les maps ?
+On s'attend à trouver des asymétries selon les cartes (ex : Inferno traditionnellement favorable aux T). On comparera winner_side par map_name relation
+
+-Envoyer "Have Fun" / "GG" / "EZ" en début de partie influence-t-il le résultat ?
+On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. stratégie ou relation
+
+- Tuer un poulet sur Inferno est-il corrélé à la victoire du round ?
+On filtrera chicken_deaths sur de_inferno, on associera les rounds correspondants via match_checksum + round_number, puis on regardera winner_side. relation
+
+-Où meurt-on le plus sur chaque map ?
+On utilisera les coordonnées victim_x, victim_y de la table kills. probabilité
+
+-Est-ce que les joueurs toxiques (ceux qui insultent dans le chat) ont de meilleures ou de moins bonnes performances? 
+On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. relation
+
+-Le premier kill d'un round est-il décisif ? relation
+
+-Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ? stratégie
+
+-Une équipe qui domine la première mi-temps maintient-elle son avantage après le changement de camp ? relation
+
+-Plus un joueur fait de dégâts par round, plus son KD est élevé ? relation
+
+-Sur chaque map, quel site mène le plus souvent à la victoire des T ? stratégie
+
+-Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ?
+
 
 ### Problèmes possibles ?
+
+Notre banque de données est plutôt longue, ce qui est un avantage, mais requiert donc une organisation méticuleuse pour bien être exploitée.
+Notre base de données possède beaucoup d'entrées, mais sur une temporalité limitée; si l'on souhaite faire des études sur la durée, cela peut amener des complications liés à la récupération de données, quoi que faisable.
+
+Aussi, les termes techniques du jeu pourraient mettre des barrières à ceux n’étant pas familier avec le jeu ou ne le connaissant que peu, ainsi nous avons pris la liberté de réaliser un glossaire des termes les moins explicites.
+
+Les données ne concernant que le pro play, aucun résultat n'est généralisable à l'utilisation dite classique du jeu.
 
 <br>
 
