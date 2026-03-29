@@ -4,7 +4,7 @@
 
 # Introduction
 
-<img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" align="right" width="500" style="margin-left: 20px; margin-bottom: 20px;">
+<img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" align="center" width="500" style="margin-left: 20px; margin-bottom: 20px;">
 
 
 &nbsp;&nbsp;&nbsp;&nbsp; Bienvenue dans les coulisses de Counter-Strike 2.
