@@ -1,185 +1,193 @@
 # Projet IF36 : Counter-Strike 2
 
-## Introduction
+# Introduction
 
-### Données
+&nbsp;&nbsp;&nbsp;&nbsp; Bienvenue dans les coulisses de Counter-Strike 2.
+Les fichiers .dem, ces boîtes noires du jeu, ne sont pas de simples replays : ce sont des flux de données brutes, enregistrant chaque tick du serveur avec la précision d’un horloger suisse. Ici, CS2 n’est pas qu’une question de réflexes, c’est un générateur de données, où chaque poulet sacrifié sur Inferno, chaque "Have Fun" lancé dans le chat, et chaque millimètre de déplacement est méticuleusement archivé.
 
-*Vos données décrites en détails avec le nombre d’observations et de variables, et le type des variables. D’où viennent-elles, pourquoi les avez-vous choisies, dans quel contexte s’intègre-elles ? Quel est leur format ? Y a-t-il des catégories ou des sous-groupes au sein des données ?*
+&nbsp;&nbsp;&nbsp;&nbsp;**Notre mission ?** Nous allons analyser cette amas de données pour répondre a certaines questions. Par exemple décrypter si la politesse est une stratégie gagnante : un "Have Fun" dans le chat, est-ce un buff de victoire ou juste une prière avant de se faire one-tap ? Ou encore trancher la plus grande superstition de l’e-sport : sacrifier des poulets sur Inferno, est-ce un rituel sacré ou juste une façon de polluer notre base de données avec des cadavres de volailles ?
 
-**Type de données**
+&nbsp;&nbsp;&nbsp;&nbsp;**L’objectif final ?** Transformer ce chaos binaire en visualisations percutantes. Heatmaps des zones de décès, efficacité des équipements en fonction de l’économie, impact psychologique d’un clutch… Bref, donner un sens visuel à des milliers de ticks invisibles, pour révéler les schémas cachés derrière chaque victoire.
 
-*Explication des fichiers .dem de Counter Strike, leur usage, et leur format*
+>**En résumé** : On va prouver que derrière chaque "GG", chaque "EZ", et chaque poulet explosé, il y a une donnée qui attend d’être exploitée. 
 
 
-**Provenance des données**
+<br>
 
-*Scraping sur le site HLTV*
+## Information générale concernant Counter-Strike 2
 
-**Explication du pipeline**
+#### Structure d'une partie
+Une partie se déroule en 24 rounds maximum. La première équipe qui remporte 13 rounds gagne la partie.
+Changement de camp : Après 12 rounds, les équipes inversent leurs rôles.
 
-*On récupère la données, on la décrypte avec le logiciel ( siter ), puis les données sont stockées dans une base de données postgresql*
+*Prolongations : En cas d'égalité 12-12, des prolongations sont jouées pour départager les équipes.*
 
-**Mise a disposition des credentials**
+#### Objectifs par camp
+- **Terroristes (T)** : Ils doivent soit poser la bombe sur l'un des deux sites et la faire exploser, soit éliminer tous les joueurs de l'équipe adverse.
 
-*Possible d'accéder aux données depuis une interface dbeaver avec les mdp suivants*
+- **Contre-Terroristes (CT)** : Ils doivent empêcher la pose de la bombe, désamorcer la bombe si elle est posée, ou éliminer tous les joueurs adverses avant la fin du temps imparti.
 
-**Schema de la base de données**
+#### Gestion économique
+Chaque action (victoire, défaite, élimination, pose/désamorçage de bombe) rapporte de l'argent.
+
+- **Achat** : Au début de chaque round, les joueurs utilisent cet argent pour acheter des armes, des protections (gilets/casques) et des grenades.
+- **Stratégie** : Si l'équipe n'a pas assez d'argent, elle peut décider de faire un round "Eco" (acheter peu ou rien) pour économiser et pouvoir acheter de l'équipement complet au round suivant.
+
+#### Déroulement d'un round
+Un round dure environ 1 minute 55 secondes.
+
+Phase d'achat : 15 secondes au début pour s'équiper.
+
+L'explosion ou le temps : Si la bombe est posée, le chronomètre passe à 40 secondes. Les CT doivent alors désamorcer la bombe avant qu'elle n'explose.
+
+
+
+## Données
+
+
+### Type de données
+
+<div style="text-align: justify;">
+
+&nbsp;&nbsp;&nbsp;&nbsp; Notre dataset s'appuie sur les **fichiers de démo (.dem)** de Counter-Strike 2, qui permettent une reconstitution fidèle de chaque match. Ces fichiers enregistrent l'intégralité des données de jeu : de l'évolution du score aux déplacements précis des joueurs, incluant même les interactions avec l'environnement comme les mouvements des poulets. Grâce à ces archives, le moteur de jeu est capable de rejouer chaque action avec une précision absolue pour l'analyse.
+
+> C'est cette précision qui justifie notre choix d'exploiter ce format de données.
+
+</div> <br>
+
+### Provenance des données
+
+<div style="text-align: justify;">
+<img src="https://static.wikia.nocookie.net/counter-strike-global-offensive/images/9/98/HLTV_-_logo.png/revision/latest?cb=20200118123847&path-prefix=pl" align="right" width="200" style="margin-left: 20px; margin-bottom: 20px;">
+
+&nbsp;&nbsp;&nbsp;&nbsp; Nos fichiers demo proviennent du site **[HLTV](https://www.hltv.org/)**. C'est le site de référence mondial dédié à l'actualité, aux statistiques et à la couverture compétitive de Counter-Strike. Il propose notamment des classements d'équipes faisant autorité, des retransmissions de matchs en direct et une base de données exhaustive sur la scène professionnelle.
+
+</div> <br>
+
+Ici on a 522 demo files enregistrer avec :
+
+<div style="display:flex; justify-content : center; align-content:center;">
+
+| Nombre d'échantillon |  Nom de la map | Radar | Aperçu |
+|---------|-----------|----|----|
+| 103 |	de_mirage | <img src=".\images\maps\cs2\radars\de_mirage.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_mirage.png" width = 200> 
+| 51 |	de_overpass | <img src=".\images\maps\cs2\radars\de_overpass.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_overpass.png" width = 200> 
+| 37 |	de_anubis | <img src=".\images\maps\cs2\radars\de_anubis.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_anubis.png" width = 200> 
+| 61 |	de_inferno | <img src=".\images\maps\cs2\radars\de_inferno.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_inferno.png" width = 200> 
+| 10 |	de_train | <img src=".\images\maps\cs2\radars\de_train.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_train.png" width = 200>  
+| 95 |	de_ancient | <img src=".\images\maps\cs2\radars\de_ancient.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_ancient.png" width = 200> 
+| 79 |	de_nuke | <img src=".\images\maps\cs2\radars\de_nuke.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_nuke.png" width = 200>  
+| 86 |	de_dust2 |  <img src=".\images\maps\cs2\radars\de_dust2.png" width = 200> | <img src=".\images\maps\cs2\thumbnails\de_dust2.png" width = 200> 
+
+</div>
+<br>
+
+> Nous conservons la possibilité d'enrichir continuellement cette base de données au cours du semestre en relançant notre pipeline, ou en croisant nos résultats avec une [API pour HLTV](https://hltv-api.vercel.app/) afin d'intégrer des statistiques avancées sur les performances des joueurs.
+
+### Structure du Pipeline de Données
+
+<div style="text-align: justify;">
+
+Le traitement de nos données suit un flux automatisé divisé en trois étapes clés :
+
+1.  **Collecte :** Récupération des archives `.rar` contenant les fichiers sources (*demos*) depuis les serveurs de **[HLTV](https://www.hltv.org/)**. *Chaque archive correspond à un match enregistrer par HLTV.*
+
+2.  **Extraction :** Décompression des archives pour isoler les fichiers **.dem**, formats bruts des données de match.
+
+3.  **Analyse et Stockage :** Utilisation de l'outil **[CSDM (CS Demo Manager)](https://cs-demo-manager.com/)** pour parser (analyser) les fichiers. Ce logiciel extrait les événements de jeu (kills, positions, économie) afin de les structurer et de les injecter directement dans notre base de données **PostgreSQL**. 
+
+4. **Déploiement et Accessibilité :** Mise à disposition des données via un conteneur **PostgreSQL** couplé à l'interface d'administration **CloudBeaver**.  **[Accéder à l'interface](http://if36.collineos.ovh/)**
+
+<br>
+
+> **À propos de CSDM :** C'est une solution open-source de référence permettant de traduire le binaire complexe des fichiers démo en données lisibles et exploitables pour l'analyse statistique ou le replay.
+
+
+> **Note technique :** Afin d'assurer la compatibilité avec l'environnement serveur (Linux/CLI), il a été nécessaire d'extraire l'exécutable binaire de **CSDM** de sa version graphique initiale pour permettre son exécution en ligne de commande sur notre distribution.
+
+</div>
+
+<br>
+
+
+## Schema de la base de données
 
 *Les données sont stocker sous la forme :*
 
-\
-**5eplay_accounts**
-| Colonne | Type |
-|---------|------|
-| **id** | `varchar` |
-| **domain_id** | `varchar` |
-| **nickname** | `varchar` |
-| **avatar_url** | `varchar` |
-| **is_current** | `bool` |
+<div style="display:flex; justify-content : center; align-content:center; flex-wrap:wrap">
 
-\
-**cameras**
-| Colonne | Type |
-|---------|------|
-| **id** | `uuid` |
-| **game** | `varchar` |
-| **name** | `text` |
-| **map_name** | `varchar` |
-| **x** | `float8` |
-| **y** | `float8` |
-| **z** | `float8` |
-| **pitch** | `float8` |
-| **yaw** | `float8` |
-| **comment** | `text` |
-| **color** | `varchar` |
+<div style="margin:20px">
 
-\
-**checksum_tags**
-| Colonne | Type |
-|---------|------|
-| **checksum** | `varchar` |
-| **tag_id** | `int8` |
 
-\
-**comments**
-| Colonne | Type |
-|---------|------|
-| **checksum** | `varchar` |
-| **comment** | `text` |
+**demos** : *Information générale concernant le demo file*
+| Colonne | Type | Commentaire |
+|---------|------|------|
+| **checksum** | `varchar` | Equivaut à l'identifiant de la partie |
+| **name** | `varchar` | Nom du fichier : *Contient les équipes*|
+| **game** | `varchar` | Toujours égale à CS2|
+| **source** | `varchar` | Toujours égale à valve |
+| **type** | `varchar` | Toujours égale à GOTV |
+| **date** | `timestamptz` |  |
+| **map_name** | `varchar` | |
+| **tick_count** | `int4` | |
+| **tickrate** | `float8` | |
+| **framerate** | `float8` | |
+| **duration** | `float8` | |
+| **server_name** | `varchar` | *Inutile* |
+| **client_name** | `varchar` |  *Inutile* |
+| **network_protocol** | `int4` | *Inutile* |
+| **build_number** | `int4` | *Inutile* |
+| **share_code** | `varchar` | *Inutile* |
 
-\
-**demo_paths**
-| Colonne | Type |
-|---------|------|
-| **checksum** | `varchar` |
-| **file_path** | `varchar` |
+</div>
 
-\
-**demos**
-| Colonne | Type |
-|---------|------|
-| **checksum** | `varchar` |
-| **name** | `varchar` |
-| **game** | `varchar` |
-| **source** | `varchar` |
-| **type** | `varchar` |
-| **date** | `timestamptz` |
-| **map_name** | `varchar` |
-| **tick_count** | `int4` |
-| **tickrate** | `float8` |
-| **framerate** | `float8` |
-| **duration** | `float8` |
-| **server_name** | `varchar` |
-| **client_name** | `varchar` |
-| **network_protocol** | `int4` |
-| **build_number** | `int4` |
-| **share_code** | `varchar` |
+<div style="margin:20px">
 
-\
-**download_history**
-| Colonne | Type |
-|---------|------|
-| **match_id** | `varchar` |
-| **downloaded_at** | `timestamp` |
 
-\
-**faceit_accounts**
-| Colonne | Type |
-|---------|------|
-| **id** | `varchar` |
-| **nickname** | `varchar` |
-| **avatar_url** | `varchar` |
-| **is_current** | `bool` |
+**maps** : *Information pour les cartes*
+| Colonne | Type | Commentaire |
+|---------|------|------|
+| **id** | `bigserial` | |
+| **name** | `varchar` | |
+| **game** | `varchar` | CSGO / CS2 |
+| **position_x** | `int4` | Information pour la mapping de la minicarte |
+| **position_y** | `int4` | Information pour la mapping de la minicarte |
+| **scale** | `float4` | Information pour la mapping de la minicarte |
+| **threshold_z** | `int4` | Information pour la mapping de la minicarte |
 
-\
-**faceit_matches**
-| Colonne | Type |
-|---------|------|
-| **id** | `varchar` |
-| **game** | `varchar` |
-| **date** | `timestamptz` |
-| **duration_in_seconds** | `int4` |
-| **demo_url** | `varchar` |
-| **map_name** | `varchar` |
-| **url** | `varchar` |
-| **game_mode** | `varchar` |
-| **winner_id** | `varchar` |
-| **winner_name** | `varchar` |
+</div>
 
-**steam_account_overrides**
-| Colonne | Type |
-|---------|------|
-| **steam_id** | `varchar` |
-| **name** | `text` |
+<div style="margin:20px">
 
-**steam_account_tags**
-| Colonne | Type |
-|---------|------|
-| **steam_id** | `varchar` |
-| **tag_id** | `int8` |
 
-\
-**ignored_steam_accounts**
-| Colonne | Type |
-|---------|------|
-| **steam_id** | `varchar` |
-
-\
-**maps**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **name** | `varchar` |
-| **game** | `varchar` |
-| **position_x** | `int4` |
-| **position_y** | `int4` |
-| **scale** | `float4` |
-| **threshold_z** | `int4` |
-
-\
-**matches**
-| Colonne | Type |
-|---------|------|
-| **checksum** | `varchar` |
+**matches** : *Information relative à une partie*
+| Colonne | Type | Commentaire |
+|---------|------|------|
+| **checksum** | `varchar` | Equivalent de l'id |
 | **demo_path** | `varchar` |
-| **game_type** | `int4` |
-| **game_mode** | `int4` |
-| **game_mode_str** | `varchar` |
-| **is_ranked** | `bool` |
+| **game_type** | `int4` | Toujours éagle à 0 ( Ici nous n'avons que des partie compétitive ) |
+| **game_mode** | `int4` | Toujours égale à 0 ( Ici nous n'avons que des partie avec pose de bombe ) |
+| **game_mode_str** | `varchar` | Toujours égale à casual (Dépend d'informations externe au demo file) |
+| **is_ranked** | `bool` | Toujours égale à false (Dépend d'informations externe au demo file) |
 | **kill_count** | `int4` |
 | **death_count** | `int4` |
 | **assist_count** | `int4` |
 | **shot_count** | `int4` |
 | **analyze_date** | `timestamptz` |
 | **winner_name** | `varchar` |
-| **winner_side** | `int2` |
+| **winner_side** | `int2` | Egale à 3 ou 2 ( Correspond ... ) |
 | **overtime_count** | `int4` |
-| **max_rounds** | `int4` |
-| **has_vac_live_ban** | `bool` |
+| **max_rounds** | `int4` | Toujours égale à 24 |
+| **has_vac_live_ban** | `bool` | *Inutile* |
 
-**players**
-| Colonne | Type |
-|---------|------|
+</div>
+
+<div style="margin:20px">
+
+
+**players** : *Informations divers sur le joueur en fin de partie*
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **steam_id** | `varchar` |
@@ -196,22 +204,22 @@
 | **damage_armor** | `int4` |
 | **first_kill_count** | `int4` |
 | **first_death_count** | `int4` |
-| **mvp_count** | `int4` |
+| **mvp_count** | `int4` | Most valuable player  |
 | **average_damage_per_round** | `float4` |
 | **average_kill_per_round** | `float4` |
 | **average_death_per_round** | `float4` |
 | **utility_damage_per_round** | `float4` |
-| **rank_type** | `int4` |
-| **rank** | `int4` |
-| **old_rank** | `int4` |
+| **rank_type** | `int4` | *Donnée non renseignée* |
+| **rank** | `int4` | *Donnée non renseignée* |
+| **old_rank** | `int4` | *Donnée non renseignée* |
 | **wins_count** | `int4` |
 | **bomb_planted_count** | `int4` |
 | **bomb_defused_count** | `int4` |
-| **hostage_rescued_count** | `int4` |
+| **hostage_rescued_count** | `int4` | *Inutile* |
 | **score** | `int4` |
-| **kast** | `float4` |
-| **hltv_rating** | `float4` |
-| **hltv_rating_2** | `float4` |
+| **kast** | `float4` | Kill / Assist / Survived / Traded : Valorise le fait de ne par mourir inutilement|
+| **hltv_rating** | `float4` | *Donnée lié au site* |
+| **hltv_rating_2** | `float4` | *Donnée lié au site* |
 | **utility_damage** | `int4` |
 | **trade_kill_count** | `int4` |
 | **trade_death_count** | `int4` |
@@ -226,9 +234,13 @@
 | **color** | `int4` |
 | **crosshair_share_code** | `varchar` |
 
-**rounds**
-| Colonne | Type |
-|---------|------|
+</div>
+
+<div style="margin:20px">
+
+**rounds** : *Information relative aux rounds*
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **number** | `int4` |
@@ -259,11 +271,14 @@
 | **winner_name** | `varchar` |
 | **winner_side** | `int2` |
 | **overtime_number** | `int4` |
+</div>
 
-\
+<div style="margin:20px">
+
+
 **player_economies**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -274,44 +289,14 @@
 | **money_spent** | `int4` |
 | **equipement_value** | `int4` |
 | **type** | `varchar` |
+</div>
 
 
-\
-**player_comments**
-| Colonne | Type |
-|---------|------|
-| **steam_id** | `varchar` |
-| **comment** | `text` |
+<div style="margin:20px">
 
-\
-**renown_accounts**
-| Colonne | Type |
-|---------|------|
-| **steam_id** | `varchar` |
-| **nickname** | `varchar` |
-| **avatar_url** | `varchar` |
-| **is_current** | `bool` |
-
-\
-**round_comments**
-| Colonne | Type |
-|---------|------|
-| **match_checksum** | `varchar` |
-| **number** | `int4` |
-| **comment** | `text` |
-
-\
-**round_tags**
-| Colonne | Type |
-|---------|------|
-| **checksum** | `varchar` |
-| **round_number** | `int4` |
-| **tag_id** | `int8` |
-
-\
 **steam_accounts**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **steam_id** | `varchar` |
 | **name** | `varchar` |
 | **avatar** | `varchar` |
@@ -324,19 +309,13 @@
 | **creation_date** | `timestamptz` |
 | **created_at** | `timestamp` |
 | **updated_at** | `timestamp` |
+</div>
 
-\
-**tags**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **name** | `varchar` |
-| **color** | `varchar` |
+<div style="margin:20px">
 
-\
 **bombs_defused**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -352,10 +331,13 @@
 | **ct_alive_count** | `int4` |
 | **t_alive_count** | `int4` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **kills**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -401,9 +383,13 @@
 | **is_no_scope** | `bool` |
 | **distance** | `float8` |
 
+</div>
+
+<div style="margin:20px">
+
 **smokes_start**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -424,9 +410,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
+</div>
+
+<div style="margin:20px">
+
 **shots**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -454,10 +444,13 @@
 | **view_punch_angle_x** | `float8` |
 | **view_punch_angle_y** | `float8` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **damages**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -481,10 +474,13 @@
 | **victim_team_name** | `varchar` |
 | **weapon_unique_id** | `varchar` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **chat_messages**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -496,10 +492,13 @@
 | **sender_is_alive** | `bool` |
 | **sender_side** | `int2` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **player_buys**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -512,10 +511,13 @@
 | **weapon_unique_id** | `varchar` |
 | **has_refunded** | `bool` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **clutches**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -529,9 +531,13 @@
 | **has_clutcher_survived** | `bool` |
 | **clutcher_kill_count** | `int4` |
 
+</div>
+
+<div style="margin:20px">
+
 **bombs_defuse_start**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -544,9 +550,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
+</div>
+
+<div style="margin:20px">
+
 **bombs_exploded**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -559,10 +569,14 @@
 | **x** | `float8` |
 | **y** | `float8` |
 | **z** | `float8` |
+
+</div>
+
+<div style="margin:20px">
 
 **bombs_plant_start**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -575,10 +589,14 @@
 | **x** | `float8` |
 | **y** | `float8` |
 | **z** | `float8` |
+
+</div>
+
+<div style="margin:20px">
 
 **bombs_planted**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -592,9 +610,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
+</div>
+
+<div style="margin:20px">
+
 **chicken_deaths**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -603,9 +625,13 @@
 | **killer_steam_id** | `varchar` |
 | **weapon_name** | `varchar` |
 
+</div>
+
+<div style="margin:20px">
+
 **chicken_positions**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -615,9 +641,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
+</div>
+
+<div style="margin:20px">
+
 **decoys_start**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -638,38 +668,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
-**faceit_accounts**
-| Colonne | Type |
-|---------|------|
-| **nickname** | `varchar` |
-| **avatar_url** | `varchar` |
-| **is_current** | `bool` |
+</div>
 
-**faceit_match_players**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **faceit_id** | `varchar` |
-| **name** | `varchar` |
-| **avatar_url** | `varchar` |
-| **team_id** | `varchar` |
-| **team_name** | `varchar` |
-| **kill_count** | `int4` |
-| **assist_count** | `int4` |
-| **death_count** | `int4` |
-| **headshot_count** | `int4` |
-| **headshot_percentage** | `float4` |
-| **kill_death_ratio** | `float4` |
-| **kill_per_round** | `float4` |
-| **mvp_count** | `int4` |
-| **three_kill_count** | `int4` |
-| **four_kill_count** | `int4` |
-| **five_kill_count** | `int4` |
-| **faceit_match_id** | `varchar` |
+<div style="margin:20px">
 
 **teams**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **name** | `varchar` |
@@ -679,35 +684,13 @@
 | **score_second_half** | `int4` |
 | **letter** | `varchar` |
 
-**faceit_match_teams**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **faceit_id** | `varchar` |
-| **name** | `varchar` |
-| **score** | `int4` |
-| **first_half_score** | `int4` |
-| **second_half_score** | `int4` |
-| **overtime_score** | `int4` |
-| **faceit_match_id** | `varchar` |
+</div>
 
-**faceit_matches**
-| Colonne | Type |
-|---------|------|
-| **id** | `varchat` |
-| **game** | `varchar` |
-| **date** | `timestamptz` |
-| **duration_in_seconds** | `int4` |
-| **demo_url** | `varchar` |
-| **map_name** | `varchar` |
-| **url** | `varchar` |
-| **game_mode** | `varchar` |
-| **winner_id** | `varchar` |
-| **winner_name** | `varchar` |
+<div style="margin:20px">
 
 **flashbangs_explode**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -727,10 +710,14 @@
 | **x** | `float8` |
 | **y** | `float8` |
 | **z** | `float8` |
+
+</div>
+
+<div style="margin:20px">
 
 **grenade_bounces**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -751,10 +738,14 @@
 | **x** | `float8` |
 | **y** | `float8` |
 | **z** | `float8` |
+
+</div>
+
+<div style="margin:20px">
 
 **grenade_positions**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -776,10 +767,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
+</div>
+
+<div style="margin:20px">
 
 **grenade_projectiles_destroy**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -801,10 +795,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **he_grenades_explode**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -825,72 +822,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
-\
-**hostage_pick_up_start**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **match_checksum** | `varchar` |
-| **round_number** | `int4` |
-| **tick** | `int4` |
-| **frame** | `int4` |
-| **hostage_entity_id** | `int4` |
-| **player_steam_id** | `varchar` |
-| **is_player_controlling_bot** | `bool` |
-| **x** | `float8` |
-| **y** | `float8` |
-| **z** | `float8` |
+</div>
 
-\
-**hostage_picked_up**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **match_checksum** | `varchar` |
-| **round_number** | `int4` |
-| **tick** | `int4` |
-| **frame** | `int4` |
-| **hostage_entity_id** | `int4` |
-| **player_steam_id** | `varchar` |
-| **is_player_controlling_bot** | `bool` |
-| **x** | `float8` |
-| **y** | `float8` |
-| **z** | `float8` |
+<div style="margin:20px">
 
-\
-**hostage_positions**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **match_checksum** | `varchar` |
-| **round_number** | `int4` |
-| **tick** | `int4` |
-| **frame** | `int4` |
-| **state** | `int4` |
-| **x** | `float8` |
-| **y** | `float8` |
-| **z** | `float8` |
-
-\
-**hostage_rescued**
-| Colonne | Type |
-|---------|------|
-| **id** | `bigserial` |
-| **match_checksum** | `varchar` |
-| **round_number** | `int4` |
-| **tick** | `int4` |
-| **frame** | `int4` |
-| **hostage_entity_id** | `int4` |
-| **player_steam_id** | `varchar` |
-| **is_player_controlling_bot** | `bool` |
-| **x** | `float8` |
-| **y** | `float8` |
-| **z** | `float8` |
-
-\
 **inferno_positions**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -904,17 +842,13 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
-\
-**migrations**
-| Colonne | Type |
-|---------|------|
-| **schema_version** | `int4` |
-| **run_at** | `timestamptz` |
+</div>
 
-\
+<div style="margin:20px">
+
 **player_blinds**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -931,10 +865,13 @@
 | **is_flashed_controlling_bot** | `bool` |
 
 
-\
+</div>
+
+<div style="margin:20px">
+
 **player_positions**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -962,10 +899,13 @@
 | **equipment_value** | `int4` |
 | **money** | `int4` |
 
-\
+</div>
+
+<div style="margin:20px">
+
 **smokes_start**
-| Colonne | Type |
-|---------|------|
+| Colonne | Type | Commentaire |
+|---------|------|------|
 | **id** | `bigserial` |
 | **match_checksum** | `varchar` |
 | **round_number** | `int4` |
@@ -978,17 +918,95 @@
 | **y** | `float8` |
 | **z** | `float8` |
 
-\
-**timestamps**
-| Colonne | Type |
-|---------|------|
-| **name** | `varchar` |
-| **date** | `timestamptz` |
+</div>
 
-
+</div>
 
 ---
+### Prise de position concernant la base de données
 
-### Plan d'analyse
+Nous avons retirer des tables vides généré par CSDM :
 
-*Sans écrire la moindre ligne de code, élaborez sur les questions que vous souhaitez vous poser sur les données. Quelles sont vos interrogations ? Quelles informations pensez-vous obtenir ? Quelles variables souhaitez-vous comparer ? Qu’est-ce qui pourrait poser problème ? Autrement dit : comment comptez-vous analyser ces données ?*
+- steam_account_overrides
+- steam_account_tags
+- hostage_rescued
+- faceit_accounts
+- faceit_match_players
+- faceit_match_teams
+- hostage_pick_up_start
+- hostage_picked_up
+- hostage_positions
+- round_tags
+- round_comments
+- renown_accounts
+- player_comments
+- ignored_steam_accounts
+- faceit_matches
+- comments
+- checksum_tags
+- 5eplay_accounts
+- demo_paths
+- download_history
+
+*Certaines de ces tables vides étaient à prévoir car nos demo files ne contiennent que des parties compétitive avec bombe, donc sans otages.*
+
+De plus certaines tables ne sont pas utiles elle servent simplement au fonctionnement de l'application :
+- tags
+- timestamps
+- migrations
+- cameras
+
+<br>
+
+> On peut identifier des sous-groupes qui correspondent au rounds jouer dans une certaine map.
+
+
+<br>
+
+
+
+## Plan d'analyse
+
+
+
+### Qu'est-ce que nous voulons savoir ?
+
+### Qu'est-ce que je pense trouver ?
+
+### Comparaison ?
+
+### Problèmes possible ?
+
+<br>
+
+----
+## Annexes
+
+
+### Glossaire
+
+- **Traded** : Un joueur est considéré comme "tradé" lorsqu'il meurt, mais qu'un coéquipier élimine immédiatement son tueur.
+
+- **Tick** : L'unité de mesure de la fréquence de rafraîchissement du serveur. Le serveur met à jour l'état du jeu (position des joueurs, tirs, etc.) à un intervalle régulier.
+
+- **Frame** : Une image unique affichée par l'écran.
+
+- **Decoy** : Une grenade leurre.
+
+- **Clutch** : Une situation de jeu où un joueur se retrouve seul face à plusieurs adversaires. Réussir le "clutch" signifie remporter la manche malgré l'infériorité numérique.
+
+- **Pistol Round** : Le tout premier round de chaque mi-temps (round 1 et round 13). Tout le monde commence avec 800$ et uniquement des pistolets. La victoire ici est cruciale car elle donne un avantage financier immédiat pour les rounds suivants.
+
+- **Eco (Economy Round)** : Un round où l'équipe dépense le moins d'argent possible (souvent 0$) afin d'économiser pour le round suivant. Le but est de pouvoir acheter un équipement complet (fusils, grenades, kevlar) plus tard.
+
+- **Full Eco** : Identique à l'Eco, mais plus strict. Les joueurs n'achètent absolument rien, pas même un pistolet, afin de garantir une accumulation maximale de fonds pour le round d'après.
+
+- **Full Buy** : L'opposé de l'Eco. L'équipe dépense une grande partie de son argent pour s'équiper au mieux : fusil d'assaut principal (AK-47 ou M4), kevlar + casque, et une série complète de grenades.
+
+- **Force-buy** : Une situation où l'équipe décide d'acheter tout ce qu'elle peut, même si le budget est incomplet, pour tenter de gagner un round important alors que les finances sont fragiles. C'est un pari risqué pour tenter de briser l'économie adverse.
+
+<br>
+
+> Nous nous gardons le droit d'enrichir se glossaire au fur et à mesure de nos analyses
+
+<br>
