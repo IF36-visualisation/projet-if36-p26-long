@@ -1,12 +1,24 @@
+
 # Projet IF36 : Counter-Strike 2
 
 <div style="text-align: justify;">
+<div align="center">
+    <img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" width="500" style="margin-bottom: 20px;">
+
+</div>
+
+## Table des Matières
+
+- [Introduction](#introduction)
+- [Information générale concernant Counter-Strike 2](#information-générale-concernant-counter-strike-2)
+- [Données](#données)
+- [Schema de la base de données](#schema-de-la-base-de-données)
+- [Plan d'analyse](#plan-danalyse)
+- [Glossaire](#glossaire)
+
 
 # Introduction
 
-<div style="text-align: center;">
-    <img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" width="500" style="margin-bottom: 20px;">
-</div>
 &nbsp;&nbsp;&nbsp;&nbsp; Bienvenue dans les coulisses de Counter-Strike 2.
 Les fichiers .dem, ces boîtes noires du jeu, ne sont pas de simples replays : ce sont des flux de données brutes, enregistrant chaque tick du serveur avec la précision d’un horloger suisse. Ici, CS2 n’est pas qu’une question de réflexes, c’est un générateur de données, où chaque poulet sacrifié sur Inferno, chaque "Have Fun" lancé dans le chat, et chaque millimètre de déplacement est méticuleusement archivé.
 
@@ -1005,82 +1017,92 @@ On retrouve:
 
 **Les stratégies**
 **Les relations**
+**Les analyses sur le temps**
 **Les probabilités**
-**Les questions par équipe**
+**Les questions liés aux équipes**
 
 
 ### Les stratégies
-*Ici, les stratégies sont étudiés pour savoir lesquelles font gagner le plus souvent*
+*Ici, les stratégies liés à l'équipement, ou encore à des pratiques individuelles sont étudiés pour savoir lesquelles font gagner le plus souvent*
 
-Les données comparées pourraient inclure : la position moyenne des joueurs, les armes achetées, la position de la pose de la bombe, la position des kills, la gestion des rounds eco, sur quel site on désamorce le plus la bombe, une équipe utilise-t-elle plus de bombes smoke ou explosive… 
+Les données comparées pourraient inclure : la position moyenne des joueurs, les armes achetées, la position de la pose de la bombe, la position des kills, la gestion des rounds eco, sur quel site on désamorce le plus la bombe, une équipe utilise-t-elle plus de bombes smoke ou explosive…
 …donc toute donnée pouvant refléter une quelconque stratégie. 
 Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
+
+- L'économie détermine-t-elle vraiment l'issue d'un round ? -> Hypothèse : un "full buy" bat presque toujours un "eco". On croisera team_a_economy_type / team_b_economy_type avec winner_side dans la table rounds. 
+
+- Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ?
+
+- Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ?
+
+- Sur chaque map, quel site mène le plus souvent à la victoire des T ?
+
+- Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ?
 
 
 ### Les relations
 *Le but de ce type d’analyse est de discerner des relations entre les variables, permettant ainsi de prédire l’une en fonction de l’autre.*
 
-La grenade est-elle plus utilisée par les terro ou les CT ?
-Les 20% avec le moins de kills vs avec le plus de kills, qui tue le plus de poulet ? (comparaison)
-Sur quels endroits de la map il y a le plus de kills ? (distribution)
-Les analyses sur le temps
-Ces analyses permettent une compréhension sur le temps de l’évolution des tendances (à priori pas possible non plus vu la forme des données)
+- La grenade est-elle plus utilisée par les terro ou les CT ?
 
-Les techniques de jeu ont-elles évolué au cours du temps ? (évolution des métas) 
-Par exemple, quelles armes sont les plus utilisées ? (comparaison)
-Quels ont été les maps les plus populaires ? Pourquoi ? (nombre d’action spectaculaire, richesse des stratégies)
-Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? (changement des joueurs, changement des stratégies, changement du coach)
+- Les 20% avec le moins de kills vs avec le plus de kills, qui tue le plus de poulet ? -> comparaison
+
+- Sur quels endroits de la map il y a le plus de kills ? -> distribution
+
+- Quel côté (T ou CT) a un avantage structurel selon les maps ? -> On s'attend à trouver des asymétries selon les cartes (ex : Inferno traditionnellement favorable aux T). On comparera winner_side par map_name 
+
+- Envoyer "Have Fun" / "GG" / "EZ" en début de partie influence-t-il le résultat ? -> On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches.
+
+- Tuer un poulet sur Inferno est-il corrélé à la victoire du round ? -> On filtrera chicken_deaths sur de_inferno, on associera les rounds correspondants via match_checksum + round_number, puis on regardera winner_side.
+
+- Le premier kill d'un round est-il décisif ?  ->
+
+- Est-ce que les joueurs toxiques (ceux qui insultent dans le chat) ont de meilleures ou de moins bonnes performances? -> On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. 
+
+- Une équipe qui domine la première mi-temps maintient-elle son avantage après le changement de camp ? ->
+
+- Plus un joueur fait de dégâts par round, plus son KD est élevé ? ->
+
+
+
+### Les analyses sur le temps
+*Ces analyses permettent une compréhension sur le temps de l’évolution des tendances (certaines de ces questions risquent de ne pas avoir de réponse possible au vu la forme des données, ie limité dans le temps).*
+
+- Les techniques de jeu ont-elles évolué au cours du temps ? -> évolution des métas
+
+- Quelles armes sont les plus utilisées ? -> comparaison
+
+- Quels ont été les maps les plus populaires ? Pourquoi ? -> nombre d’action spectaculaire, richesse des stratégies
+
+- Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? -> changement des joueurs, changement des stratégies, changement du coach
+
 
 
 ###  Les probabilités
 *Chaque variable étudiée ici permet d’observer sa distribution ou sa probabilité pour proposer une prédiction de la valeur suite de cette même variable, ou d’une autre, correlée.*
 
 
-- Quelle est la probabilité de gagner un clutch (pourcentage pour chaque nombre de joueur: 1v5, 1v4, etc) ? probabilité
+- Quelle est la probabilité de gagner un clutch (pourcentage pour chaque nombre de joueur: 1v5, 1v4, etc) ? -> probabilité
 
-- L'économie détermine-t-elle vraiment l'issue d'un round ?
-Hypothèse : un "full buy" bat presque toujours un "eco". On croisera team_a_economy_type / team_b_economy_type avec winner_side dans la table rounds. stratégie ?
-
-- Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ? stratégie ?
-
-- Quel côté (T ou CT) a un avantage structurel selon les maps ?
-On s'attend à trouver des asymétries selon les cartes (ex : Inferno traditionnellement favorable aux T). On comparera winner_side par map_name relation
-
-- Envoyer "Have Fun" / "GG" / "EZ" en début de partie influence-t-il le résultat ?
-On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. stratégie ou relation
-
-- Tuer un poulet sur Inferno est-il corrélé à la victoire du round ?
-On filtrera chicken_deaths sur de_inferno, on associera les rounds correspondants via match_checksum + round_number, puis on regardera winner_side. relation
-
-- Où meurt-on le plus sur chaque map ?
-On utilisera les coordonnées victim_x, victim_y de la table kills. probabilité
-
-- Est-ce que les joueurs toxiques (ceux qui insultent dans le chat) ont de meilleures ou de moins bonnes performances? 
-On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. relation
-
-- Le premier kill d'un round est-il décisif ? relation
-
-- Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ? stratégie
-
-- Une équipe qui domine la première mi-temps maintient-elle son avantage après le changement de camp ? relation
-
-- Plus un joueur fait de dégâts par round, plus son KD est élevé ? relation
-
-- Sur chaque map, quel site mène le plus souvent à la victoire des T ? stratégie
-
-- Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ?
+- Où meurt-on le plus sur chaque map ? -> On utilisera les coordonnées victim_x, victim_y de la table kills. probabilité
 
 
 
-### Les questions par équipe (esport)
+### Les questions liés aux équipes
 
-- Un joueur gagne-t-il plus dans une équipe qu’une autre ? Si oui, quels sont les facteurs qui influencent le potentiel d’un joueur à bien jouer ou non
+Cette sesction est particulière, car après réflection, nous avons considéré que la réalisation de visualisation sur les questions relevants des équipes, et notamment leurs stratégies, serait trop compliqués à mettre en place. 
+En effet, la majorité des parties lancés sont anonymes, donc non-traçable dans l'idée de faire un suivi de ces dernières; de plus cela nécessiterait (dans le cas des stratégies) de pouvoir reconstituer les parties via leurs données de jeu, afin de manuellement déterminer la/les stratégie.s utilisée.s, puis faire une études de ces nouvelles données.
 
-- Y a t-il des maps qui favorisent certaines équipes ? (certaines équipes sont plus à l’aise sur certaines map)
+Ainsi vous trouverez en dessous un echantillon de questions auquels nous n'apporterons pas de réponses:
+
+- Un joueur gagne-t-il plus dans une équipe qu’une autre ? Si oui, quels sont les facteurs qui influencent le potentiel d’un joueur à bien jouer ou non?
+
+- Y a t-il des maps qui favorisent certaines équipes ?
 
 - Les équipes ont-elles des stratégies différentes ?
 
 - Quelles sont les meilleures stratégies ?
+
 
 
 ### Problèmes possibles ?
@@ -1125,3 +1147,10 @@ Les données ne concernant que le pro play, aucun résultat n'est généralisabl
 > Nous nous gardons le droit d'enrichir ce glossaire au fur et à mesure de nos analyses
 
 <br>
+
+<div align="center">
+
+[Retour en haut](#projet-if36--counter-strike-2)
+
+</div>
+
