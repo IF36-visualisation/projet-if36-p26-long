@@ -1029,39 +1029,39 @@ Les données comparées pourraient inclure : la position moyenne des joueurs, le
 …donc toute donnée pouvant refléter une quelconque stratégie. 
 Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 
-- L'économie détermine-t-elle vraiment l'issue d'un round ? -> Hypothèse : un "full buy" bat presque toujours un "eco". On croisera team_a_economy_type / team_b_economy_type avec winner_side dans la table rounds. 
+- L'économie détermine-t-elle vraiment l'issue d'un round ? -> Hypothèse : un "full buy" bat presque toujours un "eco". On croisera team_a_economy_type / team_b_economy_type avec winner_side dans la table rounds. Relation
 
-- Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ?
+- Est ce qu'on a le même pourcentage de win lors d'un round eco lorsqu'on est en défense et en attaque ? -> comparaison
 
-- Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ?
+- Les équipes qui "tradent" mieux (is_trade_kill) gagnent-elles plus de rounds ? -> relation
 
-- Sur chaque map, quel site mène le plus souvent à la victoire des T ?
+- Sur chaque map, quel site mène le plus souvent à la victoire des T ? -> comparaison
 
-- Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ?
+- Les smokes posées près des sites de bombe augmentent-elles le taux de victoire des T ? -> comparaison
 
 
 ### Les relations
 *Le but de ce type d’analyse est de discerner des relations entre les variables, permettant ainsi de prédire l’une en fonction de l’autre.*
 
-- La grenade est-elle plus utilisée par les terro ou les CT ?
+- La grenade est-elle plus utilisée par les terro ou les CT ? -> comparaison
 
 - Les 20% avec le moins de kills vs avec le plus de kills, qui tue le plus de poulet ? -> comparaison
 
 - Sur quels endroits de la map il y a le plus de kills ? -> distribution
 
-- Quel côté (T ou CT) a un avantage structurel selon les maps ? -> On s'attend à trouver des asymétries selon les cartes (ex : Inferno traditionnellement favorable aux T). On comparera winner_side par map_name 
+- Quel côté (T ou CT) a un avantage structurel selon les maps ? -> On s'attend à trouver des asymétries selon les cartes (ex : Inferno traditionnellement favorable aux T). On comparera winner_side par map_name. comparaison
 
-- Envoyer "Have Fun" / "GG" / "EZ" en début de partie influence-t-il le résultat ? -> On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches.
+- Envoyer "Have Fun" / "GG" / "EZ" en début de partie influence-t-il le résultat ? -> On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. relation
 
-- Tuer un poulet sur Inferno est-il corrélé à la victoire du round ? -> On filtrera chicken_deaths sur de_inferno, on associera les rounds correspondants via match_checksum + round_number, puis on regardera winner_side.
+- Tuer un poulet sur Inferno est-il corrélé à la victoire du round ? -> On filtrera chicken_deaths sur de_inferno, on associera les rounds correspondants via match_checksum + round_number, puis on regardera winner_side. relation
 
-- Le premier kill d'un round est-il décisif ?  ->
+- Le premier kill d'un round est-il décisif ?  -> On déterminera le premier kill de chaque round via kill_time_in_round dans la table kills, puis on comparera avec winner_side dans rounds. relation
 
-- Est-ce que les joueurs toxiques (ceux qui insultent dans le chat) ont de meilleures ou de moins bonnes performances? -> On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. 
+- Est-ce que les joueurs toxiques (ceux qui insultent dans le chat) ont de meilleures ou de moins bonnes performances? -> On filtrera chat_messages sur des mots-clés, puis on croisera avec winner_name dans matches. comparaison
 
-- Une équipe qui domine la première mi-temps maintient-elle son avantage après le changement de camp ? ->
+- Une équipe qui domine la première mi-temps maintient-elle son avantage après le changement de camp ? ->  On calculera les scores au 15 tours via round_number et winner_side, puis on comparera avec le résultat final du match dans matches. relation
 
-- Plus un joueur fait de dégâts par round, plus son KD est élevé ? ->
+- Plus un joueur fait de dégâts par round, plus son K/D est élevé ? -> relation
 
 
 
@@ -1072,9 +1072,9 @@ Cela pourra ensuite être comparé au taux de victoire de chaque stratégie.
 
 - Quelles armes sont les plus utilisées ? -> comparaison
 
-- Quels ont été les maps les plus populaires ? Pourquoi ? -> nombre d’action spectaculaire, richesse des stratégies
+- Quels ont été les maps les plus populaires ? Pourquoi ? -> nombre d’action spectaculaire, richesse des stratégies. distribution; evolution
 
-- Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? -> changement des joueurs, changement des stratégies, changement du coach
+- Quelles ont été les équipes gagnant le plus de matchs ? Pourquoi ? -> changement des joueurs, changement des stratégies, changement du coach. evolution
 
 
 
