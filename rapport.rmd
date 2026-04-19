@@ -1,0 +1,103 @@
+# Rapport
+
+<div style="text-align: justify;">
+<div align="center">
+    <img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" width="500" style="margin-bottom: 20px;">
+
+</div>
+
+## Table des Matières
+
+- [Introduction](#introduction)
+- [Information générale concernant Counter-Strike 2](#information-générale-concernant-counter-strike-2)
+- [Analyse](#analyse)
+
+
+# Introduction
+
+&nbsp;&nbsp;&nbsp;&nbsp; Bienvenue dans les coulisses de Counter-Strike 2.
+Les fichiers .dem, ces boîtes noires du jeu, ne sont pas de simples replays : ce sont des flux de données brutes, enregistrant chaque tick du serveur avec la précision d’un horloger suisse. Ici, CS2 n’est pas qu’une question de réflexes, c’est un générateur de données, où chaque poulet sacrifié sur Inferno, chaque "Have Fun" lancé dans le chat, et chaque millimètre de déplacement est méticuleusement archivé.
+
+&nbsp;&nbsp;&nbsp;&nbsp;**Notre mission ?** Nous allons analyser cet amas de données pour répondre a certaines questions. Par exemple décrypter si la politesse est une stratégie gagnante : un "Have Fun" dans le chat, est-ce un buff de victoire ou juste une prière avant de se faire one-tap ? Ou encore trancher la plus grande superstition de l’e-sport : sacrifier des poulets sur Inferno, est-ce un rituel sacré ou juste une façon de polluer notre base de données avec des cadavres de volailles ?
+
+&nbsp;&nbsp;&nbsp;&nbsp;**L’objectif final ?** Transformer ce chaos binaire en visualisations percutantes. Heatmaps des zones de décès, efficacité des équipements en fonction de l’économie, impact psychologique d’un clutch… Bref, donner un sens visuel à des milliers de ticks invisibles, pour révéler les schémas cachés derrière chaque victoire.
+
+>**En résumé** : On va prouver que derrière chaque "GG", chaque "EZ", et chaque poulet explosé, il y a une donnée qui attend d’être exploitée. 
+
+</div>
+
+<br>
+
+## Information générale concernant Counter-Strike 2
+
+> [Voici une vidéo qui explique de manière brève le jeu](https://www.youtube.com/watch?v=2S6vYJl6nkA)
+
+<br>
+
+#### Structure d'une partie
+&nbsp;&nbsp;&nbsp;&nbsp; Une partie se déroule en 24 rounds maximum. La première équipe qui remporte 13 rounds gagne la partie.
+Changement de camp : Après 12 rounds, les équipes inversent leurs rôles.
+
+> **Prolongations** : En cas d'égalité 12-12, des prolongations sont jouées pour départager les équipes.*
+
+#### Objectifs par camp
+- **Terroristes (T)** : Ils doivent soit poser la bombe sur l'un des deux sites et la faire exploser, soit éliminer tous les joueurs de l'équipe adverse.
+
+- **Contre-Terroristes (CT)** : Ils doivent empêcher la pose de la bombe, désamorcer la bombe si elle est posée, ou éliminer tous les joueurs adverses avant la fin du temps imparti.
+
+#### Gestion économique
+Chaque action *(victoire, défaite, élimination, pose/désamorçage de bombe)* rapporte de l'argent.
+
+- **Achat** : Au début de chaque round, les joueurs utilisent cet argent pour acheter des armes, des protections (gilets/casques) et des grenades.
+- **Stratégie** : Si l'équipe n'a pas assez d'argent, elle peut décider de faire un round "Eco" (acheter peu ou rien) pour économiser et pouvoir acheter de l'équipement complet au round suivant.
+
+#### Déroulement d'un round
+Un round dure 1 minute et 55 secondes avec :
+
+- **Phase d'achat** : 15 secondes au début pour s'équiper.
+- **Phase de jeu** basé sur les objectifs de chaque camps
+- **L'explosion ou le temps** : Si la bombe est posée, le chronomètre passe à 40 secondes. Les CT doivent alors désamorcer la bombe avant qu'elle n'explose.
+
+
+
+
+# Analyse
+
+```{r}
+library(tibble)
+library(dplyr)
+library(ggplot2)
+library(readr)
+```
+
+
+
+
+Smoke sur bombsite
+&nbsp;&nbsp;&nbsp;&nbsp; On se demande si lorsqu’un joueur pose une bombe smoke (fumigène) près d’un site de bombe, cela augmente la probabilité que les Terro gagnent en posant la bombe. 
+&nbsp;&nbsp;&nbsp;&nbsp; On a donc pris pour chaque manche où une bombe smoke a été utilisée, le taux de victoire des Terro. On a aussi restreint les observations aux smokes posées près des sites de bombes, mais en n’ayant les résultats que pour 4 maps, car il faut renseigner à la main les coordonnées de chaque site de bombe. On obtient donc ces bar charts:
+
+```{r, fig.width=6, fig.height=10}
+
+smokes <- read_csv("./data/smokes_all.csv")
+
+smokes %>%
+  mutate(winner_side = factor(winner_side, levels = c(2, 3), labels = c("CT", "T"))) %>%
+  count(map, site, winner_side) %>%
+  group_by(map, site) %>%
+  mutate(pct = n / sum(n)) %>%
+  ggplot(aes(x = winner_side, y = pct, fill = winner_side)) +
+  geom_col() +
+  facet_wrap(~ map + site, ncol = 2) +
+  scale_fill_manual(values = c("CT" = "#00BFC4", "T" = "#F8766D")) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Taux de victoire quand une smoke est posée près d'un bombsite", x = NULL, y = NULL, fill = NULL)
+
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp; On voit donc bien qu’il y a un bien un taux de victoire plus élevé pour les Terro sur 3 des 4 maps, mais pas pour dust2. Cela pourrait venir du fait que les CT gagnent en général plus souvent sur cette map, et cela n’a pas été pris en compte dans la visualisation. 
+&nbsp;&nbsp;&nbsp;&nbsp; Il faudrait donc recommencer la visu, en comparant le taux de victoire d’une manche quand une smoke est posée avec le taux de victoire d’une manche en général. 
+&nbsp;&nbsp;&nbsp;&nbsp; Il faut aussi prendre en compte que les smokes se font contrer dans le jeu par les grenades incendiaires, qui éteignent les smokes quand lancées au même endroit et font des dégâts. On pourrait donc distinguer les observations des manches où seulement une smoke est lancée, et quand une smoke et une grenade incendiaire sont lancées au même endroit.
+
+
+<br>
