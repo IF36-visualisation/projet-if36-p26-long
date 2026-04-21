@@ -165,6 +165,52 @@ Pour compléter ce graphique, il pourrait être intéressant de réaliser ce mê
 Il pourrait également être pertinent de s’intéresser à la localisation de l’utilisation de la bombe, dans le sens que cette différence entre les Contre-Terroristes et les Terroristes pourrait être juste dû à la pratique de la smoke sur bombsite par les terroristes.
 
 <br>
+## Question 3
+
+Quelle est la probabilité de gagner un clutch selon le désavantage numérique (1v5, 1v4, etc) ?
+
+On cherche à savoir, dans des situations défavorables où un joueur se retrouve seul survivant dans son équipe, quelles sont les chances de gagner le round en fonction du nombre d'adversaires restants dans l'équipe ennemie. On s'attend à ce que la probabilité de gagner baisse plus le nombre d'adversaires restants augmente.
+Pour cela on utilise la table clutches, et on croise les colonnes opponent_count (nombre d'adversaires restants au début du clutch) et won (booléen indiquant si le clutch a été remporté). Dans notre base de données, chaque entrée correspond à un clutch unique, c'est à dire le moment précis où un joueur se retrouve seul contre plusieurs adversaires. Si ce joueur élimine un ennemi, la situation n'est pas réenregistrée comme un nouveau clutch. Ainsi un 1v3 reste un 1v3 même si le joueur finit par éliminer deux adversaires avant de perdre. 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+clutchs <- read.csv("rclutch.csv", sep = ";")
+
+clutch_stats <- clutchs %>% 
+  filter(opponent_count <= 5) %>%
+  group_by(opponent_count) %>%
+  summarise(
+    total   = n(),
+    wins    = sum(won == "true"),
+    winrate = round(wins / total * 100, 1),
+    .groups = "drop"
+  ) %>%
+  mutate(label = paste0("1v", opponent_count))
+
+ggplot(clutch_stats, aes(x = label, y = winrate)) +
+  geom_col(width = 0.6, fill = "#00428C") +
+  geom_text(
+    aes(label = paste0(winrate, "%")),
+    vjust = -0.4,
+    size  = 4
+  ) +
+  labs(
+    title = "Probabilité de gagner un clutch selon le nombre d'adversaires",
+    x     = "Situation de clutch",
+    y     = "Taux de victoire (%)"
+  ) +
+  ylim(0, 100) +
+  theme_minimal(base_size = 13)
+```
+Le graphique répond clairement à la question. On observe une chute drastique du taux de victoire à mesure que le désavantage augmente.
+Le 1v1 (58%) mérite une attention particulière car on pourrait s'attendre à ce que le taux de victoire soit plus proche de 50%. Cela peut s'expliquer par le fait que pour que cette situation soit enregistrée dans les données en tant que clutch 1v1, son adversaire a nécessairement dû survivre à une situation de clutch adverse juste avant (1v2, 1v3...), et arrive donc potentiellement affaibli, mal positionné ou à court de ressources. 
+
+On peut aussi être surpris  par un aussi faible taux de victoire dans les situations à partir de 1v3 (cela peut être expliqué par le fait que les données sont uniquement en ProPlay). Cette visualisation permet donc de mesurer à quel point des situations de clutch en 1v3, 1v4 ou 1v5 représentent un exploit statistique. Cependant ces taux sont à nuancer, la table enregistre également les situations où le joueur a délibérément choisi de sauvegarder son équipement sans combattre, ce qui est comptabilisé comme un clutch perdu. Les vrais taux de réussite lorsqu'un joueur choisit réellement de tenter le clutch sont donc probablement plus élevés que ce que le graphique indique.
+<br>
+
+
 
 ## Question 4
 
