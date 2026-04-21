@@ -11,6 +11,10 @@
 - [Introduction](#introduction)
 - [Information générale concernant Counter-Strike 2](#information-générale-concernant-counter-strike-2)
 - [Analyse](#analyse)
+- [Question 1](#question-1)
+- [Question 2](#question-2)
+- [Question 3](#question-3)
+- [Question 4](#question-4)
 
 
 # Introduction
@@ -68,10 +72,15 @@ library(tibble)
 library(dplyr)
 library(ggplot2)
 library(readr)
+library(ggimage)
+library(patchwork)
+library(dbscan)
+library(tidyr)
+set.seed(42)
 ```
 
 
-
+## Question 1
 
 ##Smoke sur bombsite
 &nbsp;&nbsp;&nbsp;&nbsp; On se demande si lorsqu’un joueur pose une bombe smoke (fumigène) près d’un site de bombe, cela augmente la probabilité que les Terro gagnent en posant la bombe. 
@@ -101,7 +110,7 @@ smokes %>%
 
 <br>
 
-## La question
+## Question 2
 
 La question choisie est : "La grenade est-elle plus utilisée par les Terroristes ou les Contre-Terroristes ? " 
 Cette question est intéressante pour comprendre qui, globalement, utilise le plus ce type d’arme. Cela comprend les différents types de grenades, donc fumigènes, explosifs etc.
@@ -157,4 +166,1175 @@ Il pourrait également être pertinent de s’intéresser à la localisation de 
 
 <br>
 
+## Question 4
 
+# Analyse exploratoire : Est-ce qu'une carte favorise un camp par rapport à l'autre ?
+
+Nous allons explorer une question fréquemment débattue au sein de la communauté de *Counter-Strike* : certaines cartes favorisent-elles un camp par rapport à l’autre ?
+
+Afin de simplifier la lecture et l’interprétation des analyses, nous adopterons les conventions suivantes :
+
+-   Les Terroristes seront représentés par la couleur **orange**
+
+-   Les Anti-Terroristes seront représentés par la couleur **bleue**
+
+*En cas d’hésitation, mieux vaut laisser tomber le graphique.*
+
+Une croyance répandue parmi les joueurs est que certaines cartes confèrent un avantage à l’un des deux camps, en raison de leur design, de la géométrie des sites ou des stratégies possibles. L’objectif est de confronter cette intuition à des données issues de parties réelles, afin d’évaluer si un déséquilibre existe.
+
+Dans un premier temps, nous nous concentrerons sur la carte ***Mirage***, souvent perçue par les joueurs comme **favorable aux Anti-Terroristes**.
+
+::: {style="display: flex; justify-content: center; gap: 20px; align-items: center;"}
+<img src="images/tb_de_mirage.png" alt="Photo de Mirage" style="max-width: 45%; height: auto;"/> <img src="images/de_mirage.png" alt="Photo de la carte de Mirage" style="max-width: 45%; height: auto;"/>
+:::
+
+*Par la suite, nous pourrons envisager de reproduire la même analyse sur les autres cartes. Il suffira alors de modifier les fichiers CSV utilisés.*
+
+Notre processus d’analyse repose sur l’extraction de fichiers `.csv` depuis notre base de données à l’aide de requêtes SQL. Celles-ci sont présentées à chaque fois qu’un nouveau fichier est introduit. Nous vous invitons à vous référer aux tables présentes dans le sommaire si certaines extractions ne sont pas claires.
+
+## Analyse principale : La carte Mirage favorise-t-elle un camp ?
+
+### Est-ce qu’un camp gagne plus de rounds que l’autre ?
+
+Dans un premier temps, nous allons récupérer l’ensemble des rounds joués sur *Mirage* afin d’observer la proportion de rounds remportés par chaque camp.
+
+**rounds_de_mirage.csv**
+
+``` sql
+CREATE TABLE csdm.public.round_de_mirage 
+AS SELECT *
+FROM rounds WHERE match_checksum 
+IN ( SELECT checksum FROM demos WHERE map_name = 'de_mirage' )
+```
+
+```{r}
+rounds = read.csv("rounds_de_mirage.csv") 
+
+rounds_mapped = mutate(rounds, winner_side = case_when(
+    winner_side == 2 ~ "Terroriste",  
+    winner_side == 3 ~ "Anti-Terroriste"
+  ))
+
+rounds_count = count(rounds_mapped, winner_side)
+
+ggplot(rounds_count, aes(x = winner_side, y = n, fill = winner_side)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(
+    title = "Nombre de manche gagnée par camp",
+    x = "Camp",
+    y = "Nombre de Rounds"
+  ) +
+  geom_text(aes(label = n), vjust = 0) +
+  scale_fill_manual(values = c(
+    "Anti-Terroriste" = "#00428C",
+    "Terroriste" = "#F99E1C"
+  ))
+```
+
+Sur le papier, et compte tenu du nombre limité de matchs disponibles (103 matchs), la différence observée reste relativement faible. On peut alors se demander si cette tendance devient plus significative lorsque l’on considère le nombre de rounds gagnés par match, plutôt que le total brut.
+
+```{r}
+#tally permet de compter le nombre de lignes dans chaque groupe
+#On est proche d'une logique de SQL avec un group by et un count
+#On rajoute ungroup pour récuperer un ensemble non groupé
+
+rounds_per_match <- ungroup(tally(group_by(rounds_mapped, match_checksum, winner_side)))
+
+ggplot(rounds_per_match, aes(x = winner_side, y = n, fill = winner_side)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.15, outlier.shape = NA, alpha = 0.8) +
+  labs(
+    title = "Distribution du Nombre de Rounds Gagnés par Côté par match",
+    x = "Côté Gagnant",
+    y = "Nombre de Rounds"
+  ) +
+  scale_fill_manual(values = c("Anti-Terroriste" = "#00428C","Terroriste" = "#F99E1C")) +
+  theme_minimal()
+```
+
+D’un point de vue statistique, il est difficile de conclure à une différence significative entre les deux camps. La dispersion des valeurs est importante, comme le montre l’étendue des distributions, ce qui limite la capacité à identifier un avantage clair.
+
+Il est donc nécessaire d’aller plus loin dans l’analyse afin de déterminer si un éventuel avantage en faveur des Anti-Terroristes peut être mis en évidence de manière plus robuste.
+
+------------------------------------------------------------------------
+
+### Est-ce que les kills expliquent cet avantage ?
+
+Nous allons maintenant chercher à déterminer si les kills peuvent expliquer un éventuel avantage observé entre les deux camps.
+
+Dans un premier temps, nous commençons par récupérer les informations relatives aux kills.
+
+**kills_de_mirage.csv**
+
+``` sql
+CREATE TABLE csdm.public.kill_de_mirage 
+AS SELECT killer_x, killer_y, killer_z, victim_x, victim_y, victim_z, 
+killer_side, victim_side, match_checksum
+FROM kills WHERE match_checksum 
+IN ( SELECT checksum FROM demos WHERE map_name = 'de_mirage' )
+```
+
+```{r}
+kills = read.csv("kills_de_mirage.csv")
+```
+
+#### Un camp fait-il plus de kills que l’autre ?
+
+```{r}
+kill_categories <- mutate(kills, kill_type = case_when(
+    killer_side == victim_side ~ "Team Kill",
+    killer_side == 2 & victim_side == 3 ~ "Terroriste", 
+    killer_side == 3 & victim_side == 2 ~ "Anti-Terroriste", 
+    TRUE ~ "Déconnexion / Suicide / Explosion" #Cas par défaut pour traiter
+  ))
+kill_categories <- count(kill_categories, kill_type)
+kill_categories <- mutate(kill_categories, kill_type = factor(kill_type, levels = c(
+    "Anti-Terroriste",
+    "Terroriste",
+    "Team Kill",
+    "Déconnexion / Suicide / Explosion"
+  )))
+
+ggplot(kill_categories, aes(x = kill_type, y = n, fill = kill_type)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(title = "Nombre de Kills par Catégorie",
+       x = "Type de Kill",
+       y = "Nombre de Kills") +
+  theme_minimal()+
+  geom_text(aes(label=n), vjust=0)+
+  scale_fill_manual(values = c(
+    "Anti-Terroriste" = "#00428C",
+    "Terroriste" = "#F99E1C"
+  ))
+```
+
+On observe une différence d’environ 1 000 kills, ce qui peut être significatif dans l’économie d’une partie. Toutefois, afin de s’assurer de la pertinence de cette observation, nous allons rapporter le nombre de kills au nombre de kills par camp et par match.
+
+#### Y a-t-il une différence de kills par match ?
+
+```{r}
+#Ici les logs m'indiquent de mettre .groups = 'drop' au lieu de ungroup
+kills_per_match <- summarise(
+    group_by(kills, match_checksum, killer_side), 
+    n_kills = n(), .groups='drop'
+  )
+
+ggplot(kills_per_match, aes(
+  x = factor(killer_side, levels = c(2, 3), labels = c("Terroriste", "Anti-Terroriste")), #On fait le mapping entre le chiffre et le camp en texte
+  y = n_kills,
+  fill = factor(killer_side, levels = c(2, 3), labels = c("Terroriste", "Anti-Terroriste"))
+)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.1, alpha = 0.3, size = 1) + #Permet de rajouter les points
+  labs(
+    title = "Distribution du Nombre de Kills par Match et par Côté",
+    x = "Côté", y = "Nombre de Kills par Match"
+  ) +
+  scale_fill_manual(
+    name="Côté du Tueur",
+    values = c("Terroriste" = "#F99E1C","Anti-Terroriste" = "#00428C")
+  ) + theme_minimal()
+```
+
+*Les valeurs NA correspondent aux autres types de kills ne résultant pas d’un affrontement direct entre les deux équipes.*
+
+De même que pour le nombre moyen de manches gagnées par match, la variabilité des données ne permet pas de conclure clairement à un avantage d’un camp sur l’autre. On peut éventuellement conjecturer un léger avantage en faveur des Anti-Terroristes, mais les résultats ne sont pas suffisamment robustes pour en tirer une conclusion définitive.
+
+------------------------------------------------------------------------
+
+## Analyse spatiale : La carte influence-t-elle les combats ?
+
+À partir de ce point, nous allons utiliser une terminologie associée aux différentes zones de la carte. Une carte annotée est fournie afin de faciliter la compréhension des analyses qui suivent.
+
+::: {style="display: flex; justify-content: center; gap: 20px; align-items: center;"}
+<img src="images/labels_de_mirage.png" style="max-width: 45%; height: auto;"/>
+:::
+
+Par ailleurs, nous avons mis en place un masque pour simplifier l’affichage des graphiques. Nous avons utilisé la carte ***Mirage*** disponible dans notre jeu de données, en conservant les zones utiles *(blanches)* et en rendant le fond *(zone jouables)* transparent. Ce masque est ensuite appliqué sur les graphiques afin de ne conserver que les zones pertinentes pour l’analyse.
+
+**Algorithme python pour la génération du masque**
+
+``` python
+def process_image_for_white_and_transparent(input_path, output_path, white_threshold=240):
+
+    img = cv2.imread(input_path, cv2.IMREAD_UNCHANGED)
+
+    if img is None:
+        raise FileNotFoundError(f"Impossible de lire l'image : {input_path}")
+
+    if img.shape[2] == 3:
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2BGRA)
+
+    bgr = img[:, :, 0:3]
+    alpha_orig = img[:, :, 3]
+
+    hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
+    lower_white = np.array([0, 0, white_threshold])
+    upper_white = np.array([180, 255, 255])
+    mask_white = cv2.inRange(hsv, lower_white, upper_white)
+
+    mask_transparent = (alpha_orig == 0).astype(np.uint8) * 255
+
+    pixels_to_become_white = cv2.bitwise_or(mask_white, mask_transparent)
+
+    output_bgr = np.zeros_like(bgr, dtype=np.uint8)
+    output_alpha = np.zeros_like(alpha_orig, dtype=np.uint8)
+
+    output_bgr[pixels_to_become_white == 255] = [255, 255, 255] 
+    output_alpha[pixels_to_become_white == 255] = 255
+
+    result_rgba = cv2.merge([output_bgr[:, :, 0], output_bgr[:, :, 1], output_bgr[:, :, 2], output_alpha])
+
+    cv2.imwrite(output_path, result_rgba)
+
+input_image_original = "de_mirage.png"
+output_image_processed = "de_mirage_processed.png"
+process_image_for_white_and_transparent(input_image_original, output_image_processed)
+```
+
+*Nous avons ensuite retravaillé ces images afin de les rendre plus propres, notamment en supprimant certains pixels noirs résiduels présents dans les zones blanches de la carte.*
+
+### Où sont posées les bombes ?
+
+Nous commençons par récupérer les informations relatives aux bombes plantées, afin d'identifier les zones de plant privilégiées par les Terroristes.
+
+**bomb_de_mirage.csv**
+
+``` sql
+DROP TABLE IF EXISTS csdm.public.bomb_de_mirage;
+
+CREATE TABLE csdm.public.bomb_de_mirage AS
+WITH mirage_matches AS (
+    SELECT checksum
+    FROM demos
+    WHERE map_name = 'de_mirage'
+),
+
+planted AS ( /*Permet de crée des 'tables' temporaires dans la requête*/
+    SELECT 
+        bp.match_checksum,
+        bp.round_number,
+        bp.x,
+        bp.y
+    FROM bombs_planted bp
+    WHERE bp.match_checksum IN (SELECT checksum FROM mirage_matches)
+),
+
+exploded AS (
+    SELECT 
+        match_checksum,
+        round_number
+    FROM bombs_exploded
+    WHERE match_checksum IN (SELECT checksum FROM mirage_matches)
+),
+
+defused AS (
+    SELECT 
+        match_checksum,
+        round_number
+    FROM bombs_defused
+    WHERE match_checksum IN (SELECT checksum FROM mirage_matches)
+)
+
+SELECT 
+    p.match_checksum,
+    p.round_number,
+    p.x,
+    p.y,
+
+    CASE 
+        WHEN e.match_checksum IS NOT NULL THEN 'exploded'
+        WHEN d.match_checksum IS NOT NULL THEN 'defused'
+        ELSE 'planted_only'
+    END AS bomb_status
+
+FROM planted p /*On peut donc les réutiliser ici*/
+LEFT JOIN exploded e
+    ON p.match_checksum = e.match_checksum
+    AND p.round_number = e.round_number
+LEFT JOIN defused d
+    ON p.match_checksum = d.match_checksum
+    AND p.round_number = d.round_number;
+```
+
+```{r}
+bombs = read.csv("bombs_de_mirage.csv")
+```
+
+#### Tout d'abord est ce que les Terroristes jouent souvent la bombe sur mirage ?
+
+```{r}
+bomb_rounds <- select(bombs, match_checksum, round_number)
+
+
+#On join les deux bases de données pour vérifier la présence ou non d'information
+#De la pose d'une bombe lors du round
+rounds_bomb_status <- left_join(
+  rounds,
+  mutate(bomb_rounds, has_bomb = TRUE),
+  by = c("match_checksum", "number" = "round_number")
+)
+
+rounds_bomb_status <- mutate(
+  rounds_bomb_status,
+  has_bomb = ifelse(is.na(has_bomb), "Sans bombe", "Avec bombe")
+)
+
+#On compte les occurences avant pour pouvoir utiliser geom_col
+df_bomb_rounds <- count(rounds_bomb_status, has_bomb)
+
+ggplot(df_bomb_rounds, aes(x = has_bomb, y = n, fill = has_bomb)) +
+  geom_col() + #Plus simple a gérer que geom_bar
+  geom_text(aes(label = n), vjust = -0.3) +
+  scale_fill_manual(values = c(
+    "Avec bombe" = "#F99E1C",
+    "Sans bombe" = "#00428C"
+  )) +
+  labs(
+    title = "Rounds avec vs sans bombe plantée (Mirage)",
+    x = "Type de round",
+    y = "Nombre de rounds",
+    fill="Status"
+  ) +
+  theme_minimal()
+```
+
+```{r}
+df_match_prop <- group_by(rounds_bomb_status, match_checksum, has_bomb)
+df_match_prop <- summarise(df_match_prop, n = n(), .groups = "drop")
+df_match_prop <- group_by(df_match_prop, match_checksum)
+df_match_prop <- mutate(df_match_prop, prop = n / sum(n))
+df_match_prop <- ungroup(df_match_prop)
+
+ggplot(df_match_prop, aes(x = has_bomb, y = prop, fill = has_bomb)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.15, outlier.shape = NA, alpha = 0.8) +
+  scale_fill_manual(values = c(
+    "Avec bombe" = "#F99E1C",
+    "Sans bombe" = "#00428C"
+  )) +
+  labs(
+    title = "Proportion de rounds avec/sans bombe par match (Mirage)",
+    x = "Type de round",
+    y = "Proportion dans le match",
+    fill="Status"
+  ) +
+  theme_minimal()
+```
+
+La distribution des proportions de rounds avec et sans bombe par match reste relativement stable, indiquant que la structure des matchs est globalement homogène sur cet aspect. On observe néanmoins une certaine variabilité, suggérant des styles de jeu légèrement différents selon les rencontres.
+
+Nous allons toutefois analyser l’issue des rounds en fonction de la pose ou non de la bombe.
+
+```{r}
+rounds_no_bomb <- anti_join(
+    rounds,
+    bomb_rounds,
+    by = c("match_checksum" = "match_checksum",
+           "number" = "round_number")
+  )
+
+rounds_no_bomb <- mutate(rounds_no_bomb,
+    winner_side = case_when(
+      winner_side == 2 ~ "Terroriste",
+      winner_side == 3 ~ "Anti-Terroriste"
+    )
+  )
+
+df_no_bomb <- count(rounds_no_bomb, winner_side)
+
+ggplot(df_no_bomb, aes(x = winner_side, y = n, fill = winner_side)) +
+  geom_col() +
+  geom_text(aes(label = n), vjust = -0.3) +
+  scale_fill_manual(values = c(
+    "Anti-Terroriste" = "#00428C",
+    "Terroriste" = "#F99E1C"
+  )) +
+  labs(
+    title = "Issue des round sans bombe plantée (Mirage)",
+    x = "Camp gagnant",
+    y = "Nombre de rounds",
+    fill="Camp"
+  ) +
+  theme_minimal()
+```
+
+Lorsque la bombe n’est pas plantée, l’avantage semble revenir aux Anti-Terroristes. Leur position de défense et leur capacité de temporisation peuvent expliquer ce résultat.
+
+*Pour confirmer cette observation, il serait pertinent d’analyser plus en détail les durées des rounds, les conditions de victoire, ainsi que la proportion de rounds se terminant par l’élimination complète de l’équipe adverse.*
+
+#### Emplacement de prédilections pour les bombes ?
+
+```{r}
+killer_xy = select(kills, c(killer_x ,killer_y))
+ggplot(bombs, aes(x = x, y = y)) +
+  geom_image(
+    data = tibble(x = -680, y = -850),
+    aes(image = "./de_mirage.png"),
+    size = 1.32
+  )+
+  geom_bin2d(bins = 50) +
+  scale_fill_continuous(type = "viridis")+
+  coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+geom_image(
+      data = tibble(x = -680, y = -850),
+      aes(image = "./de_mirage_mask.png"),
+      size = 1.32
+    )
+```
+
+Les règles du jeu imposent le placement de la bombe dans des zones dédiées, appelées sites A et B. Cependant, on observe que le site B présente une zone particulièrement utilisée pour le plant.
+
+Mais cette tendance correspond-elle à une stratégie réellement gagnante ?
+
+#### Est-ce que les bombes servent réellement ?
+
+```{r}
+ggplot(count(bombs, bomb_status), aes(x = bomb_status, y = n, fill=bomb_status)) +
+geom_bar(stat = "identity") +
+theme_minimal() +
+  scale_x_discrete(labels = c(
+    "defused" = "Désamorcée",
+    "exploded" = "Explosée",
+    "planted_only" = "Plantée uniquement"
+  ))+
+   scale_fill_manual(values = c(
+    "defused" = "#00ba38",
+    "exploded" = "#f8766d",
+    "planted_only" = "#619cff"
+  ),labels = c(
+      "defused" = "Désamorcée",
+      "exploded" = "Explosée",
+      "planted only" = "Plantée uniquement"
+    )) +
+labs(
+  title = "Etat final de la bombe sur Mirage",
+  x = "Etat de la bombe",
+  y = "Occurence",
+  fill="Etat de la bombe"
+  )
+```
+
+On remarque que les bombes sont moins souvent désamorcées que dans les autres cas (explosions ou absence de désamorçage après avoir été plantées). Cette tendance est-elle similaire pour chaque site ?
+
+#### Quelle issu pour les bombes sur chaque site ?
+
+Nous allons utiliser un algorithme de *k-means* afin d’identifier les clusters et d’estimer la proportion de chaque type d’issue en fonction du site sur lequel on se trouve.
+
+```{r}
+km <- kmeans(bombs[, c("x", "y")], centers = 2)
+
+bombs$cluster <- as.factor(km$cluster)
+
+centers <- summarise(
+    group_by(bombs, cluster),
+    mean_x = mean(x),
+    mean_y = mean(y),
+    .groups = "drop"
+  )
+
+print(centers)
+```
+
+Par analyse visuelle de la carte, il est possible d’associer le cluster 1 au site A et le cluster 2 au site B.
+
+```{r}
+cluster_labels <- mutate(centers,
+  site = ifelse(mean_x > median(mean_x), "A site", "B site"))
+
+bombs <- left_join(
+  bombs,
+  select(cluster_labels, cluster, site),
+  by = "cluster"
+)
+
+df_prop <- group_by(bombs, site, bomb_status)
+df_prop <- summarise(df_prop, n = n(), .groups = "drop")
+df_prop <- group_by(df_prop, site)
+df_prop <- mutate(df_prop, prop = n / sum(n))
+
+ggplot(df_prop, aes(x = bomb_status, y = prop, fill = bomb_status)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~ site) +
+  theme_minimal() +
+  scale_x_discrete(labels = c(
+    "defused" = "Désamorcée",
+    "exploded" = "Explosée",
+    "planted_only" = "Plantée U"
+  ))+
+   scale_fill_manual(values = c(
+    "defused" = "#00ba38",
+    "exploded" = "#f8766d",
+    "planted_only" = "#619cff"
+  ),
+  labels = c(
+      "defused" = "Désamorcée",
+      "exploded" = "Explosée",
+      "planted_only" = "Plantée U"
+    )) +
+  labs(
+    title = "Bomb outcomes by Mirage site",
+    x = "Bomb status",
+    y = "Proportion",
+    fill="Etat de la bombe"
+  )
+```
+
+L’analyse des issues de bombe montre une différence de comportement entre les deux sites.
+
+Sur le site A, les rounds se terminent plus fréquemment par des bombes plantées sans désamorçage, suivies des explosions. Cela suggère une meilleure réussite des Terroristes une fois la bombe installée sur ce site.
+
+Sur le site B, les explosions sont plus fréquentes que les simples situations de bombe plantée, ce qui indique des situations où la défense intervient moins efficacement avant l’issue du round.
+
+Dans les deux cas, les désamorçages représentent systématiquement l’issue la moins fréquente, ce qui confirme que la pose de bombe tend globalement à favoriser les Terroristes, indépendamment du site.
+
+#### **Quel est le taux de victoires pour chaque sites avec pose de bombes ?**
+
+En considérant que les Terroristes remportent le round lorsque la bombe explose ou reste simplement plantée, et que les Anti-Terroristes gagnent en cas de désamorçage, nous pouvons comparer les taux de victoire selon les sites.
+
+```{r}
+df_win <- filter(bombs, bomb_status %in% c("exploded", "defused", "planted_only"))
+df_win <- mutate(df_win,
+    winner = case_when(
+      bomb_status %in% c("exploded", "planted_only") ~ "Terroriste",
+      bomb_status == "defused" ~ "Anti-Terroriste"
+    )
+  )
+df_win <- group_by(df_win, site, winner)
+df_win <- summarise(df_win, n = n(), .groups = "drop")
+df_win <- tidyr::complete(df_win, site, winner = c("Terroriste", "Anti-Terroriste"), fill = list(n = 0))
+df_win <- group_by(df_win, site)
+df_win <- mutate(df_win, prop = n / sum(n))
+df_win <- ungroup(df_win)
+
+ggplot(df_win, aes(x = winner, y = prop, fill = winner)) +
+  geom_col() +
+  facet_wrap(~ site) +
+  scale_fill_manual(values = c("Terroriste" = "#F99E1C", "Anti-Terroriste" = "#00428C")) +
+  labs(
+    title = "Proportion de victoires par site (avec pose de bombe)",
+    x = "Côté gagnant",
+    y = "Proportion",
+    fill="Gagnant"
+  ) +
+  theme_minimal()
+```
+
+Dès qu’une bombe est plantée, l’avantage bascule en faveur des Terroristes, que ce soit sur le site A ou sur le site B. À l’inverse, en l’absence de bombe, l’avantage revient aux Anti-Terroristes.
+
+On peut donc conclure que la présence de la bombe constitue un facteur déterminant dans l’issue d’un round, indépendamment de son emplacement. La défense et la temporisation apparaissent comme les stratégies les plus efficaces pour les Anti-Terroristes, tandis que les Terroristes prennent l’avantage une fois la bombe amorcée.
+
+------------------------------------------------------------------------
+
+```{r}
+#Je prépare les données pour pouvoir exploiter les cotes plus simplement
+
+killer_xy = select(kills, x = killer_x, y = killer_y, side = killer_side)
+killer_xy = mutate(killer_xy, side = case_when(
+    side == 2 ~ "terro",
+    side == 3 ~ "anti"
+  ))
+
+victim_xy = select(kills, x = victim_x, y = victim_y, side = victim_side)
+victim_xy = mutate(victim_xy, side = case_when(
+    side == 2 ~ "terro",
+    side == 3 ~ "anti"
+  ))
+```
+
+**Fonction pour l'affichage des cartes de densités**
+
+```{r}
+#J'ai trouvé comment faire des fonctions pour pouvoir simplifier l'affichage des
+#cartes avec le mask et la fonction de densité
+plot_heatmap <- function(data, title = "") {
+  ggplot(data, aes(x = x, y = y)) +
+    geom_image(
+      data = tibble(x = -680, y = -850),
+      aes(image = "./de_mirage.png"),
+      size = 1.32
+    ) +
+    stat_density_2d(
+      aes(fill = after_stat(ndensity)),
+      geom = "raster",
+      contour = FALSE,
+      alpha = 0.5,
+      bins = 100
+    ) +
+    scale_fill_gradientn(colors = c("blue", "green", "yellow", "red")) +
+    geom_image(
+      data = tibble(x = -680, y = -850),
+      aes(image = "./de_mirage_mask.png"),
+      size = 1.32
+    ) +
+    coord_equal() +
+    ggtitle(title)
+}
+```
+
+------------------------------------------------------------------------
+
+### Où meurent les joueurs ?
+
+```{r}
+plot_heatmap(victim_xy, "Mort - Général")
+```
+
+### Où sont les tueurs ?
+
+```{r}
+plot_heatmap(killer_xy, "Killer - Général")
+```
+
+Ici, on n’observe pas de différence marquée entre les zones où se trouvent les tueurs et celles où se trouvent les victimes. Les densités restent globalement similaires sur l’ensemble de la carte.
+
+On observe des zones clés *( de forte concentration )* telles que Connector, Stairs, Shadow, Palace, Tetris, Short ou encore Balcony, des espaces connus des joueurs comme étant des points de confrontation fréquents.
+
+Un différence notable est la hausse de la densité sur la cartes des morts au niveau de Top Mid. Un endroit réputé pour être une ligne favorable au affrontement au centre de la carte entre les Anti-Terroriste et les Terrosites. Mais est-ce une ligne utilisé ?
+
+### Distance moyenne de kill ?
+
+```{r}
+
+kills = mutate(kills, distance = sqrt((killer_x - victim_x)^2 + (killer_y - victim_y)^2))
+
+mean_distance = mean(kills$distance, na.rm = TRUE)
+
+mean_distance
+```
+
+Cette distance relativement courte peut expliquer la similarité observée entre les cartes de densité. En effet, les engagements ont tendance à se produire à moyenne portée, ce qui limite les différences spatiales marquées entre les zones de kills et de morts.
+
+Elle n'écarte pas notre hypothèse sur la ligne de duel au centre de la carte qui couvre catwalk, window et Top Mid.
+
+Nous allons maintenant analyser ces mêmes cartes en distinguant les camps afin d’affiner l’interprétation.
+
+### Y a-t-il une différence selon le camp ?
+
+```{r}
+p1 <- plot_heatmap(filter(killer_xy, side == "terro"), "Killer - Terrorists")
+p2 <- plot_heatmap(filter(killer_xy, side == "anti"), "Killer - Anti-Terrorists")
+p3 <- plot_heatmap(filter(victim_xy, side == "terro"), "Mort - Terrorists")
+p4 <- plot_heatmap(filter(victim_xy, side == "anti"), "Mort - Anti-Terrorists")
+
+(p1 + p2 ) / (p3 + p4)
+```
+
+On observe des cartes de chaleur similaires dans leur structure globale. Cependant, les zones les plus marquées ne sont pas identiques selon les camps. Chez les Terroristes, on observe une forte concentration de morts au niveau de Top Mid, Palace et Tetris, tandis que chez les Anti-terroristes, celles-ci se situent davantage au niveau de Window, Stairs et Ticket.
+
+On remarque que les deux équipes partagent une zone centrale commune, ainsi que quelques zones plus spécifiques situées de part et d’autre de la carte selon le camp. On peut alors se demander s’il est pertinent de diviser la carte en deux zones distinctes afin de mieux caractériser ces différences de contrôle et d’engagement.
+
+------------------------------------------------------------------------
+
+**Mise en perspective**
+
+*Le site HLTV propose aussi des visuels avec heatmaps pour Mirage. Ils possèdent un plus grand nombre d'observations, cependant on converge vers une solution qui ressemble à la leur même avec moins d'observation. Voici le lien pour aller consulter leur proposition de heatmaps :* [Counter-Strike Statistics database \| HLTV.org](https://www.hltv.org/stats/maps/map/32/Mirage?showKills=true&showDeaths=false&firstKillsOnly=false&allowEmpty=false&showKillDataset=true&showDeathDataset=false). Nous pouvons allors décemment nous permettre de faire des généralités concernant ces cartes de chaleurs.
+
+------------------------------------------------------------------------
+
+*Avant d’envisager une segmentation de la carte, nous allons dans un premier temps analyser les lignes de tir, afin de déterminer si certaines orientations ou trajectoires sont plus favorables à un camp en particulier.*
+
+## Analyse avec algorithmes de Data Analyse
+
+### Quelles sont les directions des kills ?
+
+Nous allons dans un premier temps reconstruire les vecteurs associés aux éliminations, afin d’analyser les directions des tirs mortels.
+
+```{r}
+vectors <- mutate(kills,
+    dx = victim_x - killer_x,
+    dy = victim_y - killer_y,
+    start_x = killer_x,
+    start_y = killer_y
+  )
+```
+
+### Existe-t-il des lignes de tirs récurrentes ?
+
+Nous utilisons ensuite l’algorithme de clustering DBSCAN afin d’identifier d’éventuelles trajectoires de tirs récurrentes. L’objectif est de mettre en évidence les vecteurs les plus fréquemment observés.
+
+Les hyperparamètres ont été choisis de manière empirique.
+
+```{r}
+#Normalisation de la données
+vectors_norm <- scale(select(vectors, killer_x, killer_y, dx, dy))
+
+#DBSCAN
+cl <- dbscan::dbscan(vectors_norm, eps = 0.3, minPts = 50)
+
+cl
+
+vectors$cluster <- cl$cluster
+```
+
+*Ce clustering peut être débattu, dans la mesure où une grande partie des points n’est pas regroupée et est considérée comme du bruit. Cependant, étant donné la nature du rendu (un document PDF), l’augmentation du nombre de clusters nuirait à la lisibilité des graphiques ( qui sont déjà assez compliqué à lire ). Nous avons donc retenu ce partitionnement comme compromis entre interprétabilité et richesse de l’information.*
+
+*Il est laissé à la discrétion du lecteur d’expérimenter d’autres paramètres afin de tirer ses propres conclusions. Une analyse plus poussée et un travail d’optimisation des hyperparamètres seraient nécessaires pour exploiter pleinement cette approche.*
+
+On observe en effet qu’un nombre important d’observations est classé comme bruit. Il serait possible d’ajuster les paramètres afin de rendre le clustering plus inclusif, mais cela risquerait de dégrader la pertinence des groupes identifiés en introduisant une trop forte variabilité au sein des clusters.
+
+```{r}
+killer_xy = select(kills, c(killer_x, killer_y))
+victim_xy = select(kills, c(victim_x, victim_y))
+
+
+#On reconstitue les cluster avec les éléments nécessaire
+#ON UTILISE LA MEDIANE POUR AVOIR DES TRAJECTOIRES REELLES ET QUI
+#NE TRAVERSE PAS LE MUR
+cluster_representatives <- filter(vectors, cluster != 0)
+cluster_representatives <- group_by(cluster_representatives, cluster)
+cluster_representatives <- summarise(cluster_representatives,
+    killer_x = median(killer_x),
+    killer_y = median(killer_y),
+    victim_x = median(victim_x),
+    victim_y = median(victim_y),
+    n = n()
+  )
+cluster_representatives <- ungroup(cluster_representatives)
+
+ggplot(killer_xy, aes(x = killer_x, y = killer_y)) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830),
+    aes(image = "./de_mirage.png"),
+    size = 1.32
+  ) +
+  geom_segment(
+    data = cluster_representatives,
+    aes(
+      x = killer_x, 
+      y = killer_y, 
+      xend = victim_x, 
+      yend = victim_y,
+      color = as.factor(cluster)
+    ),
+    arrow = arrow(length = unit(0.2, "cm"), type = "closed"),
+    alpha = 0.9,
+    linewidth = 1.2
+  ) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830),
+    aes(image = "./de_mirage_mask.png"),
+    size = 1.32
+  ) +
+  labs(
+    title="Lignes de tir récurrentes",
+    x ="x",
+    y ="y"
+  )+
+  scale_color_discrete(name = "Cluster")+
+  geom_point(size = 0.1, alpha = 0.01) +
+  coord_equal()
+```
+
+On retrouve plusieurs lignes connues des joueurs, notamment la ligne de Window vers Top Mid, ainsi que des échanges à double sens entre Tetris et Ticket, ou encore entre Palace et Tetris.
+
+*Dans cette analyse, l’axe Z n’est pas pris en compte. Ce choix est motivé par le fait que cette dimension est difficile à représenter de manière lisible et qu’elle n’apporte qu’une information limitée à quelques situations spécifiques, notamment sur des positions comme Van vers Balcony ou encore la distinction entre Shadow et Palace.*
+
+Reste alors à déterminer à quel camp bénéficie chaque trajectoire de tir.
+
+### Quel camp domine chaque cluster ?
+
+```{r}
+killer_counts <- filter(vectors, cluster != 0)
+killer_counts <- count(killer_counts, cluster, killer_side, name = "n")
+
+killer_counts <- rename(killer_counts, side = killer_side)
+
+ggplot(killer_counts, aes(x = factor(cluster), y = n, fill = factor(side))) +
+  geom_bar(stat = "identity", position = "stack") +
+  labs(
+    title = "Nombre de tirs par cluster et côté",
+    x = "Cluster",
+    y = "Nombre de tirs",
+    fill = "Camp"
+  ) +
+  scale_fill_manual(
+    values = c("2" = "#F99E1C", "3" = "#00428C"),
+    labels = c("2" = "Terroriste", "3" = "Anti-Terroriste")
+  ) +
+  theme_minimal()
+```
+
+On observe que certaines lignes sont davantage utilisées par les Anti-terroristes ou par les Terroristes. Cela peut s’expliquer par leur orientation, souvent dirigée vers des positions contrôlées par le camp adverse.
+
+Certaines trajectoires sont ainsi majoritairement exploitées par les Anti-terroristes, ce qui pourrait contribuer à expliquer leur léger avantage mis en évidence dans les analyses précédentes.
+
+On remarque notamment que la ligne 6 (Window vers Top Mid) semble conférer un avantage aux Anti-terroristes. Cette observation vient confirmer l’hypothèse formulée à partir des heatmaps.
+
+Cependant, cela soulève une question plus générale : existe-t-il réellement des zones de jeu distinctes entre les deux camps ?
+
+```{r}
+
+tmp1 <- filter(vectors, cluster != 0)
+
+tmp2 <- count(tmp1, cluster, killer_side)
+
+tmp3 <- group_by(tmp2, cluster)
+
+tmp4 <- mutate(tmp3,
+               total = sum(n),
+               prop = n / total)
+
+cluster_side <- ungroup(tmp4)
+
+tmp5 <- group_by(cluster_side, cluster)
+
+tmp6 <- slice_max(tmp5, n, n = 1, with_ties = FALSE)
+
+dominant_cluster <- ungroup(tmp6)
+
+sel <- select(dominant_cluster, cluster, killer_side, total)
+
+cluster_representatives2 <- left_join(
+  cluster_representatives,
+  sel,
+  by = "cluster"
+)
+
+#On convertit les sides en textes
+cluster_representatives2$killer_side <- factor(
+  cluster_representatives2$killer_side,
+  levels = c(2, 3),
+  labels = c("Terroriste", "Anti-Terroriste")
+)
+
+ggplot(killer_xy, aes(x = killer_x, y = killer_y)) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830),
+    aes(image = "./de_mirage.png"),
+    size = 1.32
+  ) +
+  geom_segment(
+    data = cluster_representatives2,
+    aes(
+      x = killer_x,
+      y = killer_y,
+      xend = victim_x,
+      yend = victim_y,
+      color = killer_side
+    ),
+    arrow = arrow(length = unit(0.2, "cm"), type = "closed"),
+    linewidth = 1,
+    alpha = 0.9
+  ) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830),
+    aes(image = "./de_mirage_mask.png"),
+    size = 1.32
+  ) +
+  scale_color_manual(values = c(
+    "Terroriste" = "#F99E1C",
+    "Anti-Terroriste" = "#4DA3FF"
+  )) +
+  labs(
+    title = "Lignes de tir par camp",
+    x = "x",
+    y = "y",
+    color = "Camp dominant"
+  ) +
+  coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
+  theme_minimal()
+```
+
+*Ce résultat est a prendre avec précaution, ici la coloration ce base sur le camp dominant, mais ne tient pas en compte de la répartition exact, il suffit d'un tir de différence pour que la couleur change.*
+
+### Peut-on séparer la map en deux zones distinctes en fonction des deux camps par rapport à leur mort / kills ?
+
+#### **Killer**
+
+Ici nous avons pris la décision de faire un SVM linéaire, on pourrait étailler avec un non linéaire, mais pour notre étude cela suffira.
+
+```{r}
+killer_xy_side = select(kills, killer_x, killer_y, killer_side)
+killer_xy_side = mutate(killer_xy_side,
+    killer_side = case_when(
+      killer_side == 2 ~ "Terroriste",
+      killer_side == 3 ~ "Anti-Terroriste"
+    ),
+    side_num = ifelse(killer_side == "Terroriste", 1, 0)
+  )
+killer_xy_side = filter(killer_xy_side, !is.na(killer_side))
+
+model <- glm(side_num ~ killer_x + killer_y,
+             data = killer_xy_side,
+             family = "binomial")
+
+coef_k <- coefficients(model)
+
+ggplot(killer_xy_side, aes(x = killer_x, y = killer_y)) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830, killer_side = 1),
+    aes(image = "./de_mirage.png"),
+    size = 1.32
+  ) +
+  geom_point(aes(color = killer_side), size = 0.5) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -850, killer_side = 1),
+    aes(image = "./de_mirage_mask.png"),
+    size = 1.32
+  ) +
+  geom_abline(
+    slope = -coef_k[2] / coef_k[3],
+    intercept = -coef_k[1] / coef_k[3],
+    color = "red",
+    linewidth = 1
+  ) +
+  scale_color_manual(values = c(
+    "Terroriste" = "#F99E1C",
+    "Anti-Terroriste" = "#4DA3FF"
+  ))+
+  labs(title="Séparation de la carte en fonction du camp du tueur", color="Camp du tueur")+
+  coord_equal()
+```
+
+#### Victim
+
+```{r}
+victim_xy_side = select(kills, victim_x, victim_y, victim_side)
+victim_xy_side = mutate(victim_xy_side,
+    victim_side = case_when(
+      victim_side == 2 ~ "Terroriste",
+      victim_side == 3 ~ "Anti-Terroriste"
+    ),
+    side_num = ifelse(victim_side == "Terroriste", 1, 0)
+  )
+
+model <- glm(side_num ~ victim_x + victim_y,
+             data = victim_xy_side,
+             family = "binomial")
+
+coef_v <- coefficients(model)
+
+ggplot(victim_xy_side, aes(x = victim_x, y = victim_y)) +
+  geom_image(
+    data = tibble(victim_x = -680, victim_y = -830, victim_side = 1),
+    aes(image = "./de_mirage.png"),
+    size = 1.32
+  ) +
+  geom_point(aes(color = victim_side), size = 0.5) +
+  geom_image(
+    data = tibble(victim_x = -680, victim_y = -850, victim_side = 1),
+    aes(image = "./de_mirage_mask.png"),
+    size = 1.32
+  ) +
+  geom_abline(
+    slope = -coef_v[2] / coef_v[3],
+    intercept = -coef_v[1] / coef_v[3],
+    color = "blue",
+    size = 1
+  )+
+  scale_color_manual(values = c(
+    "Terroriste" = "#F99E1C",
+    "Anti-Terroriste" = "#4DA3FF"
+  ))+
+  labs(title="Séparation de la carte en fonction du camp de la victime", color="Camp de la victime")+
+  coord_equal()
+```
+
+Si on supperpose ces deux droites on obtient le graphique suivant :
+
+#### Superposition
+
+```{r}
+ggplot(victim_xy_side, aes(x = victim_x, y = victim_y)) +
+  geom_image(
+    data = tibble(x = -680, y = -830),
+    aes(x = x, y = y, image = "./de_mirage.png"),
+    size = 1.32
+  ) +
+  geom_point(data = victim_xy_side, aes(x = victim_x, y = victim_y), alpha = 0.01, size = 0.1) +
+  geom_image(
+    data = tibble(x = -680, y = -850),
+    aes(x = x, y = y, image = "./de_mirage_mask.png"),
+    size = 1.32
+  ) +
+  geom_abline(
+    slope = -coef_k[2] / coef_k[3],
+    intercept = -coef_k[1] / coef_k[3],
+    color = "red",
+    size = 1
+  ) +
+  geom_abline(
+    slope = -coef_v[2] / coef_v[3],
+    intercept = -coef_v[1] / coef_v[3],
+    color = "blue",
+    size = 1
+  ) +
+  labs(title = "Segmentation par Kill et par Victim")+
+  coord_equal()
+```
+
+On observe l’apparition d’un *no man’s land* au centre de la carte. La superposition avec les autres visualisations permet de mettre en évidence des éléments particulièrement intéressants concernant la répartition des engagements entre les deux camps.
+
+------------------------------------------------------------------------
+
+## **On s'amuse ?**
+
+```{r}
+
+slope_k <- -coef_k[2] / coef_k[3]
+intercept_k <- -coef_k[1] / coef_k[3]
+slope_v <- -coef_v[2] / coef_v[3]
+intercept_v <- -coef_v[1] / coef_v[3]
+
+
+hatch_x <- seq(-2500, 2000, by = 50) 
+hatch_data <- data.frame(
+  x = hatch_x,
+  y_start = slope_k * hatch_x + intercept_k,
+  y_end = slope_v * hatch_x + intercept_v
+)
+
+
+ggplot(killer_xy, aes(x = killer_x, y = killer_y)) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830),
+    aes(image = "./de_mirage.png"),
+    size = 1.32
+  ) +
+  
+  geom_segment(
+    data = hatch_data,
+    aes(x = x, xend = x, y = y_start, yend = y_end),
+    color = "black",
+    alpha = 0.4,   
+    linewidth = 1
+  ) +
+  
+  geom_segment(
+    data = cluster_representatives2,
+    aes(
+      x = killer_x,
+      y = killer_y,
+      xend = victim_x,
+      yend = victim_y,
+      color = killer_side
+    ),
+    arrow = arrow(length = unit(0.2, "cm"), type = "closed"),
+    linewidth = 1,
+    alpha = 0.9
+  ) +
+  geom_image(
+    data = tibble(killer_x = -680, killer_y = -830),
+    aes(image = "./de_mirage_mask.png"),
+    size = 1.32
+  ) +
+  scale_color_manual(values = c(
+    "Terroriste" = "#F99E1C",
+    "Anti-Terroriste" = "#4DA3FF"
+  )) +
+
+  geom_abline(slope = slope_k, intercept = intercept_k, color = "black", linewidth = 1) +
+  geom_abline(slope = slope_v, intercept = intercept_v, color = "black", linewidth = 1) +
+  labs(
+    title = "Lignes de tir et Zone 'No Man's Land'",
+    subtitle = "La zone hachurée représente l'espace entre le front des tueurs et celui des victimes",
+    x = "X", y = "Y"
+  ) +
+  theme_minimal() +
+  coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
+  theme(legend.position = "none")
+```
+
+On observe que les lignes naissent dans l’un ou l’autre camp et qu’à une exception près, leur camp d’origine détermine celui qui les utilise le plus.
+
+```{r}
+
+df_victimes_plot <-
+  filter(select( victim_xy , x = victim_x, y = victim_y), !is.na(x) & !is.na(y))
+
+ggplot(df_victimes_plot, aes(x = x, y = y)) +
+  geom_image(data = tibble(x = -680, y = -850), aes(image = "./de_mirage.png"), size = 1.32) +
+  
+  stat_density_2d(
+      aes(fill = after_stat(ndensity)),
+      geom = "raster",
+      contour = FALSE,
+      alpha = 0.5,
+      bins = 100
+    ) +
+    scale_fill_gradientn(colors = c("blue", "green", "yellow", "red")) +
+  
+  geom_segment(data = hatch_data, aes(x = x, xend = x, y = y_start, yend = y_end),
+               color = "black", alpha = 0.4, linewidth = 1, inherit.aes = FALSE) +
+  
+  geom_image(data = tibble(x = -680, y = -850), aes(image = "./de_mirage_mask.png"), size = 1.32) +
+  
+  geom_abline(slope = slope_k, intercept = intercept_k, color = "black", linewidth = 1) +
+  geom_abline(slope = slope_v, intercept = intercept_v, color = "black", linewidth = 1) +
+  
+  coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
+  theme(legend.position = "none")
+```
+
+```{r}
+# On prépare les données tueurs
+df_tueurs_plot <-  
+  filter(select(killer_xy, x = killer_x, y = killer_y),!is.na(x) & !is.na(y))
+
+ggplot(df_tueurs_plot, aes(x = x, y = y)) +
+  geom_image(data = tibble(x = -680, y = -850), aes(image = "./de_mirage.png"), size = 1.32) +
+  
+  stat_density_2d(
+      aes(fill = after_stat(ndensity)),
+      geom = "raster",
+      contour = FALSE,
+      alpha = 0.5,
+      bins = 100
+    ) +
+    scale_fill_gradientn(colors = c("blue", "green", "yellow", "red")) +
+  
+  geom_segment(data = hatch_data, aes(x = x, xend = x, y = y_start, yend = y_end),
+               color = "black", alpha = 0.4, linewidth = 1, inherit.aes = FALSE) +
+  
+  geom_image(data = tibble(x = -680, y = -850), aes(image = "./de_mirage_mask.png"), size = 1.32) +
+  
+  geom_abline(slope = slope_k, intercept = intercept_k, color = "black", linewidth = 1) +
+  geom_abline(slope = slope_v, intercept = intercept_v, color = "black", linewidth = 1) +
+  
+  coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
+  theme(legend.position = "none")
+```
+
+On observe que les zones de forte densité se concentrent majoritairement au sein du *no man’s land*. En croisant ces résultats avec les visualisations séparant les densités par camp, il apparaît que les principaux pics de densité propres à chaque équipe se situent de part et d’autre de cette zone centrale.
+
+------------------------------------------------------------------------
+
+## Conclusion
+
+L’étude de *Mirage* permet de mettre en évidence une dynamique structurée entre Terroristes et Anti-Terroristes, mais aussi un déséquilibre dans la manière dont chaque camp contrôle la carte.
+
+À première vue, les résultats globaux sur les rounds et les kills ne montrent pas de déséquilibre important. Cependant, dès que l’on entre dans une analyse spatiale et comportementale, une tendance apparaît : les Anti-Terroristes disposent d’un réseau de positions et de lignes de tir qui sont à leurs avantages. Cette organisation leur permet de mieux contrôler l’espace et de multiplier les points d’engagement défensifs.
+
+À l’inverse, les Terroristes semblent moins présents en termes de diversité de lignes, mais leurs actions sont plus orientées vers un objectif précis : la prise de site et l’exploitation du post-plant. Cette différence de logique explique pourquoi les deux camps peuvent apparaître équilibrés au niveau global, malgré des avantages locaux différents.
+
+Un point important ressort : dès que la bombe est posée, l’avantage bascule en faveur des Terroristes, ce qui confirme le poids central de cette mécanique dans l’issue des rounds. À l’opposé, lorsque la bombe n’est pas plantée, les Anti-Terroristes reprennent l’avantage grâce à leur capacité de contrôle et de temporisation.
+
+Enfin, les analyses de clustering et de densité montrent que les engagements ne sont pas répartis aléatoirement, mais suivent des structures récurrentes et des zones de friction bien identifiées. Cela renforce l’idée que l’équilibre de mirage ne vient pas d’une symétrie parfaite, mais d’un compromis entre deux styles de jeu opposés.
+
+------------------------------------------------------------------------
+
+### En résumé
+
+-   Les Anti-Terroristes dominent le contrôle spatial et les lignes de tir.
+
+-   Les Terroristes dominent les situations de post-plant.
+
+-   L’équilibre global de la carte résulte de cette opposition de styles plutôt que d’une égalité parfaite sur tous les aspects.
+
+Ainsi, *Mirage* n’est pas une carte déséquilibrée, mais une carte où l’avantage dépend du contexte du round et de la capacité de chaque camp à imposer sa phase de jeu.
+
+------------------------------------------------------------------------
+
+### Ouverture
+
+Cette analyse de *Mirage* met en évidence des dynamiques intéressantes entre contrôle spatial, prises de site et issue des rounds, mais elle reste centrée sur une seule carte. Une extension de ce travail consisterait à appliquer la même méthodologie à d’autres cartes du jeu.
+
+Comparer plusieurs environnements permettrait notamment de répondre à plusieurs questions :
+
+-   Certaines cartes accentuent-elles davantage l’avantage des Anti-Terroristes dans le contrôle de l’espace ?
+
+-   Le post-plant permet-il un avantage systématique côté Terroriste, ou dépend-il fortement de la structure de la carte ?
+
+Au-delà de la comparaison entre cartes, une autre piste d’amélioration serait d’affiner l’analyse temporelle des rounds *(timings des engagements, durée des contrôles de zone, séquences post-plant)*, afin de mieux comprendre comment l’avantage évolue au cours d’un round plutôt que seulement à son issue.
+
+Enfin, l’intégration de modèles plus avancés *(clustering non linéaire, analyse de graphes des positions ou modèles prédictifs de victoire)* permettrait d’aller au-delà de la description pour tendre vers une véritable compréhension prédictive des dynamiques de jeu.
