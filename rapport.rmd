@@ -73,7 +73,7 @@ library(readr)
 
 
 
-Smoke sur bombsite
+##Smoke sur bombsite
 &nbsp;&nbsp;&nbsp;&nbsp; On se demande si lorsqu’un joueur pose une bombe smoke (fumigène) près d’un site de bombe, cela augmente la probabilité que les Terro gagnent en posant la bombe. 
 &nbsp;&nbsp;&nbsp;&nbsp; On a donc pris pour chaque manche où une bombe smoke a été utilisée, le taux de victoire des Terro. On a aussi restreint les observations aux smokes posées près des sites de bombes, mais en n’ayant les résultats que pour 4 maps, car il faut renseigner à la main les coordonnées de chaque site de bombe. On obtient donc ces bar charts:
 
@@ -99,5 +99,62 @@ smokes %>%
 &nbsp;&nbsp;&nbsp;&nbsp; Il faudrait donc recommencer la visu, en comparant le taux de victoire d’une manche quand une smoke est posée avec le taux de victoire d’une manche en général. 
 &nbsp;&nbsp;&nbsp;&nbsp; Il faut aussi prendre en compte que les smokes se font contrer dans le jeu par les grenades incendiaires, qui éteignent les smokes quand lancées au même endroit et font des dégâts. On pourrait donc distinguer les observations des manches où seulement une smoke est lancée, et quand une smoke et une grenade incendiaire sont lancées au même endroit.
 
+<br>
+
+## La question
+
+La question choisie est : "La grenade est-elle plus utilisée par les Terroristes ou les Contre-Terroristes ? " 
+Cette question est intéressante pour comprendre qui, globalement, utilise le plus ce type d’arme. Cela comprend les différents types de grenades, donc fumigènes, explosifs etc.
+
+Il va ainsi falloir mettre en évidence l’utilisation de la bombe par chaque camp, puis, les représenter et les interpréter. On aura peut-être une représentation différente suivant les maps, il y aura donc peut-être différents graphiques.
+
+### Attendu des résultats
+ 
+Je pense que les terroristes utilisent plus les grenades que les contre-terroristes, avec la pratique de la smoke sur bombsite, et que les contre-terroristes n’utilisent pas forcément beaucoup de grenade.
+
+Pour la récupération des données, nous avons 2 possibilités: la première consiste à récupérer la donnée “thrower_side” pour chaque type de bombe séparément (“grenade_bounces”; “flashbangs_explode”; “decoys_start”; “smokes_start”), puis de tout assembler pour ensuite comparer. La deuxième, est de directement le faire depuis la table “grenade_positions”, qui semble être la version déjà compilée de tous les types de bombes. Pour raison de simplification évidente, nous choisirons la 2e option.
+
+
+"SELECT thrower_side FROM grenade_positions"
+
+Le résultat de cette requête est donc une table d’une seule colonne, et contenant pas moins de 140 770 359  entrées.
+
+```{r pressure}
+library(dplyr)
+library(ggplot2)
+
+donnes_sum = count(Result_1_2026_04_20_23_52_40, thrower_side)
+
+donnes <- mutate(donnes_sum, thrower_side = case_when(
+  thrower_side == 2 ~ "Terroristes",
+  thrower_side == 3 ~ "Contre-Terroristes"
+))
+
+ggplot(donnes, aes(x = factor(thrower_side), y = n, fill = factor(thrower_side)))+
+  geom_col() +
+  labs (
+    title = "Diagramme de l'utilisation des grenades de tout type, en fonction du camp",
+    x = "Camp",
+    y = "Nombre de grenades lancées",
+    fill = "Camp"
+  )+
+  geom_text(aes(label = n), vjust = -0.5) +
+    scale_fill_manual(values = c(
+      "Terroristes" = "#F99E1C",
+      "Contre-Terroristes" = "#00428C"
+  ))
+
+```
+
+A travers cette visualisation et en raison du grand échantillonnage, on peut voir une tendance d’utilisation de grenades légèrement plus élevée du côté Terroriste. Cela permet également de se rendre compte que l’utilisation de grenade par les contre-terroristes est également très fréquente et ne dépend donc pas uniquement du camp.
+
+
+###Conclusion:
+Le graphique permet de répondre à la question: les 2 camps utilisent les grenades dans des proportions similaires, avec une tendance plus élevée pour les terroristes, qui en ont utilisé un peu plus. Il n’y a donc pas forcément de lien direct entre le camp du joueur et l’utilisation de grenades.
+
+Pour compléter ce graphique, il pourrait être intéressant de réaliser ce même graphique mais en filtrant par map, et comparer si cette tendance générale persiste sur tous les terrains.
+Il pourrait également être pertinent de s’intéresser à la localisation de l’utilisation de la bombe, dans le sens que cette différence entre les Contre-Terroristes et les Terroristes pourrait être juste dû à la pratique de la smoke sur bombsite par les terroristes.
 
 <br>
+
+
