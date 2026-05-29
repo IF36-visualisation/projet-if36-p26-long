@@ -1,0 +1,523 @@
+"checksum","demo_path","game_type","game_mode","game_mode_str","is_ranked","kill_count","death_count","assist_count","shot_count","analyze_date","winner_name","winner_side","overtime_count","max_rounds","has_vac_live_ban"
+"472ac3e23ebc878b",/home/stcaillou/Downloads/vitality-vs-the-mongolz-m1-mirage.dem,0,0,casual,false,199,199,70,4409,2026-03-24 06:56:50.559 +0000,Team Vitality,3,1,24,false
+"23c081609773aaf2",/home/pierrer/PipelineCS/DL/103400/hemmaplan-vs-heroic-academy-ancient.dem,0,0,casual,false,113,115,43,2163,2026-03-24 11:11:47.577 +0000,HEROIC Academy26,3,0,24,false
+"568fec5b6649fa4",/home/pierrer/PipelineCS/DL/103401/semperfi-vs-tricked-inferno.dem,0,0,casual,false,110,110,44,2437,2026-03-24 11:13:13.855 +0000,SEMPERFI2,3,0,24,false
+"45959b056841cf0b",/home/pierrer/PipelineCS/DL/103402/sashi-vs-megoshort-mirage.dem,0,0,casual,false,169,170,62,3121,2026-03-24 11:15:35.377 +0000,SashiEsport,2,0,24,false
+c880448b9d9939bc,/home/pierrer/PipelineCS/DL/103403/fut-academy-vs-chicken-burger-m2-overpass.dem,0,0,casual,false,163,166,63,3471,2026-03-24 11:17:36.879 +0000,FUT AC,3,0,24,false
+fd4642781bb75169,/home/pierrer/PipelineCS/DL/103403/fut-academy-vs-chicken-burger-m1-mirage.dem,0,0,casual,false,127,131,37,2353,2026-03-24 11:19:01.445 +0000,FUT AC,2,0,24,false
+e3542081c758cc39,/home/pierrer/PipelineCS/DL/103404/minlate-vs-saw-m2-dust2.dem,0,0,casual,false,133,136,50,3039,2026-03-24 11:21:22.831 +0000,SAW,3,0,24,false
+"5cb8c0ec2d76bf",/home/pierrer/PipelineCS/DL/103404/minlate-vs-saw-m3-mirage.dem,0,0,casual,false,122,122,48,2440,2026-03-24 11:22:54.010 +0000,MINLATE,2,0,24,false
+"668c692473314dc9",/home/pierrer/PipelineCS/DL/103404/minlate-vs-saw-m2-nuke.dem,0,0,casual,false,117,118,42,2595,2026-03-24 11:23:58.169 +0000,MINLATE,3,0,24,false
+edbafc84cda128bd,/home/pierrer/PipelineCS/DL/103405/aab-vs-state-inferno.dem,0,0,casual,false,152,152,58,3971,2026-03-24 11:26:06.405 +0000,AaB esport...,2,0,24,false
+"4f3a1b10411d51f4",/home/pierrer/PipelineCS/DL/103406/johnny-speeds-vs-infinite-nuke.dem,0,0,casual,false,153,153,44,2526,2026-03-24 11:29:11.784 +0000,Johnny Speeds,2,0,24,false
+"3d509c234096d43a",/home/pierrer/PipelineCS/DL/103407/hemmaplan-vs-semperfi-mirage.dem,0,0,casual,false,115,115,45,1845,2026-03-24 11:30:46.644 +0000,SEMPERFI2,2,0,24,false
+"2dcf733686e46889",/home/pierrer/PipelineCS/DL/103408/sinners-vs-spirit-m1-mirage.dem,0,0,casual,false,147,147,49,3062,2026-03-24 11:32:38.660 +0000,Team Spirit,3,0,24,false
+"3cae720b95a885a8",/home/pierrer/PipelineCS/DL/103408/sinners-vs-spirit-m2-nuke.dem,0,0,casual,false,115,117,37,2654,2026-03-24 11:34:28.736 +0000,Team Spirit,2,0,24,false
+a5f32090846c4a01,/home/pierrer/PipelineCS/DL/103409/sashi-vs-heroic-mirage.dem,0,0,casual,false,115,115,35,1986,2026-03-24 11:36:33.525 +0000,SashiEsport,3,0,24,false
+e2299fe3e7eab280,/home/pierrer/PipelineCS/DL/103410/megoshort-vs-tricked-train.dem,0,0,casual,false,150,153,57,2971,2026-03-24 11:38:18.896 +0000,TRICKEDcs2,3,0,24,false
+"30a44e42b240657d",/home/pierrer/PipelineCS/DL/103411/crashers-vs-four-magic-m2-dust2.dem,0,0,casual,false,119,122,40,2328,2026-03-24 11:40:14.281 +0000,Four Magic,3,0,24,false
+"7b0c9960c780b1d3",/home/pierrer/PipelineCS/DL/103411/crashers-vs-four-magic-m1-nuke.dem,0,0,casual,false,110,111,25,2060,2026-03-24 11:42:04.709 +0000,Four Magic,2,0,24,false
+"10a3d1f30f1855c9",/home/pierrer/PipelineCS/DL/103412/infinite-vs-state-overpass.dem,0,0,casual,false,134,135,55,2786,2026-03-24 11:43:46.744 +0000,STATE ESPORT,3,0,24,false
+"57a72b6045a04f6f",/home/pierrer/PipelineCS/DL/103413/rebels-vs-saw-m2-dust2.dem,0,0,casual,false,154,156,50,3340,2026-03-24 11:45:58.651 +0000,REBELS GAMING,2,0,24,false
+"2ab0bdf48a15b7f8",/home/pierrer/PipelineCS/DL/103413/rebels-vs-saw-m1-nuke.dem,0,0,casual,false,121,122,32,2740,2026-03-24 11:48:05.706 +0000,REBELS GAMING,3,0,24,false
+"8b9d8c6cd7136fe",/home/pierrer/PipelineCS/DL/103414/megoshort-vs-hemmaplan-ancient.dem,0,0,casual,false,129,129,39,2881,2026-03-24 11:49:42.736 +0000,megoshort!,2,0,24,false
+"8ebe7370583beaf7",/home/pierrer/PipelineCS/DL/103415/prestige-vs-aimclub-inferno.dem,0,0,casual,false,209,209,78,4987,2026-03-24 11:52:37.653 +0000,Prestige.,2,1,24,false
+b4afa53cf1a69b90,/home/pierrer/PipelineCS/DL/103416/heroic-academy-vs-semperfi-overpass.dem,0,0,casual,false,150,150,60,2946,2026-03-24 11:56:36.842 +0000,HEROIC Academy26,2,0,24,false
+c55d1b52275a924,/home/pierrer/PipelineCS/DL/103417/csdiilit-vs-japczany-m2-ancient.dem,0,0,casual,false,131,131,53,2742,2026-03-24 11:58:52.473 +0000,japczany,2,0,24,false
+"7a552a402f3cd259",/home/pierrer/PipelineCS/DL/103417/csdiilit-vs-japczany-m1-mirage.dem,0,0,casual,false,105,105,30,2373,2026-03-24 12:00:37.061 +0000,japczany,3,0,24,false
+d00a2e6a0b521107,/home/pierrer/PipelineCS/DL/103418/los-kogutos-vs-masonic-m1-ancient.dem,0,0,casual,false,210,212,59,4608,2026-03-24 12:02:48.634 +0000,MASONIC,3,1,24,false
+"387230dbe6161224",/home/pierrer/PipelineCS/DL/103418/los-kogutos-vs-masonic-m3-anubis.dem,0,0,casual,false,127,127,45,2670,2026-03-24 12:04:25.757 +0000,Los Kogutos,2,0,24,false
+b9b3561d5f423246,/home/pierrer/PipelineCS/DL/103418/los-kogutos-vs-masonic-m2-overpass.dem,0,0,casual,false,205,205,58,4475,2026-03-24 12:06:09.919 +0000,Los Kogutos,3,1,24,false
+ee5f8be378a7deef,/home/pierrer/PipelineCS/DL/103419/betboom-vs-pain-m1-mirage.dem,0,0,casual,false,146,147,47,3132,2026-03-24 12:09:24.638 +0000,paiN Gaming,2,0,24,false
+a07bef37cb31a694,/home/pierrer/PipelineCS/DL/103419/betboom-vs-pain-m2-nuke.dem,0,0,casual,false,104,105,21,2191,2026-03-24 12:11:04.367 +0000,paiN Gaming,3,0,24,false
+be18716bf830f080,/home/pierrer/PipelineCS/DL/103420/prestige-vs-aab-inferno.dem,0,0,casual,false,119,119,47,2708,2026-03-24 12:12:46.413 +0000,Prestige.,2,0,24,false
+"1787ce744c361d96",/home/pierrer/PipelineCS/DL/103421/jonny-speeds-vs-aimclub-mirage.dem,0,0,casual,false,144,144,44,2778,2026-03-24 12:14:57.310 +0000,aimclub.,3,0,24,false
+b59f58438a50d50a,/home/pierrer/PipelineCS/DL/103422/famalicao-vs-hyperspirit-ancient.dem,0,0,casual,false,107,107,36,2320,2026-03-24 12:16:48.670 +0000,HyperSpirit,3,0,24,false
+e5ace43e2b81803c,/home/pierrer/PipelineCS/DL/103423/big-vs-exsad-ancient.dem,0,0,casual,false,104,106,37,2425,2026-03-24 12:19:27.312 +0000,BIG,2,0,24,false
+a983677928260a67,/home/pierrer/PipelineCS/DL/103424/heroic-academy-vs-megoshort-ancient.dem,0,0,casual,false,165,166,65,3547,2026-03-24 12:21:20.377 +0000,HEROIC Academy26,3,0,24,false
+"3a8118441a31dfb4",/home/pierrer/PipelineCS/DL/103425/sashi-vs-tricked-nuke.dem,0,0,casual,false,137,138,46,3063,2026-03-24 12:23:17.436 +0000,TRICKEDcs2,3,0,24,false
+fc815fdab850eb8a,/home/pierrer/PipelineCS/DL/103426/players-vs-magicos-m2-dust2.dem,0,0,casual,false,114,114,34,2233,2026-03-24 12:47:33.717 +0000,Players,3,0,24,false
+e7a2e289382096bd,/home/pierrer/PipelineCS/DL/103426/players-vs-magicos-m3-inferno.dem,0,0,casual,false,129,129,53,3163,2026-03-24 12:48:40.789 +0000,Players,2,0,24,false
+"9d312f7c14641658",/home/pierrer/PipelineCS/DL/103426/players-vs-magicos-m1-anubis.dem,0,0,casual,false,159,169,58,3553,2026-03-24 12:50:26.346 +0000,MAGICOS,2,0,24,false
+a89c662e78f8fec7,/home/pierrer/PipelineCS/DL/103427/aimclub-vs-aab-inferno.dem,0,0,casual,false,125,125,42,2826,2026-03-24 12:52:35.699 +0000,AaB esport...,3,0,24,false
+"36bf508e95dc5e64",/home/pierrer/PipelineCS/DL/103428/minlate-vs-arcred-m3-inferno.dem,0,0,casual,false,135,135,45,2810,2026-03-24 12:55:45.398 +0000,ARCRED,2,0,24,false
+"1c05d3f571a5ee83",/home/pierrer/PipelineCS/DL/103428/minlate-vs-arcred-m2-ancient.dem,0,0,casual,false,170,173,68,3727,2026-03-24 13:00:54.482 +0000,Minlate,3,0,24,false
+"9cf2b1cce364afa9",/home/pierrer/PipelineCS/DL/103428/minlate-vs-arcred-m1-mirage.dem,0,0,casual,false,112,112,36,1977,2026-03-24 13:02:39.606 +0000,ARCRED,3,0,24,false
+"5ef7cf95e5d4a0b7",/home/pierrer/PipelineCS/DL/103429/tricked-vs-hemmaplan-mirage.dem,0,0,casual,false,125,125,36,2255,2026-03-24 13:04:09.956 +0000,TRICKEDcs2,3,0,24,false
+ce4178421b6000ff,/home/pierrer/PipelineCS/DL/103430/infinite-vs-prestige-overpass.dem,0,0,casual,false,250,252,76,5384,2026-03-24 13:06:21.834 +0000,INFINITECS2,2,2,24,false
+"755f8554d53a9fbb",/home/pierrer/PipelineCS/DL/103431/johnny-speeds-vs-state-overpass.dem,0,0,casual,false,161,161,52,3228,2026-03-24 13:09:42.151 +0000,STATE ESPORT,2,0,24,false
+"8f8c9d172e900f90",/home/pierrer/PipelineCS/DL/103432/9ine-vs-furia-m2-inferno.dem,0,0,casual,false,138,138,54,4168,2026-03-24 13:13:49.881 +0000,FURIA,3,0,24,false
+"5db37f2170255bf8",/home/pierrer/PipelineCS/DL/103432/9ine-vs-furia-m1-anubis.dem,0,0,casual,false,126,126,44,3169,2026-03-24 13:17:39.664 +0000,FURIA,3,0,24,false
+"8b28d6f61a6f4e65",/home/pierrer/PipelineCS/DL/103435/famalicao-vs-exsad-m2-train.dem,0,0,casual,false,153,154,57,2984,2026-03-24 13:28:34.124 +0000,FC FAMALICÃO,3,0,24,false
+e13101daf8f9056b,/home/pierrer/PipelineCS/DL/103435/famalicao-vs-exsad-m1-ancient.dem,0,0,casual,false,151,152,53,3292,2026-03-24 13:30:29.797 +0000,FC FAMALICÃO,2,0,24,false
+"6eefe38f5c129a16",/home/pierrer/PipelineCS/DL/103436/state-vs-prestige-ancient.dem,0,0,casual,false,140,140,49,3220,2026-03-24 13:32:45.928 +0000,Prestige.,3,0,24,false
+a7d25e8345edc7df,/home/pierrer/PipelineCS/DL/103437/aimclub-vs-infinite-mirage.dem,0,0,casual,false,143,143,53,2570,2026-03-24 13:34:18.197 +0000,aimclub.,3,0,24,false
+"6df18263276a9b40",/home/pierrer/PipelineCS/DL/103438/johnny-speeds-vs-aab-overpass.dem,0,0,casual,false,134,136,51,2887,2026-03-24 13:35:55.617 +0000,Johnny Speeds,2,0,24,false
+"4c63296d87f275d6",/home/pierrer/PipelineCS/DL/103439/fake-do-biru-vs-mibr-m1-inferno.dem,0,0,casual,false,128,129,47,2819,2026-03-24 13:37:56.190 +0000,Team A,2,0,24,false
+"741062afc2a69cbc",/home/pierrer/PipelineCS/DL/103439/fake-do-biru-vs-mibr-m2-mirage.dem,0,0,casual,false,109,109,32,2091,2026-03-24 13:41:30.711 +0000,Team B,3,0,24,false
+"4ceefac6670032b6",/home/pierrer/PipelineCS/DL/103440/illwill-vs-petardka-m1-nuke.dem,0,0,casual,false,116,117,35,2496,2026-03-24 13:43:44.040 +0000,illwill,3,0,24,false
+"8bc4eee4c905c740",/home/pierrer/PipelineCS/DL/103440/illwill-vs-petardka-m2-mirage.dem,0,0,casual,false,253,254,97,5412,2026-03-24 13:45:22.189 +0000,illwill,2,2,24,false
+"6d7e93763553c4ad",/home/pierrer/PipelineCS/DL/103441/bad-luck-vs-oruga-m2-overpass.dem,0,0,casual,false,140,140,43,3007,2026-03-24 13:48:08.598 +0000,Bad Luck,2,0,24,false
+"5eb526ce6c2105f1",/home/pierrer/PipelineCS/DL/103441/bad-luck-vs-oruga-m3-nuke.dem,0,0,casual,false,203,204,53,3996,2026-03-24 13:53:02.920 +0000,Oruga,2,0,24,false
+b61c9a50a50ac1af,/home/pierrer/PipelineCS/DL/103441/bad-luck-vs-oruga-m1-anubis.dem,0,0,casual,false,118,119,37,2453,2026-03-24 13:54:24.111 +0000,Oruga,3,0,24,false
+"958fa9238efe1849",/home/pierrer/PipelineCS/DL/103442/hyperspirit-vs-big-m3-mirage.dem,0,0,casual,false,138,138,49,2621,2026-03-24 13:56:34.083 +0000,BIG,3,0,24,false
+"126487747bcfd5c",/home/pierrer/PipelineCS/DL/103442/hyperspirit-vs-big-m1-overpass.dem,0,0,casual,false,249,251,76,5395,2026-03-24 13:58:37.824 +0000,HyperSpirit,2,2,24,false
+"15d519902ba3589b",/home/pierrer/PipelineCS/DL/103442/hyperspirit-vs-big-m2-dust2.dem,0,0,casual,false,151,155,50,3066,2026-03-24 14:00:52.481 +0000,BIG,2,0,24,false
+"170b0765d43fb325",/home/pierrer/PipelineCS/DL/103443/aimclub-vs-johnny-speeds-m1-mirage.dem,0,0,casual,false,105,105,31,1976,2026-03-24 14:02:32.412 +0000,Johnny Speeds,2,0,24,false
+"68706dd3b8edc89f",/home/pierrer/PipelineCS/DL/103443/aimclub-vs-johnny-speeds-m2-nuke.dem,0,0,casual,false,96,96,25,2285,2026-03-24 14:04:00.183 +0000,Johnny Speeds,3,0,24,false
+bc264f76fff3cf86,/home/pierrer/PipelineCS/DL/103444/megoshort-vs-semperfi-m2-inferno.dem,0,0,casual,false,138,140,53,3698,2026-03-24 14:07:12.715 +0000,SEMPERFI2,3,0,24,false
+af3138c4f9478cad,/home/pierrer/PipelineCS/DL/103444/megoshort-vs-semperfi-m3-mirage.dem,0,0,casual,false,163,163,57,3706,2026-03-24 14:10:58.473 +0000,megoshort!,3,0,24,false
+"508a34a389bb6d9b",/home/pierrer/PipelineCS/DL/103444/megoshort-vs-semperfi-m1-ancient.dem,0,0,casual,false,122,124,48,2673,2026-03-24 14:12:37.994 +0000,megoshort!,3,0,24,false
+ccaad0683502a557,/home/pierrer/PipelineCS/DL/103445/mibr-vs-starlinks-inferno.dem,0,0,casual,false,101,102,47,2598,2026-03-24 14:14:07.013 +0000,MIBR,2,0,24,false
+b833a145b9354816,/home/pierrer/PipelineCS/DL/103446/bounty-hunters-vs-folha-amarela-mirage.dem,0,0,casual,false,131,141,45,2432,2026-03-24 14:16:08.900 +0000,FOLHA AMARELA,2,0,24,false
+"4f113284d3a60660",/home/pierrer/PipelineCS/DL/103447/famalicao-vs-hyperspirit-m1-train.dem,0,0,casual,false,162,162,46,3076,2026-03-24 14:18:03.244 +0000,FC FAMALICÃO,3,0,24,false
+b2e61c050ce18062,/home/pierrer/PipelineCS/DL/103447/famalicao-vs-hyperspirit-m2-ancient.dem,0,0,casual,false,125,127,37,2575,2026-03-24 14:19:25.003 +0000,FC FAMALICÃO,2,0,24,false
+d17b8c7eeb394f7e,/home/pierrer/PipelineCS/DL/103448/gaimin-gladiators-vs-imperial-m2-nuke.dem,0,0,casual,false,114,116,47,2637,2026-03-24 14:21:18.500 +0000,Team B,3,0,24,false
+"6d4048adecfe5ab1",/home/pierrer/PipelineCS/DL/103448/gaimin-gladiators-vs-imperial-m1-inferno.dem,0,0,casual,false,161,163,68,4099,2026-03-24 14:23:47.165 +0000,Team A,2,0,24,false
+"88d974c6d6b8fac3",/home/pierrer/PipelineCS/DL/103449/vasco-vs-prison-breakers-m3-mirage.dem,0,0,casual,false,112,112,32,2391,2026-03-24 14:29:14.669 +0000,Vasco,2,0,24,false
+"2349ddf563beffcc",/home/pierrer/PipelineCS/DL/103449/vasco-vs-prison-breakers-m1-dust2.dem,0,0,casual,false,139,140,54,3512,2026-03-24 14:31:07.922 +0000,Prison Breakers,2,0,24,false
+"69cae9aa07ad85b0",/home/pierrer/PipelineCS/DL/103449/vasco-vs-prison-breakers-m2-inferno.dem,0,0,casual,false,127,127,43,3862,2026-03-24 14:34:12.815 +0000,Vasco,2,0,24,false
+b74cf1a70c12878a,/home/pierrer/PipelineCS/DL/103450/sharks-vs-legacy-m1-nuke.dem,0,0,casual,false,139,141,47,3294,2026-03-24 14:37:42.807 +0000,Team B,3,0,24,false
+e83d3bbfedc9df7a,/home/pierrer/PipelineCS/DL/103450/sharks-vs-legacy-m3-mirage.dem,0,0,casual,false,101,102,27,2250,2026-03-24 14:39:38.665 +0000,Team B,3,0,24,false
+"5c149df14353820b",/home/pierrer/PipelineCS/DL/103450/sharks-vs-legacy-m2-inferno.dem,0,0,casual,false,101,102,39,3238,2026-03-24 14:41:20.842 +0000,Team B,3,0,24,false
+"363044199d8a3bcd",/home/pierrer/PipelineCS/DL/103451/change-the-game-vs-chinggis-warriors-m2-mirage.dem,0,0,casual,false,95,95,25,1627,2026-03-24 14:44:17.209 +0000,CW,3,0,24,false
+"30bc27daf13b2993",/home/pierrer/PipelineCS/DL/103451/change-the-game-vs-chinggis-warriors-m1-ancient.dem,0,0,casual,false,99,101,31,2222,2026-03-24 14:45:52.117 +0000,CW,2,0,24,false
+"5661c2da5c759ce5",/home/pierrer/PipelineCS/DL/103452/tricked-vs-aab-m1-mirage.dem,0,0,casual,false,124,127,33,2786,2026-03-24 14:48:07.521 +0000,TRICKEDcs2,3,0,24,false
+"703e116a4b633ac1",/home/pierrer/PipelineCS/DL/103452/tricked-vs-aab-m2-ancient.dem,0,0,casual,false,117,117,48,2738,2026-03-24 14:49:20.732 +0000,TRICKEDcs2,2,0,24,false
+e64b250d5f25d9ed,/home/pierrer/PipelineCS/DL/103453/eternal-fire-vs-arcred-m1-dust2.dem,0,0,casual,false,197,198,61,3774,2026-03-24 14:52:18.252 +0000,ARCRED,2,1,24,false
+"28a0374c055ef765",/home/pierrer/PipelineCS/DL/103453/eternal-fire-vs-arcred-m2-mirage.dem,0,0,casual,false,154,154,46,2739,2026-03-24 14:54:24.137 +0000,ARCRED,2,0,24,false
+"3edb2a00618fb7f2",/home/pierrer/PipelineCS/DL/103454/state-vs-heroic-academy-m1-ancient.dem,0,0,casual,false,138,139,57,2913,2026-03-24 14:56:17.810 +0000,STATE ESPORT,2,0,24,false
+a1de9787d1adc24,/home/pierrer/PipelineCS/DL/103454/state-vs-heroic-academy-m2-inferno.dem,0,0,casual,false,137,137,51,3103,2026-03-24 14:58:11.538 +0000,STATE ESPORT,3,0,24,false
+"140a5692e02b6d2d",/home/pierrer/PipelineCS/DL/103455/metizport-vs-bebop-m3-nuke.dem,0,0,casual,false,158,158,59,3252,2026-03-24 15:01:23.953 +0000,Metizsport,3,0,24,false
+ede1b15d4aacbfeb,/home/pierrer/PipelineCS/DL/103455/metizport-vs-bebop-m1-dust2.dem,0,0,casual,false,122,123,40,2761,2026-03-24 15:02:51.052 +0000,Bebop,2,0,24,false
+"554ec4ef442f415e",/home/pierrer/PipelineCS/DL/103455/metizport-vs-bebop-m2-mirage.dem,0,0,casual,false,159,159,40,3278,2026-03-24 15:04:52.157 +0000,Metizsport,2,0,24,false
+"115deb593c2d248e",/home/pierrer/PipelineCS/DL/103456/big-academy-vs-truck-drivers-m2-ancient.dem,0,0,casual,false,140,140,47,2797,2026-03-24 15:08:35.497 +0000,BIG AC,3,0,24,false
+"32379617abb31e8",/home/pierrer/PipelineCS/DL/103456/big-academy-vs-truck-drivers-m3-mirage.dem,0,0,casual,false,144,146,38,2367,2026-03-24 15:11:18.100 +0000,Truck Drivers,3,0,24,false
+"6f7c12bb089730f",/home/pierrer/PipelineCS/DL/103456/big-academy-vs-truck-drivers-m1-dust2.dem,0,0,casual,false,197,199,59,3566,2026-03-24 15:13:08.984 +0000,Truck Drivers,2,1,24,false
+"9e447475d6583bc",/home/pierrer/PipelineCS/DL/103457/prestige-vs-megoshort-m2-ancient.dem,0,0,casual,false,167,167,66,4361,2026-03-24 15:15:52.504 +0000,megoshort!,3,0,24,false
+"693fd86c1955754e",/home/pierrer/PipelineCS/DL/103457/prestige-vs-megoshort-m1-inferno.dem,0,0,casual,false,186,188,64,4908,2026-03-24 15:18:18.786 +0000,megoshort!,2,1,24,false
+"3a526c675e3b6b13",/home/pierrer/PipelineCS/DL/103458/mouz-nxt-vs-famalicao-m2-mirage.dem,0,0,casual,false,165,166,59,3589,2026-03-24 15:22:35.136 +0000,MOUZ NXT,3,0,24,false
+d002075c02d4a7e1,/home/pierrer/PipelineCS/DL/103458/mouz-nxt-vs-famalicao-m1-train.dem,0,0,casual,false,110,110,45,2166,2026-03-24 15:24:00.628 +0000,MOUZ NXT,2,0,24,false
+"7d8dd11b1c0c3898",/home/pierrer/PipelineCS/DL/103459/pain-vs-heroic-m2-mirage.dem,0,0,casual,false,200,200,59,3722,2026-03-24 15:26:17.663 +0000,HEROIC,2,1,24,false
+e2e1f4eaf176d94f,/home/pierrer/PipelineCS/DL/103459/pain-vs-heroic-m1-nuke.dem,0,0,casual,false,128,128,34,2595,2026-03-24 15:28:20.127 +0000,HEROIC,2,0,24,false
+"585ac15106cf7435",/home/pierrer/PipelineCS/DL/103460/sashi-vs-johnny-speeds-m1-overpass.dem,0,0,casual,false,118,118,42,2793,2026-03-24 15:30:46.695 +0000,Johnny Speeds,3,0,24,false
+"30e4688a7c450b3c",/home/pierrer/PipelineCS/DL/103460/sashi-vs-johnny-speeds-m2-inferno.dem,0,0,casual,false,113,113,40,2448,2026-03-24 15:32:38.356 +0000,Johnny Speeds,2,0,24,false
+"13d728b6b0876092",/home/pierrer/PipelineCS/DL/103461/morningstar-vs-egg-m1-mirage.dem,0,0,casual,false,133,135,40,2774,2026-03-24 15:37:05.361 +0000,EGG GAMING,3,0,24,false
+"6b0b30d74fce30dc",/home/pierrer/PipelineCS/DL/103461/morningstar-vs-egg-m2-ancient.dem,0,0,casual,false,166,168,53,3745,2026-03-24 15:39:09.725 +0000,MORNING STAR,3,0,24,false
+a9234141511a1532,/home/pierrer/PipelineCS/DL/103461/morningstar-vs-egg-m3-dust2.dem,0,0,casual,false,98,98,23,2220,2026-03-24 15:41:06.168 +0000,MORNING STAR,2,0,24,false
+"7d91f03e93747585",/home/pierrer/PipelineCS/DL/103462/ursa-vs-illwill-m1-nuke.dem,0,0,casual,false,106,106,38,2040,2026-03-24 15:43:46.063 +0000,illwill,3,0,24,false
+"8d39e4c8efcaae52",/home/pierrer/PipelineCS/DL/103462/ursa-vs-illwill-m2-inferno.dem,0,0,casual,false,141,141,49,2923,2026-03-24 15:45:35.904 +0000,illwill,2,0,24,false
+c683af478c06491,/home/pierrer/PipelineCS/DL/103463/ex-ruby-vs-allinners-m1-dust2.dem,0,0,casual,false,133,133,34,2713,2026-03-24 15:47:54.312 +0000,Ex-Ruby,3,0,24,false
+"17f903159982eda1",/home/pierrer/PipelineCS/DL/103463/ex-ruby-vs-allinners-m2-ancient.dem,0,0,casual,false,128,128,39,3109,2026-03-24 15:49:19.867 +0000,Ex-Ruby,2,0,24,false
+f56f6d6959f09572,/home/pierrer/PipelineCS/DL/103464/tricked-vs-megoshort-m2-overpass.dem,0,0,casual,false,150,150,55,3603,2026-03-24 15:51:25.803 +0000,TRICKEDcs2,3,0,24,false
+b7cfe32011fa0354,/home/pierrer/PipelineCS/DL/103464/tricked-vs-megoshort-m1-ancient.dem,0,0,casual,false,198,199,79,5065,2026-03-24 15:53:33.596 +0000,TRICKEDcs2,3,1,24,false
+"9b9be817a88c1584",/home/pierrer/PipelineCS/DL/103465/washington-vs-phantom-m2-nuke.dem,0,0,casual,false,152,156,38,3143,2026-03-24 15:56:12.238 +0000,Team B,3,0,24,false
+"5d10f4fbd00192bb",/home/pierrer/PipelineCS/DL/103465/washington-vs-phantom-m1-overpass.dem,0,0,casual,false,157,158,64,3666,2026-03-24 15:58:00.143 +0000,Team B,3,0,24,false
+"5ef2d1b23ef60496",/home/pierrer/PipelineCS/DL/103465/washington-vs-phantom-m3-dust2.dem,0,0,casual,false,145,146,59,3029,2026-03-24 16:00:26.040 +0000,Phantom,3,0,24,false
+"2b692f403d8a2537",/home/pierrer/PipelineCS/DL/103466/gentle-mates-vs-liquid-m1-inferno.dem,0,0,casual,false,136,137,46,3433,2026-03-24 16:03:23.809 +0000,Gentle Mates,3,0,24,false
+"7f742621512ab5d3",/home/pierrer/PipelineCS/DL/103466/gentle-mates-vs-liquid-m2-mirage.dem,0,0,casual,false,141,141,46,3259,2026-03-24 16:07:09.903 +0000,Liquid,3,0,24,false
+f68d4aa10d3c15fc,/home/pierrer/PipelineCS/DL/103466/gentle-mates-vs-liquid-m3-nuke.dem,0,0,casual,false,118,119,34,2732,2026-03-24 16:08:56.801 +0000,Liquid,2,0,24,false
+"698ae7f08e02241e",/home/pierrer/PipelineCS/DL/103467/elites-vs-herewegoagain-m1-mirage.dem,0,0,casual,false,117,117,34,2266,2026-03-24 16:12:15.817 +0000,HereWeGoAgain,2,0,24,false
+"9b8261c9e55ad80f",/home/pierrer/PipelineCS/DL/103467/elites-vs-herewegoagain-m2-dust2.dem,0,0,casual,false,105,106,42,2497,2026-03-24 16:13:44.286 +0000,HereWeGoAgain,3,0,24,false
+fad922bd36c191fc,/home/pierrer/PipelineCS/DL/103468/state-vs-johnny-speeds-m3-overpass.dem,0,0,casual,false,129,130,43,2591,2026-03-24 16:17:13.671 +0000,Johnny Speeds,2,0,24,false
+"8cf67a76a7e8baf5",/home/pierrer/PipelineCS/DL/103468/state-vs-johnny-speeds-m2-mirage.dem,0,0,casual,false,160,161,55,3182,2026-03-24 16:19:03.734 +0000,Johnny Speeds,3,0,24,false
+"31d6d8bb325cf9f8",/home/pierrer/PipelineCS/DL/103468/state-vs-johnny-speeds-m1-train.dem,0,0,casual,false,213,213,83,4042,2026-03-24 16:21:16.328 +0000,STATE ESPORT,2,1,24,false
+"5b499e0f4fbdc664",/home/pierrer/PipelineCS/DL/103469/betclic-vs-minlate-m3-dust2.dem,0,0,casual,false,133,133,48,2783,2026-03-24 16:24:01.669 +0000,Betclic Apogee,2,0,24,false
+"35943b9b1fa54851",/home/pierrer/PipelineCS/DL/103469/betclic-vs-minlate-m1-ancient.dem,0,0,casual,false,99,103,26,2565,2026-03-24 16:25:32.278 +0000,MINLATE,3,0,24,false
+"4c0fb74ff1d37488",/home/pierrer/PipelineCS/DL/103469/betclic-vs-minlate-m2-nuke.dem,0,0,casual,false,127,131,39,3029,2026-03-24 16:26:58.312 +0000,Betclic Apogee,3,0,24,false
+c0165a1c61954a4d,/home/pierrer/PipelineCS/DL/103470/the-huns-vs-xdm-m3-dust2.dem,0,0,casual,false,158,159,49,3564,2026-03-24 16:29:29.853 +0000,THE HUNS,2,0,24,false
+c4f4da42623b2204,/home/pierrer/PipelineCS/DL/103470/the-huns-vs-xdm-m1-mirage.dem,0,0,casual,false,148,148,48,3457,2026-03-24 16:33:09.654 +0000,TEAM XDM,3,0,24,false
+efdf4f2365128a77,/home/pierrer/PipelineCS/DL/103470/the-huns-vs-xdm-m2-ancient.dem,0,0,casual,false,143,143,51,4513,2026-03-24 16:35:13.788 +0000,THE HUNS,3,0,24,false
+b8d45e4d313edb06,/home/pierrer/PipelineCS/DL/103471/bulgariapeek-vs-sangal-ancient.dem,0,0,casual,false,151,151,47,3199,2026-03-24 16:37:50.755 +0000,Sangal 1XBET,3,0,24,false
+"8b5a1e7040012f52",/home/pierrer/PipelineCS/DL/103472/big-academy-vs-lfo-6-mirage.dem,0,0,casual,false,126,126,49,2433,2026-03-24 16:40:01.202 +0000,BIG ACD,2,0,24,false
+"97533032f79a57fa",/home/pierrer/PipelineCS/DL/103473/qwentry-vs-genone-dust2.dem,0,0,casual,false,180,181,69,3702,2026-03-24 16:42:22.400 +0000,GenOne,3,0,24,false
+"8194164e37a349ae",/home/pierrer/PipelineCS/DL/103474/kolesie-vs-metizport-nuke.dem,0,0,casual,false,159,162,46,3906,2026-03-24 16:46:15.361 +0000,KOLESIE,3,0,24,false
+f273210b73cb7256,/home/pierrer/PipelineCS/DL/103475/ence-vs-elitenergy-nuke.dem,0,0,casual,false,148,151,52,3760,2026-03-24 16:49:54.780 +0000,ENCE,2,0,24,false
+"13e5f07b85555ae5",/home/pierrer/PipelineCS/DL/103476/virtus-pro-vs-nuclear-tigeres-inferno.dem,0,0,casual,false,168,173,61,4005,2026-03-24 16:53:04.103 +0000,Nuclear TigeRES,3,0,24,false
+ad357f012bd8bbdf,/home/pierrer/PipelineCS/DL/103477/forze-reload-vs-los-kogutos-m3-nuke.dem,0,0,casual,false,139,140,40,2848,2026-03-24 16:57:32.851 +0000,FORZE Reload,3,0,24,false
+c7b076d797b3dbe6,/home/pierrer/PipelineCS/DL/103477/forze-reload-vs-los-kogutos-m2-anubis.dem,0,0,casual,false,204,204,74,4197,2026-03-24 17:00:24.532 +0000,FORZE Reload,2,1,24,false
+acba6c83282fbc01,/home/pierrer/PipelineCS/DL/103477/forze-reload-vs-los-kogutos-m1-mirage.dem,0,0,casual,false,100,100,35,2428,2026-03-24 17:02:51.886 +0000,Los Kogutos,2,0,24,false
+eb5a051f41238642,/home/pierrer/PipelineCS/DL/103478/nemesis-vs-1win-inferno.dem,0,0,casual,false,185,189,61,3936,2026-03-24 17:05:31.488 +0000,Team Nemesis,2,0,24,false
+"8c6cdb2c2b4b5282",/home/pierrer/PipelineCS/DL/103480/lospegadinhas-vs-internet-kings-m1-mirage.dem,0,0,casual,false,167,168,60,3530,2026-03-25 08:19:22.891 +0000,internet kings,3,0,24,false
+"5b1fae1843426fce",/home/pierrer/PipelineCS/DL/103480/lospegadinhas-vs-internet-kings-m2-ancient.dem,0,0,casual,false,149,154,50,3922,2026-03-25 08:21:11.925 +0000,lospegadinhas,3,0,24,false
+"298a9abbb10da3da",/home/pierrer/PipelineCS/DL/103480/lospegadinhas-vs-internet-kings-m3-nuke.dem,0,0,casual,false,135,135,31,2657,2026-03-25 08:22:38.950 +0000,lospegadinhas,2,0,24,false
+a9cecce61970ac6f,/home/pierrer/PipelineCS/DL/103481/ursa-vs-leo-nuke.dem,0,0,casual,false,156,160,46,3016,2026-03-25 08:24:28.704 +0000,Ursa,3,0,24,false
+b44ef1aa8056e245,/home/pierrer/PipelineCS/DL/103482/mana-vs-big-m2-dust2.dem,0,0,casual,false,131,131,44,3106,2026-03-25 08:27:02.726 +0000,BIG,2,0,24,false
+"711bcb01189ff22f",/home/pierrer/PipelineCS/DL/103482/mana-vs-big-m1-ancient.dem,0,0,casual,false,153,155,50,3381,2026-03-25 08:28:57.678 +0000,BIG,3,0,24,false
+"9ff3df6794bf9a01",/home/pierrer/PipelineCS/DL/103483/gamerlegion-vs-aurora-m3-mirage.dem,0,0,casual,false,118,119,43,2420,2026-03-25 08:32:24.071 +0000,GamerLegion,3,0,24,false
+"1d2f17af80a4b42d",/home/pierrer/PipelineCS/DL/103483/gamerlegion-vs-aurora-m2-dust2.dem,0,0,casual,false,149,149,51,2826,2026-03-25 08:35:03.866 +0000,Aurora Gaming,3,0,24,false
+a5cfc99d457e271,/home/pierrer/PipelineCS/DL/103483/gamerlegion-vs-aurora-m1-inferno.dem,0,0,casual,false,204,204,75,4416,2026-03-25 08:39:00.404 +0000,GamerLegion,2,1,24,false
+"52104352bb98d527",/home/pierrer/PipelineCS/DL/103484/big-academy-vs-genone-m1-ancient.dem,0,0,casual,false,143,145,59,2577,2026-03-25 08:46:09.351 +0000,BIG ACD,3,0,24,false
+bf84777dac6ba833,/home/pierrer/PipelineCS/DL/103484/big-academy-vs-genone-m2-dust2.dem,0,0,casual,false,126,128,46,2273,2026-03-25 08:48:21.086 +0000,BIG ACD,2,0,24,false
+"26b13a9c6ac37a35",/home/pierrer/PipelineCS/DL/103485/basement-boys-vs-rebels-m1-nuke.dem,0,0,casual,false,182,186,42,4106,2026-03-25 08:51:05.083 +0000,REBELS GAMING,2,1,24,false
+"50a409cd3e4048ee",/home/pierrer/PipelineCS/DL/103485/basement-boys-vs-rebels-m2-train.dem,0,0,casual,false,152,152,48,3384,2026-03-25 08:53:37.115 +0000,REBELS GAMING,2,0,24,false
+ada217437d56b8a2,/home/pierrer/PipelineCS/DL/103486/unity-vs-bebop-m1-dust2.dem,0,0,casual,false,102,102,39,2049,2026-03-25 08:56:10.827 +0000,UNiTY,2,0,24,false
+cd9797b5df00787c,/home/pierrer/PipelineCS/DL/103486/unity-vs-bebop-m2-ancient.dem,0,0,casual,false,164,164,60,3753,2026-03-25 08:57:53.413 +0000,UNiTY,3,0,24,false
+f32f48049ea13968,/home/pierrer/PipelineCS/DL/103487/nuclear-tigeres-vs-ence-m1-ancient.dem,0,0,casual,false,164,164,64,4133,2026-03-25 09:00:38.476 +0000,Nuclear TigeRES,3,0,24,false
+"3a4c3f4cdd7388ce",/home/pierrer/PipelineCS/DL/103487/nuclear-tigeres-vs-ence-m3-dust2.dem,0,0,casual,false,111,111,48,2558,2026-03-25 09:02:41.284 +0000,Nuclear TigeRES,3,0,24,false
+"447c6ebd65d6fd79",/home/pierrer/PipelineCS/DL/103487/nuclear-tigeres-vs-ence-m2-anubis.dem,0,0,casual,false,138,138,55,3505,2026-03-25 09:04:24.909 +0000,ENCE,3,0,24,false
+"143534acb45ed245",/home/pierrer/PipelineCS/DL/103488/sangal-vs-kolesie-m1-nuke.dem,0,0,casual,false,145,145,47,3610,2026-03-25 09:07:11.834 +0000,Sangal 1XBET,2,0,24,false
+a88599dd16e02133,/home/pierrer/PipelineCS/DL/103488/sangal-vs-kolesie-m2-mirage.dem,0,0,casual,false,156,156,49,3117,2026-03-25 09:09:26.147 +0000,Sangal 1XBET,3,0,24,false
+"7b8f423709bdb2a6",/home/pierrer/PipelineCS/DL/103489/megoshort-vs-state-m1-mirage.dem,0,0,casual,false,106,106,47,2453,2026-03-25 09:12:19.935 +0000,STATE ESPORT,2,0,24,false
+daf3cadd0361be34,/home/pierrer/PipelineCS/DL/103489/megoshort-vs-state-m2-train.dem,0,0,casual,false,240,240,95,4734,2026-03-25 09:14:13.938 +0000,megoshort!,2,2,24,false
+d5d56fbf8156af98,/home/pierrer/PipelineCS/DL/103489/megoshort-vs-state-m3-inferno.dem,0,0,casual,false,130,130,55,3523,2026-03-25 09:17:18.033 +0000,STATE ESPORT,2,0,24,false
+f930cbc2345c0f13,/home/pierrer/PipelineCS/DL/103490/prison-breakers-vs-pain-academy-m1-dust2.dem,0,0,casual,false,135,136,38,3025,2026-03-25 09:21:43.672 +0000,Prison Breakers,3,0,24,false
+"7add16800eed57cf",/home/pierrer/PipelineCS/DL/103490/prison-breakers-vs-pain-academy-m2-overpass.dem,0,0,casual,false,139,140,54,2748,2026-03-25 09:24:46.754 +0000,Prison Breakers,2,0,24,false
+"3e85bd95d3274620",/home/pierrer/PipelineCS/DL/103491/mibr-vs-imperial-m1-inferno.dem,0,0,casual,false,146,146,48,3202,2026-03-25 09:27:48.396 +0000,Team B,3,0,24,false
+afc98ee350d6d138,/home/pierrer/PipelineCS/DL/103491/mibr-vs-imperial-m2-nuke.dem,0,0,casual,false,143,143,38,2852,2026-03-25 09:31:50.192 +0000,Team A,2,0,24,false
+c213688551f2be48,/home/pierrer/PipelineCS/DL/103492/monte-vs-falcons-m2-mirage.dem,0,0,casual,false,139,140,44,2783,2026-03-25 09:34:25.705 +0000,Falcons,3,0,24,false
+efd578ffadcb2e1a,/home/pierrer/PipelineCS/DL/103492/monte-vs-falcons-m1-nuke.dem,0,0,casual,false,148,150,33,2948,2026-03-25 09:36:26.582 +0000,Falcons,2,0,24,false
+cacc8f06374f42f2,/home/pierrer/PipelineCS/DL/103493/9z-vs-alzon-dust2.dem,0,0,casual,false,115,116,41,2790,2026-03-25 09:38:44.217 +0000,"9z Globant",3,0,24,false
+d6906a29083bb4b1,/home/pierrer/PipelineCS/DL/103494/nemesis-vs-ursa-m2-dust2.dem,0,0,casual,false,130,131,35,2485,2026-03-25 09:41:45.822 +0000,Team Nemesis,2,0,24,false
+"8ec72538e5116546",/home/pierrer/PipelineCS/DL/103494/nemesis-vs-ursa-m1-inferno.dem,0,0,casual,false,145,145,44,3089,2026-03-25 09:45:03.719 +0000,Ursa,2,0,24,false
+"4939860d31f7f1d",/home/pierrer/PipelineCS/DL/103494/nemesis-vs-ursa-m3-nuke.dem,0,0,casual,false,163,166,54,3496,2026-03-25 09:49:11.431 +0000,Team Nemesis,3,0,24,false
+a4a0808a07a6cad8,/home/pierrer/PipelineCS/DL/103495/shinden-vs-fake-do-biru-mirage.dem,0,0,casual,false,151,153,48,2631,2026-03-25 09:52:08.518 +0000,ShindeN,3,0,24,false
+"86a83a8d5955abb8",/home/pierrer/PipelineCS/DL/103496/keyd-stars-vs-gamehunter-mirage.dem,0,0,casual,false,121,124,50,2799,2026-03-25 09:54:36.449 +0000,Game Hunters,3,0,24,false
+"90c3cf594f42489b",/home/pierrer/PipelineCS/DL/103497/oddik-vs-descalco-na-neve-dust2.dem,0,0,casual,false,113,114,46,2241,2026-03-25 09:56:29.796 +0000,ODDIK,2,0,24,false
+"67cf0c69da510ff",/home/pierrer/PipelineCS/DL/103498/galorys-vs-procyon-overpass.dem,0,0,casual,false,141,144,52,3047,2026-03-25 09:58:25.723 +0000,RED Canids,3,0,24,false
+"6c843bb3d7193e3c",/home/pierrer/PipelineCS/DL/103500/mibr-vs-shinden-m2-inferno.dem,0,0,casual,false,155,156,60,4094,2026-03-25 10:02:09.176 +0000,ShindeN,2,0,24,false
+"84946250d1f4aafd",/home/pierrer/PipelineCS/DL/103500/mibr-vs-shinden-m1-nuke.dem,0,0,casual,false,140,141,32,2656,2026-03-25 10:06:57.293 +0000,ShindeN,3,0,24,false
+"4cf0f3e9bd06aa50",/home/pierrer/PipelineCS/DL/103502/gamehunters-vs-oddik-m2-anubis.dem,0,0,casual,false,175,175,64,3158,2026-03-25 10:14:20.486 +0000,ODDIK,2,0,24,false
+b88d5d10f2013266,/home/pierrer/PipelineCS/DL/103502/gamehunters-vs-oddik-m1-nuke.dem,0,0,casual,false,217,219,57,4881,2026-03-25 10:18:05.209 +0000,ODDIK,3,1,24,false
+"631872f398737859",/home/pierrer/PipelineCS/DL/103503/9z-vs-galorys-m1-ancient.dem,0,0,casual,false,172,190,56,3490,2026-03-25 10:22:19.759 +0000,,0,0,24,false
+"6edb9243025aa23a",/home/pierrer/PipelineCS/DL/103503/9z-vs-galorys-m2-dust2.dem,0,0,casual,false,111,111,39,2171,2026-03-25 10:25:16.275 +0000,"9z Globant",3,0,24,false
+a5c320ca83b08d5,/home/pierrer/PipelineCS/DL/103504/crashers-vs-magicos-m1-anubis.dem,0,0,casual,false,154,154,45,3239,2026-03-25 10:27:48.354 +0000,Crashers,3,0,24,false
+fee7f538eadc8986,/home/pierrer/PipelineCS/DL/103504/crashers-vs-magicos-m2-inferno.dem,0,0,casual,false,138,138,50,3628,2026-03-25 10:30:30.390 +0000,Crashers,3,0,24,false
+"5cd3dc87042dc5fa",/home/pierrer/PipelineCS/DL/103505/tricked-vs-johnny-speeds-m2-overpass.dem,0,0,casual,false,143,145,51,3420,2026-03-25 10:36:50.220 +0000,TRICKEDcs2,2,0,24,false
+"4e26230aa2be6919",/home/pierrer/PipelineCS/DL/103506/legacy-vs-mibr-m2-inferno.dem,0,0,casual,false,133,133,41,3549,2026-03-25 10:42:19.355 +0000,Team B,3,0,24,false
+af3251a6ae94e0c,/home/pierrer/PipelineCS/DL/103506/legacy-vs-mibr-m1-ancient.dem,0,0,casual,false,292,295,110,7451,2026-03-25 10:48:02.943 +0000,Team B,2,3,24,false
+e35174bc8b5c3b9,/home/pierrer/PipelineCS/DL/103506/legacy-vs-mibr-m3-nuke.dem,0,0,casual,false,122,122,30,3043,2026-03-25 10:51:56.258 +0000,Team B,3,0,24,false
+d77c622e68fdc2ca,/home/pierrer/PipelineCS/DL/103507/forze-reload-vs-masonic-m1-train.dem,0,0,casual,false,192,192,53,3462,2026-03-25 10:55:02.142 +0000,Team B,2,1,24,false
+af5c94a9b9b4b6ef,/home/pierrer/PipelineCS/DL/103507/forze-reload-vs-masonic-m2-mirage.dem,0,0,casual,false,123,123,37,2059,2026-03-25 10:57:20.628 +0000,MASONIC,2,0,24,false
+d56cfd1ffa790539,/home/pierrer/PipelineCS/DL/103508/1win-vs-ex-ruby-m1-dust2.dem,0,0,casual,false,133,134,42,3064,2026-03-25 10:59:25.607 +0000,ex-RUBY,2,0,24,false
+adc3c3f727baba0d,/home/pierrer/PipelineCS/DL/103508/1win-vs-ex-ruby-m2-ancient.dem,0,0,casual,false,165,166,41,3713,2026-03-25 11:01:44.212 +0000,Team B,3,0,24,false
+"25c412f5d33e483",/home/pierrer/PipelineCS/DL/103509/jijiehao-vs-just-swing-m1-inferno.dem,0,0,casual,false,162,164,52,3563,2026-03-25 11:05:04.702 +0000,Just Swing,3,0,24,false
+"755ebe8645dc1b2d",/home/pierrer/PipelineCS/DL/103509/jijiehao-vs-just-swing-m2-dust2.dem,0,0,casual,false,125,126,36,2342,2026-03-25 11:08:46.848 +0000,JiJieHao,3,0,24,false
+bb33593cba9764fb,/home/pierrer/PipelineCS/DL/103509/jijiehao-vs-just-swing-m3-ancient.dem,0,0,casual,false,108,108,33,2065,2026-03-25 11:10:27.990 +0000,JiJieHao,2,0,24,false
+"6394adb370a024c4",/home/pierrer/PipelineCS/DL/103510/midnight-vs-prestige-m1-mirage.dem,0,0,casual,false,116,116,28,2279,2026-03-25 11:12:24.363 +0000,Prestige,2,0,24,false
+"1fe4a7ae89f9e505",/home/pierrer/PipelineCS/DL/103510/midnight-vs-prestige-m2-nuke.dem,0,0,casual,false,124,124,30,2531,2026-03-25 11:14:33.649 +0000,Prestige,3,0,24,false
+b3764366fb185cc0,/home/pierrer/PipelineCS/DL/103511/hindsight-vs-pigeons-m2-mirage.dem,0,0,casual,false,116,116,36,2608,2026-03-25 11:17:00.997 +0000,Pigeons,3,0,24,false
+"94d81caf12815656",/home/pierrer/PipelineCS/DL/103511/hindsight-vs-pigeons-m3-nuke.dem,0,0,casual,false,119,119,33,2722,2026-03-25 11:18:22.719 +0000,hindsight,3,0,24,false
+dc1a3ea81c1f9b20,/home/pierrer/PipelineCS/DL/103511/hindsight-vs-pigeons-m1-inferno.dem,0,0,casual,false,173,173,62,4259,2026-03-25 11:20:13.223 +0000,hindsight,3,0,24,false
+"9b97719b66595b86",/home/pierrer/PipelineCS/DL/103512/parivision-vs-astralis-m1-dust2.dem,0,0,casual,false,79,80,24,1701,2026-03-25 11:24:43.199 +0000,PARIVISION,3,0,24,false
+"9fedeb7256b9e6ea",/home/pierrer/PipelineCS/DL/103512/parivision-vs-astralis-m2-ancient.dem,0,0,casual,false,133,133,47,3025,2026-03-25 11:26:51.735 +0000,PARIVISION,3,0,24,false
+"11a93513ed49b67e",/home/pierrer/PipelineCS/DL/103513/chicken-burger-vs-big-academy-m1-dust2.dem,0,0,casual,false,133,134,32,2269,2026-03-25 11:29:45.268 +0000,BIG AC,3,0,24,false
+"62fb056c88c365e6",/home/pierrer/PipelineCS/DL/103513/chicken-burger-vs-big-academy-m2-mirage.dem,0,0,casual,false,101,101,27,1762,2026-03-25 11:32:03.114 +0000,BIG AC,2,0,24,false
+ba78f6ee72c75fa7,/home/pierrer/PipelineCS/DL/103514/acend-vs-eternal-fire-m1-overpass.dem,0,0,casual,false,204,204,73,5172,2026-03-25 11:35:30.955 +0000,Eternal Fire,3,1,24,false
+"5b5534fa0e89a1cc",/home/pierrer/PipelineCS/DL/103514/acend-vs-eternal-fire-m2-mirage.dem,0,0,casual,false,141,141,44,2829,2026-03-25 11:39:45.438 +0000,Eternal Fire,3,0,24,false
+b9749b08d65b8d27,/home/pierrer/PipelineCS/DL/103515/los-kogutos-vs-brute-m1-ancient.dem,0,0,casual,false,141,141,55,3465,2026-03-25 11:42:26.376 +0000,BRUTE,3,0,24,false
+"28d151d5f23d4b84",/home/pierrer/PipelineCS/DL/103515/los-kogutos-vs-brute-m2-dust2.dem,0,0,casual,false,180,180,66,3340,2026-03-25 11:44:34.801 +0000,BRUTE,2,0,24,false
+"7c4fd7f0f8f6aae5",/home/pierrer/PipelineCS/DL/103516/mouz-nxt-vs-betclic-m1-nuke.dem,0,0,casual,false,151,153,45,2978,2026-03-25 11:48:02.229 +0000,Betclic Apogee,3,0,24,false
+df0b525227844b7c,/home/pierrer/PipelineCS/DL/103516/mouz-nxt-vs-betclic-m3-mirage.dem,0,0,casual,false,218,219,79,4338,2026-03-25 11:50:06.702 +0000,Betclic Apogee,2,1,24,false
+ce921e308da85cc9,/home/pierrer/PipelineCS/DL/103516/mouz-nxt-vs-betclic-m2-ancient.dem,0,0,casual,false,129,129,49,3199,2026-03-25 11:51:45.373 +0000,MOUZ NXT,3,0,24,false
+"319b8a24f3d5e3bc",/home/pierrer/PipelineCS/DL/103517/inner-circle-vs-spirit-m1-ancient.dem,0,0,casual,false,143,143,56,3134,2026-03-25 11:54:57.702 +0000,Team Spirit,2,0,24,false
+"49dd6581ae61cb27",/home/pierrer/PipelineCS/DL/103517/inner-circle-vs-spirit-m2-dust2.dem,0,0,casual,false,119,119,44,2473,2026-03-25 11:56:40.258 +0000,Team Spirit,3,0,24,false
+"32ee618f640f3c34",/home/pierrer/PipelineCS/DL/103518/rare-atom-vs-ur-m2-dust2.dem,0,0,casual,false,159,159,58,3726,2026-03-25 11:58:56.710 +0000,Unsettled Resentment,2,0,24,false
+"60ccb24c67247cda",/home/pierrer/PipelineCS/DL/103518/rare-atom-vs-ur-m1-ancient.dem,0,0,casual,false,250,252,102,6227,2026-03-25 12:02:00.868 +0000,Rare Atom,2,2,24,false
+"2ad829638666b8d4",/home/pierrer/PipelineCS/DL/103518/rare-atom-vs-ur-m3-inferno.dem,0,0,casual,false,151,152,60,3814,2026-03-25 12:04:56.127 +0000,Rare Atom,2,0,24,false
+d58e215792dc7839,/home/pierrer/PipelineCS/DL/103519/sangal-vs-illwill-m2-nuke.dem,0,0,casual,false,237,241,77,5674,2026-03-25 12:08:36.632 +0000,illwill,3,2,24,false
+"6716f721d3b95b26",/home/pierrer/PipelineCS/DL/103519/sangal-vs-illwill-m1-mirage.dem,0,0,casual,false,133,137,48,3587,2026-03-25 12:11:05.523 +0000,illwill,2,0,24,false
+f0706bd9d0abc1fe,/home/pierrer/PipelineCS/DL/103520/gamehunters-vs-satriales-m2-mirage.dem,0,0,casual,false,124,124,37,2644,2026-03-25 12:12:58.610 +0000,GameHunters,3,0,24,false
+e46a1f71da43fd96,/home/pierrer/PipelineCS/DL/103520/gamehunters-vs-satriales-m1-dust2.dem,0,0,casual,false,143,146,44,3217,2026-03-25 12:14:23.898 +0000,GameHunters,2,0,24,false
+acdd50f6a2aae573,/home/pierrer/PipelineCS/DL/103521/flyquest-vs-steel-helmet-m1-mirage.dem,0,0,casual,false,132,132,46,2703,2026-03-25 12:16:17.493 +0000,Flyquest,2,0,24,false
+"37faea3092e1fd7c",/home/pierrer/PipelineCS/DL/103521/flyquest-vs-steel-helmet-m2-anubis.dem,0,0,casual,false,84,84,18,1448,2026-03-25 12:17:20.142 +0000,Flyquest,2,0,24,false
+"44c8225491de0038",/home/pierrer/PipelineCS/DL/103522/hyperspirit-vs-aab-m1-overpass.dem,0,0,casual,false,161,164,56,3798,2026-03-25 12:19:20.773 +0000,Team B,3,0,24,false
+ac6924b5f306b714,/home/pierrer/PipelineCS/DL/103522/hyperspirit-vs-aab-m2-mirage.dem,0,0,casual,false,137,138,42,3080,2026-03-25 12:20:55.334 +0000,Team B,3,0,24,false
+"92c4f18e5b1a21fc",/home/pierrer/PipelineCS/DL/103522/hyperspirit-vs-aab-m3-ancient.dem,0,0,casual,false,139,139,51,3272,2026-03-25 12:22:45.505 +0000,HyperSpirit,3,0,24,false
+"58127e8e0c40ad30",/home/pierrer/PipelineCS/DL/103523/big-vs-rebels-m1-inferno.dem,0,0,casual,false,90,90,29,2550,2026-03-25 12:25:22.754 +0000,BIG,2,0,24,false
+"7ad1a0392a592f00",/home/pierrer/PipelineCS/DL/103523/big-vs-rebels-m2-ancient.dem,0,0,casual,false,112,123,40,3010,2026-03-25 12:27:26.327 +0000,BIG,3,0,24,false
+f8eb96495879106,/home/pierrer/PipelineCS/DL/103524/lilmix-vs-state-m2-overpass.dem,0,0,casual,false,160,162,62,3558,2026-03-25 12:29:38.040 +0000,Lilmix,2,0,24,false
+"797cb090bf9f0b",/home/pierrer/PipelineCS/DL/103524/lilmix-vs-state-m1-inferno.dem,0,0,casual,false,164,165,56,3988,2026-03-25 12:31:39.200 +0000,Lilmix,3,0,24,false
+bc0f0a87e47cba11,/home/pierrer/PipelineCS/DL/103525/eyeballers-vs-vitality-m2-overpass.dem,0,0,casual,false,140,140,50,3301,2026-03-25 12:35:27.916 +0000,Team Vitality,3,0,24,false
+"8e7a743264da3ff5",/home/pierrer/PipelineCS/DL/103525/eyeballers-vs-vitality-m1-anubis.dem,0,0,casual,false,240,241,87,5586,2026-03-25 12:37:45.090 +0000,Team Vitality,3,2,24,false
+b15a8fb7d3089279,/home/pierrer/PipelineCS/DL/103527/bad-luck-vs-charrados-m1-overpass.dem,0,0,casual,false,122,132,44,2529,2026-03-26 09:17:04.273 +0000,Charrados,2,0,24,false
+"531cd3c2af13b679",/home/pierrer/PipelineCS/DL/103527/bad-luck-vs-charrados-m2-inferno.dem,0,0,casual,false,146,146,57,3282,2026-03-26 09:18:36.564 +0000,Bad Luck,2,0,24,false
+"436390bf0f4b8576",/home/pierrer/PipelineCS/DL/103527/bad-luck-vs-charrados-m3-anubis.dem,0,0,casual,false,196,196,83,3967,2026-03-26 09:20:56.681 +0000,Bad Luck,3,1,24,false
+"2aa325b12c081d6b",/home/pierrer/PipelineCS/DL/103528/eternal-fire-vs-acend-m3-dust2.dem,0,0,casual,false,163,165,52,2758,2026-03-26 09:23:36.264 +0000,Eternal Fire,2,0,24,false
+b1b5c3d3ff0eebcf,/home/pierrer/PipelineCS/DL/103528/eternal-fire-vs-acend-m1-mirage.dem,0,0,casual,false,134,136,36,2611,2026-03-26 09:25:05.408 +0000,Team A,2,0,24,false
+"5c82212d3accfe0d",/home/pierrer/PipelineCS/DL/103528/eternal-fire-vs-acend-m2-overpass.dem,0,0,casual,false,165,165,60,3481,2026-03-26 09:26:37.088 +0000,Team A,2,0,24,false
+f1155c4667055301,/home/pierrer/PipelineCS/DL/103529/am-vs-unity-m1-mirage.dem,0,0,casual,false,153,155,53,3126,2026-03-26 09:28:49.346 +0000,UNiTY,2,0,24,false
+"49a58b27d3c7c7fc",/home/pierrer/PipelineCS/DL/103529/am-vs-unity-m2-ancient.dem,0,0,casual,false,96,97,32,2108,2026-03-26 09:29:58.237 +0000,AM Gaming,2,0,24,false
+a66237217d716c23,/home/pierrer/PipelineCS/DL/103529/am-vs-unity-m3-dust2.dem,0,0,casual,false,162,163,56,2834,2026-03-26 09:31:05.017 +0000,AM Gaming,2,0,24,false
+e330e456b4db80a4,/home/pierrer/PipelineCS/DL/103530/aab-vs-bebop-m2-overpass.dem,0,0,casual,false,148,148,46,3338,2026-03-26 09:33:14.488 +0000,AaB,3,0,24,false
+a2ca8bb245b5a03f,/home/pierrer/PipelineCS/DL/103530/aab-vs-bebop-m1-nuke.dem,0,0,casual,false,124,126,36,2615,2026-03-26 09:34:30.002 +0000,Bebop,3,0,24,false
+"5197543f76489ac6",/home/pierrer/PipelineCS/DL/103530/aab-vs-bebop-m3-ancient.dem,0,0,casual,false,153,153,49,3847,2026-03-26 09:35:54.258 +0000,AaB,2,0,24,false
+"72700f2c46888739",/home/pierrer/PipelineCS/DL/103531/betclic-vs-big-m2-ancient.dem,0,0,casual,false,118,120,44,2436,2026-03-26 09:37:53.039 +0000,BIG,3,0,24,false
+"98eafdda0b5a3641",/home/pierrer/PipelineCS/DL/103531/betclic-vs-big-m1-train.dem,0,0,casual,false,153,153,51,3204,2026-03-26 09:39:14.879 +0000,BIG,2,0,24,false
+efef0fbfef41a301,/home/pierrer/PipelineCS/DL/103532/fut-vs-furia-m2-overpass.dem,0,0,casual,false,125,125,40,2915,2026-03-26 09:41:23.093 +0000,FUT Esports,2,0,24,false
+"5472be9ae4601bd9",/home/pierrer/PipelineCS/DL/103532/fut-vs-furia-m1-anubis.dem,0,0,casual,false,149,149,48,2816,2026-03-26 09:43:24.156 +0000,FURIA,3,0,24,false
+"1ba8baaf92fca4f",/home/pierrer/PipelineCS/DL/103532/fut-vs-furia-m3-dust2.dem,0,0,casual,false,163,166,67,3577,2026-03-26 09:45:31.270 +0000,FURIA,3,0,24,false
+f402302ddb781ab3,/home/pierrer/PipelineCS/DL/103533/vasco-vs-four-magic-m2-overpass.dem,0,0,casual,false,131,141,49,3251,2026-03-26 09:48:29.491 +0000,Four Magic,3,0,24,false
+"23fd82dad5a197ba",/home/pierrer/PipelineCS/DL/103533/vasco-vs-four-magic-m3-inferno.dem,0,0,casual,false,219,253,75,5356,2026-03-26 09:58:21.723 +0000,Four Magic,3,2,24,false
+"7aa99739d81badc1",/home/pierrer/PipelineCS/DL/103533/vasco-vs-four-magic-m1-mirage.dem,0,0,casual,false,113,113,41,2487,2026-03-26 10:06:07.563 +0000,Vasco,3,0,24,false
+"74aacd91b425e2c5",/home/pierrer/PipelineCS/DL/103535/sharks-vs-mibr-m5-dust2.dem,0,0,casual,false,129,129,52,2414,2026-03-26 11:03:39.604 +0000,Team A,2,0,24,false
+"441c7360bd50c76c",/home/pierrer/PipelineCS/DL/103535/sharks-vs-mibr-m4-overpass.dem,0,0,casual,false,149,150,44,3458,2026-03-26 11:05:10.759 +0000,Team A,2,0,24,false
+"1405df56c7951e00",/home/pierrer/PipelineCS/DL/103535/sharks-vs-mibr-m1-inferno.dem,0,0,casual,false,140,141,49,3457,2026-03-26 11:07:22.057 +0000,Team A,2,0,24,false
+"5c202255dcaea603",/home/pierrer/PipelineCS/DL/103535/sharks-vs-mibr-m3-mirage.dem,0,0,casual,false,136,136,47,2782,2026-03-26 11:09:28.405 +0000,Team A,2,0,24,false
+"6faa8241f0e5a560",/home/pierrer/PipelineCS/DL/103535/sharks-vs-mibr-m2-ancient.dem,0,0,casual,false,145,145,49,3076,2026-03-26 11:10:45.531 +0000,Team A,2,0,24,false
+c2328076a7334a84,/home/pierrer/PipelineCS/DL/103536/lynn-vision-vs-walk-the-talk-m2-inferno.dem,0,0,casual,false,111,111,31,2169,2026-03-26 11:12:28.634 +0000,LVG,3,0,24,false
+b58fc86e8bbedede,/home/pierrer/PipelineCS/DL/103536/lynn-vision-vs-walk-the-talk-m1-overpass.dem,0,0,casual,false,93,93,29,1844,2026-03-26 11:14:15.750 +0000,LVG,2,0,24,false
+ecf6cb964847c53f,/home/pierrer/PipelineCS/DL/103537/fengda-vs-eruption-m2-mirage.dem,0,0,casual,false,140,140,46,3627,2026-03-26 11:16:20.684 +0000,Eruption,2,0,24,false
+"8a745daf1bcbcb10",/home/pierrer/PipelineCS/DL/103537/fengda-vs-eruption-m1-anubis.dem,0,0,casual,false,153,154,50,3417,2026-03-26 11:18:48.399 +0000,Eruption,2,0,24,false
+"512f65d79752db5b",/home/pierrer/PipelineCS/DL/103538/pigeons-vs-los-kogutos-m1-mirage.dem,0,0,casual,false,160,161,46,3857,2026-03-26 11:20:52.062 +0000,Pigeons,3,0,24,false
+"20fe6144a031b919",/home/pierrer/PipelineCS/DL/103539/nuclear-tigeres-vs-arcred-m2-inferno.dem,0,0,casual,false,127,127,51,3175,2026-03-26 11:23:08.440 +0000,ARCRED,2,0,24,false
+f24a8a0c8d3af7fd,/home/pierrer/PipelineCS/DL/103539/nuclear-tigeres-vs-arcred-m3-anubis.dem,0,0,casual,false,134,134,51,3006,2026-03-26 11:26:05.327 +0000,ARCRED,3,0,24,false
+"6f0ae805faa2da5d",/home/pierrer/PipelineCS/DL/103539/nuclear-tigeres-vs-arcred-m1-mirage.dem,0,0,casual,false,107,107,38,1831,2026-03-26 11:27:25.974 +0000,Nuclear TigeRES,2,0,24,false
+ff000c6bcda4e4d7,/home/pierrer/PipelineCS/DL/103540/masonic-vs-navi-junior-m1-overpass.dem,0,0,casual,false,108,110,32,2056,2026-03-26 11:28:59.702 +0000,Masonic,3,0,24,false
+"3aef82602b64df49",/home/pierrer/PipelineCS/DL/103540/masonic-vs-navi-junior-m2-mirage.dem,0,0,casual,false,150,151,38,2805,2026-03-26 11:30:09.394 +0000,Navi junior,3,0,24,false
+ece49016c38ed070,/home/pierrer/PipelineCS/DL/103540/masonic-vs-navi-junior-m3-inferno.dem,0,0,casual,false,119,119,37,2694,2026-03-26 11:31:31.111 +0000,Masonic,2,0,24,false
+de841a4031883d6d,/home/pierrer/PipelineCS/DL/103541/kono-vs-rottweilers-m1-nuke.dem,0,0,casual,false,130,132,41,3124,2026-03-26 11:34:06.768 +0000,Kono,3,0,24,false
+"82827454c17fd39a",/home/pierrer/PipelineCS/DL/103541/kono-vs-rottweilers-m2-dust2.dem,0,0,casual,false,136,138,37,2465,2026-03-26 11:35:27.209 +0000,Kono,2,0,24,false
+"91b632446276457a",/home/pierrer/PipelineCS/DL/103542/nemiga-vs-genone-m2-nuke.dem,0,0,casual,false,143,143,40,2466,2026-03-26 11:37:08.842 +0000,Nemiga Gaming,2,0,24,false
+d013a285af3cd019,/home/pierrer/PipelineCS/DL/103542/nemiga-vs-genone-m1-ancient.dem,0,0,casual,false,126,136,42,2780,2026-03-26 11:38:24.082 +0000,Nemiga Gaming,3,0,24,false
+"62f47ac112ded76c",/home/pierrer/PipelineCS/DL/103543/metizport-vs-ex-ruby-m1-overpass.dem,0,0,casual,false,124,124,37,2619,2026-03-26 11:40:52.752 +0000,ex-RUBY,2,0,24,false
+"7f45669c9c0ddf0b",/home/pierrer/PipelineCS/DL/103543/metizport-vs-ex-ruby-m2-dust2.dem,0,0,casual,false,123,125,40,2755,2026-03-26 11:42:12.472 +0000,ex-RUBY,3,0,24,false
+"57fc4ddfd0f33850",/home/pierrer/PipelineCS/DL/103544/lilmix-vs-bebop-m2-mirage.dem,0,0,casual,false,134,134,36,2697,2026-03-26 11:43:53.246 +0000,Bebop,3,0,24,false
+"2ae1cc0d2cda666c",/home/pierrer/PipelineCS/DL/103544/lilmix-vs-bebop-m1-ancient.dem,0,0,casual,false,159,161,54,3367,2026-03-26 11:45:12.469 +0000,Bebop,2,0,24,false
+"24868ed375d388a8",/home/pierrer/PipelineCS/DL/103545/fut-academy-vs-truck-drivers-m1-nuke.dem,0,0,casual,false,129,139,32,2643,2026-03-26 11:47:11.591 +0000,Truck Drivers,2,0,24,false
+"567d936e05038078",/home/pierrer/PipelineCS/DL/103545/fut-academy-vs-truck-drivers-m2-mirage.dem,0,0,casual,false,125,125,36,2602,2026-03-26 11:48:26.969 +0000,Truck Drivers,3,0,24,false
+c0a9626907f6487d,/home/pierrer/PipelineCS/DL/103546/bushido-wildcats-vs-pigeons-m1-mirage.dem,0,0,casual,false,139,140,38,3083,2026-03-26 11:50:03.491 +0000,Bushido Wildcats,2,0,24,false
+"5deff1165e818acf",/home/pierrer/PipelineCS/DL/103546/bushido-wildcats-vs-pigeons-m2-inferno.dem,0,0,casual,false,99,100,35,2151,2026-03-26 11:51:15.585 +0000,Bushido Wildcats,3,0,24,false
+"7dd33b8d61df65e",/home/pierrer/PipelineCS/DL/103547/unity-vs-fingers-crossed-m1-mirage.dem,0,0,casual,false,158,159,53,3061,2026-03-26 11:53:23.492 +0000,Fingers Crossed,3,0,24,false
+"234c16eeca6ac847",/home/pierrer/PipelineCS/DL/103547/unity-vs-fingers-crossed-m2-inferno.dem,0,0,casual,false,140,140,52,2939,2026-03-26 11:55:40.576 +0000,Fingers Crossed,2,0,24,false
+"59ee3086e946cf74",/home/pierrer/PipelineCS/DL/103548/bet-m-vs-favbet-m1-inferno.dem,0,0,casual,false,175,177,63,4674,2026-03-26 12:01:01.725 +0000,BET-M 33,3,1,24,false
+"97e55146f7da19fc",/home/pierrer/PipelineCS/DL/103548/bet-m-vs-favbet-m2-ancient.dem,0,0,casual,false,110,110,29,2173,2026-03-26 12:06:57.311 +0000,BET-M 33,3,0,24,false
+f703badc67aea0fe,/home/pierrer/PipelineCS/DL/103549/satriales-vs-herewegoagain-m2-mirage.dem,0,0,casual,false,131,131,50,2939,2026-03-26 12:09:10.807 +0000,HereWeGoAgain,3,0,24,false
+"1831d36c7513cba7",/home/pierrer/PipelineCS/DL/103549/satriales-vs-herewegoagain-m3-anubis.dem,0,0,casual,false,164,164,57,3121,2026-03-26 12:10:28.707 +0000,HereWeGoAgain,3,0,24,false
+"796014bfc18f028d",/home/pierrer/PipelineCS/DL/103549/satriales-vs-herewegoagain-m1-dust2.dem,0,0,casual,false,162,163,56,3549,2026-03-26 12:12:00.529 +0000,Satriales,3,0,24,false
+"5016c13e6eb6a5cb",/home/pierrer/PipelineCS/DL/103550/acend-vs-ursa-m2-nuke.dem,0,0,casual,false,133,136,40,2904,2026-03-26 12:14:10.398 +0000,Ursa,3,0,24,false
+"54b35618beb58bdb",/home/pierrer/PipelineCS/DL/103550/acend-vs-ursa-m1-inferno.dem,0,0,casual,false,113,113,44,2685,2026-03-26 12:16:50.553 +0000,Acend,3,0,24,false
+aa887fec86d43964,/home/pierrer/PipelineCS/DL/103550/acend-vs-ursa-m3-overpass.dem,0,0,casual,false,149,150,42,3235,2026-03-26 12:21:58.071 +0000,Ursa,3,0,24,false
+"96d88a7d1329b7",/home/pierrer/PipelineCS/DL/103551/magicos-vs-lospegadinhas-m2-anubis.dem,0,0,casual,false,136,136,49,2715,2026-03-26 12:24:43.289 +0000,MAGICOS,2,0,24,false
+e89633500c24ccd,/home/pierrer/PipelineCS/DL/103551/magicos-vs-lospegadinhas-m1-ancient.dem,0,0,casual,false,172,183,59,3659,2026-03-26 12:26:45.715 +0000,MAGICOS,2,0,24,false
+d80c62ce8d30388d,/home/pierrer/PipelineCS/DL/103552/nemesis-vs-forze-reload-m1-dust2.dem,0,0,casual,false,122,122,36,3153,2026-03-26 12:29:42.969 +0000,ex-GUN5,3,0,24,false
+"3c86ebc2f0e6509b",/home/pierrer/PipelineCS/DL/103552/nemesis-vs-forze-reload-m2-ancient.dem,0,0,casual,false,139,140,37,2915,2026-03-26 12:31:50.258 +0000,ex-GUN5,2,0,24,false
+a62fe0afd3034f42,/home/pierrer/PipelineCS/DL/103553/pain-academy-vs-charrados-m2-mirage.dem,0,0,casual,false,110,112,41,2533,2026-03-26 12:34:51.150 +0000,paiN Academy,3,0,24,false
+f419c1b7c8dcac90,/home/pierrer/PipelineCS/DL/103553/pain-academy-vs-charrados-m1-inferno.dem,0,0,casual,false,187,190,62,4206,2026-03-26 12:38:58.709 +0000,Charrados,2,1,24,false
+"533b48fe92702f05",/home/pierrer/PipelineCS/DL/103553/pain-academy-vs-charrados-m3-dust2.dem,0,0,casual,false,96,97,40,1788,2026-03-26 12:43:59.770 +0000,paiN Academy,3,0,24,false
+"8f3c21b20f84062a",/home/pierrer/PipelineCS/DL/103554/nuclear-tigeres-vs-unity-m1-anubis.dem,0,0,casual,false,102,103,34,2356,2026-03-26 12:47:29.526 +0000,Nuclear TigeRES,3,0,24,false
+"54b45a1874b21831",/home/pierrer/PipelineCS/DL/103554/nuclear-tigeres-vs-unity-m2-ancient.dem,0,0,casual,false,137,148,45,3385,2026-03-26 12:49:51.113 +0000,Nuclear TigeRES,3,0,24,false
+"8329f6b8ad1a48a0",/home/pierrer/PipelineCS/DL/103555/rottweilers-vs-pigeons-m1-dust2.dem,0,0,casual,false,198,199,51,3892,2026-03-26 12:54:08.539 +0000,rottweilers,3,1,24,false
+"79e72cc113e197a3",/home/pierrer/PipelineCS/DL/103555/rottweilers-vs-pigeons-m2-mirage.dem,0,0,casual,false,144,147,49,3069,2026-03-26 12:56:27.072 +0000,rottweilers,3,0,24,false
+b9472c5fd681ff1f,/home/pierrer/PipelineCS/DL/103556/prestige-vs-fut-academy-m2-ancient.dem,0,0,casual,false,142,144,63,3334,2026-03-26 12:58:50.750 +0000,Prestige,2,0,24,false
+"1428a19a8f814719",/home/pierrer/PipelineCS/DL/103556/prestige-vs-fut-academy-m1-inferno.dem,0,0,casual,false,150,154,60,3650,2026-03-26 13:01:45.269 +0000,Prestige,3,0,24,false
+b5301a91dbc59f81,/home/pierrer/PipelineCS/DL/103557/arcred-vs-bebop-m2-dust2.dem,0,0,casual,false,147,148,41,2465,2026-03-26 13:06:32.156 +0000,ARCRED,3,0,24,false
+"85289b1557309e5",/home/pierrer/PipelineCS/DL/103557/arcred-vs-bebop-m1-ancient.dem,0,0,casual,false,156,156,46,3294,2026-03-26 13:08:34.283 +0000,ARCRED,2,0,24,false
+e097ff1c532969b1,/home/pierrer/PipelineCS/DL/103558/mouz-nxt-vs-basement-boys-m1-mirage.dem,0,0,casual,false,112,124,33,2380,2026-03-26 13:11:54.162 +0000,MOUZ NXT,2,0,24,false
+"3d04a3a6026a8e00",/home/pierrer/PipelineCS/DL/103558/mouz-nxt-vs-basement-boys-m3-nuke.dem,0,0,casual,false,165,167,47,3135,2026-03-26 13:14:10.530 +0000,MOUZ NXT,3,0,24,false
+"53f3e34648df5eda",/home/pierrer/PipelineCS/DL/103558/mouz-nxt-vs-basement-boys-m2-train.dem,0,0,casual,false,158,161,40,2909,2026-03-26 13:16:37.056 +0000,Basement Boys,2,0,24,false
+"3020d65d37204122",/home/pierrer/PipelineCS/DL/103559/big-academy-vs-navi-junior-m2-overpass.dem,0,0,casual,false,132,133,37,2264,2026-03-26 13:19:30.604 +0000,BIG AC,2,0,24,false
+"713fb2e544c4220",/home/pierrer/PipelineCS/DL/103559/big-academy-vs-navi-junior-m1-ancient.dem,0,0,casual,false,141,143,44,2986,2026-03-26 13:21:35.080 +0000,BIG AC,3,0,24,false
+"1cc1b0adc17d5a2b",/home/pierrer/PipelineCS/DL/103560/favbet-vs-phaantom-m1-anubis.dem,0,0,casual,false,193,204,77,4225,2026-03-26 13:26:11.636 +0000,FAVBET,3,1,24,false
+"98e03c6f9337ec9b",/home/pierrer/PipelineCS/DL/103560/favbet-vs-phaantom-m2-nuke.dem,0,0,casual,false,141,144,36,3004,2026-03-26 13:32:31.126 +0000,FAVBET,2,0,24,false
+b63b5a56035dc118,/home/pierrer/PipelineCS/DL/103561/aab-vs-basement-boys-m3-ancient.dem,0,0,casual,false,241,263,73,5088,2026-03-26 13:37:16.770 +0000,AaB,3,0,24,false
+ca48736f113f2ac,/home/pierrer/PipelineCS/DL/103561/aab-vs-basement-boys-m1-mirage.dem,0,0,casual,false,190,204,59,3658,2026-03-26 13:39:58.818 +0000,BASEMENT BOYS,2,1,24,false
+dcc113f1689d80de,/home/pierrer/PipelineCS/DL/103561/aab-vs-basement-boys-m2-inferno.dem,0,0,casual,false,128,131,53,3193,2026-03-26 13:43:47.457 +0000,AaB,3,0,24,false
+"7b69d8ea98ec60b4",/home/pierrer/PipelineCS/DL/103562/magic-vs-mana-m2-dust2.dem,0,0,casual,false,158,158,51,3423,2026-03-26 13:49:18.304 +0000,magic,3,0,24,false
+"3da5477c4831a35",/home/pierrer/PipelineCS/DL/103562/magic-vs-mana-m1-ancient.dem,0,0,casual,false,137,147,49,3214,2026-03-26 13:51:48.946 +0000,magic,3,0,24,false
+fdee9a7771d80500,/home/pierrer/PipelineCS/DL/103563/sangal-vs-forze-reload-m1-mirage.dem,0,0,casual,false,129,129,43,2701,2026-03-26 13:55:57.110 +0000,Sangal,3,0,24,false
+"3f5c961aa2f2c03",/home/pierrer/PipelineCS/DL/103563/sangal-vs-forze-reload-m2-ancient.dem,0,0,casual,false,157,161,55,3988,2026-03-26 13:59:02.685 +0000,Sangal,2,0,24,false
+"7b64d87d2f5d907b",/home/pierrer/PipelineCS/DL/103565/bad-luck-vs-prison-breakers-m2-dust2.dem,0,0,casual,false,128,140,44,2918,2026-03-26 14:53:27.358 +0000,Prison Breakers,3,0,24,false
+c9bc0679f483e0c9,/home/pierrer/PipelineCS/DL/103565/bad-luck-vs-prison-breakers-m1-anubis.dem,0,0,casual,false,145,145,48,2736,2026-03-26 14:55:16.161 +0000,Bad Luck,2,0,24,false
+"966daa4193f074e0",/home/pierrer/PipelineCS/DL/103565/bad-luck-vs-prison-breakers-m3-inferno.dem,0,0,casual,false,160,160,50,3930,2026-03-26 14:59:12.236 +0000,Prison Breakers,2,0,24,false
+"2c8de8ed23e2a41",/home/pierrer/PipelineCS/DL/103566/kono-vs-bushido-wildcats-m2-dust2.dem,0,0,casual,false,115,115,36,2029,2026-03-26 15:04:54.016 +0000,Bushido Wildcats,3,0,24,false
+f280a7aeb507148e,/home/pierrer/PipelineCS/DL/103566/kono-vs-bushido-wildcats-m1-nuke.dem,0,0,casual,false,153,195,46,3355,2026-03-26 15:07:29.854 +0000,Kono,3,0,24,false
+"293073b8cc6cd179",/home/pierrer/PipelineCS/DL/103566/kono-vs-bushido-wildcats-m3-anubis.dem,0,0,casual,false,160,160,55,2970,2026-03-26 15:10:34.209 +0000,Kono,2,0,24,false
+"471eef0dc1f5e829",/home/pierrer/PipelineCS/DL/103568/gamehunters-vs-vasco-m3-anubis.dem,0,0,casual,false,141,141,38,3122,2026-03-26 15:15:51.289 +0000,Vasco,3,0,24,false
+"830ef660344b7bbe",/home/pierrer/PipelineCS/DL/103568/gamehunters-vs-vasco-m2-ancient.dem,0,0,casual,false,140,140,37,3440,2026-03-26 15:19:04.980 +0000,GameHunters,3,0,24,false
+aa599af01adace51,/home/pierrer/PipelineCS/DL/103568/gamehunters-vs-vasco-m1-dust2.dem,0,0,casual,false,113,113,40,2770,2026-03-26 15:21:15.780 +0000,Vasco,3,0,24,false
+"76823ff6d3e71036",/home/pierrer/PipelineCS/DL/103570/ursa-vs-bebop-m2-overpass.dem,0,0,casual,false,146,147,41,2915,2026-03-26 15:50:31.995 +0000,Ursa,3,0,24,false
+b696a1dd1e3c0251,/home/pierrer/PipelineCS/DL/103570/ursa-vs-bebop-m1-nuke.dem,0,0,casual,false,116,117,40,2679,2026-03-26 15:51:52.270 +0000,Bebop,3,0,24,false
+"36a673862bdb4b0a",/home/pierrer/PipelineCS/DL/103570/ursa-vs-bebop-m3-mirage.dem,0,0,casual,false,153,153,42,2817,2026-03-26 15:53:12.541 +0000,Ursa,3,0,24,false
+e998a7363f8a47c5,/home/pierrer/PipelineCS/DL/103571/crashers-vs-oruga-m1-dust2.dem,0,0,casual,false,149,151,48,3047,2026-03-26 15:55:18.055 +0000,Oruga,3,0,24,false
+"4f13ea376fe8fa9e",/home/pierrer/PipelineCS/DL/103571/crashers-vs-oruga-m2-inferno.dem,0,0,casual,false,38,38,11,937,2026-03-26 15:56:30.576 +0000,Crashers,2,0,24,false
+ff9ad644f07ebe1a,/home/pierrer/PipelineCS/DL/103571/crashers-vs-oruga-m3-nuke.dem,0,0,casual,false,158,158,44,3045,2026-03-26 15:57:28.714 +0000,Oruga,3,0,24,false
+"749feb2ea0b7dadc",/home/pierrer/PipelineCS/DL/103572/nemesis-vs-arcred-m1-ancient.dem,0,0,casual,false,157,158,61,3841,2026-03-26 15:59:32.652 +0000,ARCRED,2,0,24,false
+"1200c1009d4cc65f",/home/pierrer/PipelineCS/DL/103572/nemesis-vs-arcred-m2-dust2.dem,0,0,casual,false,104,104,33,2032,2026-03-26 16:01:08.468 +0000,ARCRED,3,0,24,false
+"479f0234f1757692",/home/pierrer/PipelineCS/DL/103573/masonic-vs-truck-drivers-m2-nuke.dem,0,0,casual,false,138,138,38,2573,2026-03-26 16:03:05.504 +0000,Truck Drivers,2,0,24,false
+d34890392be91652,/home/pierrer/PipelineCS/DL/103573/masonic-vs-truck-drivers-m1-mirage.dem,0,0,casual,false,122,124,36,2074,2026-03-26 16:04:36.507 +0000,Truck Drivers,3,0,24,false
+ad8782671307c111,/home/pierrer/PipelineCS/DL/103574/bebop-vs-allinners-m3-ancient.dem,0,0,casual,false,102,102,38,2023,2026-03-26 16:06:59.749 +0000,Bebop,3,0,24,false
+c31def158f1ff22a,/home/pierrer/PipelineCS/DL/103574/bebop-vs-allinners-m2-mirage.dem,0,0,casual,false,207,210,62,3809,2026-03-26 16:09:14.804 +0000,Bebop,3,1,24,false
+"28de2bc4cbc7bba3",/home/pierrer/PipelineCS/DL/103574/bebop-vs-allinners-m1-dust2.dem,0,0,casual,false,112,124,35,2042,2026-03-26 16:11:22.810 +0000,ALLINNERS,2,0,24,false
+"9f578dadfd1bf32c",/home/pierrer/PipelineCS/DL/103575/mouz-nxt-vs-los-kogutos-m2-overpass.dem,0,0,casual,false,130,130,43,2947,2026-03-26 16:14:04.410 +0000,MOUZ NXT,3,0,24,false
+a24d129cf77fb424,/home/pierrer/PipelineCS/DL/103575/mouz-nxt-vs-los-kogutos-m1-mirage.dem,0,0,casual,false,169,172,58,3443,2026-03-26 16:15:47.186 +0000,Los Kogutos,3,0,24,false
+"942f3a5ec52656ce",/home/pierrer/PipelineCS/DL/103575/mouz-nxt-vs-los-kogutos-m3-anubis.dem,0,0,casual,false,235,235,95,4923,2026-03-26 16:18:32.231 +0000,Los Kogutos,2,2,24,false
+cc49035552e3cce9,/home/pierrer/PipelineCS/DL/103576/hotu-vs-sangal-m1-mirage.dem,0,0,casual,false,142,142,35,3071,2026-03-26 16:23:29.698 +0000,Team B,3,0,24,false
+a0db0b97f8770cad,/home/pierrer/PipelineCS/DL/103576/hotu-vs-sangal-m3-ancient.dem,0,0,casual,false,121,123,39,2772,2026-03-26 16:25:48.707 +0000,Team A,2,0,24,false
+"7c61fd2f62b59a72",/home/pierrer/PipelineCS/DL/103576/hotu-vs-sangal-m2-overpass-p3.dem,0,0,casual,false,6,6,0,159,2026-03-26 16:26:44.207 +0000,Team B,3,1,24,false
+"64924f6ac87b489b",/home/pierrer/PipelineCS/DL/103576/hotu-vs-sangal-m2-overpass-p1.dem,0,1,competitive,false,114,114,36,2130,2026-03-26 16:27:45.077 +0000,Team B,3,0,24,false
+"2462adad3972e960",/home/pierrer/PipelineCS/DL/103576/hotu-vs-sangal-m2-overpass-p2.dem,0,1,competitive,false,78,78,23,1823,2026-03-26 16:29:25.307 +0000,Sangal 1XBET,3,0,24,false
+"84acd108bd0b97e3",/home/pierrer/PipelineCS/DL/103577/9ine-vs-k27-m1-ancient-p3.dem,0,1,competitive,false,126,127,45,3034,2026-03-26 16:32:38.141 +0000,K27,3,0,24,false
+"84f556a3d0bb96d2",/home/pierrer/PipelineCS/DL/103577/9ine-vs-k27-m1-ancient-p2.dem,0,0,casual,false,6,6,3,110,2026-03-26 16:33:57.007 +0000,"9INE Pusulabet",3,0,24,false
+"6ddd1f7ec36ec711",/home/pierrer/PipelineCS/DL/103577/9ine-vs-k27-m3-dust2.dem,0,0,casual,false,139,139,52,2778,2026-03-26 16:35:13.183 +0000,Team B,3,0,24,false
+ab52e6a5dfd130ec,/home/pierrer/PipelineCS/DL/103577/9ine-vs-k27-m2-overpass.dem,0,0,casual,false,88,88,34,1949,2026-03-26 16:36:57.966 +0000,Team A,2,0,24,false
+"1ebc3efcb2fd27b8",/home/pierrer/PipelineCS/DL/103577/9ine-vs-k27-m1-ancient-p1.dem,0,1,competitive,false,28,28,14,683,2026-03-26 16:37:46.650 +0000,Team A,3,0,24,false
+db75c50cfcf84926,/home/pierrer/PipelineCS/DL/103577/9ine-vs-k27-m1-ancient-p4.dem,0,0,casual,false,36,36,12,888,2026-03-26 16:38:21.958 +0000,Team B,2,1,24,false
+"6e376ce7ab748c62",/home/pierrer/PipelineCS/DL/103578/fut-vs-big-academy-m1-ancient-p2.dem,0,0,casual,false,110,112,34,2544,2026-03-26 16:40:59.654 +0000,BIG Academy,3,0,24,false
+"3ee56e08db4c3cb8",/home/pierrer/PipelineCS/DL/103578/fut-vs-big-academt-m1-ancient-p1.dem,0,0,casual,false,18,18,6,458,2026-03-26 16:42:21.097 +0000,Team B,2,0,24,false
+df630d5eeb08a6d,/home/pierrer/PipelineCS/DL/103578/fut-vs-big-academy-m3-overpass.dem,0,0,casual,false,194,197,64,4269,2026-03-26 16:44:25.724 +0000,Team A,3,1,24,false
+"70116a9d8708bbd2",/home/pierrer/PipelineCS/DL/103578/fut-vs-big-academy-m2-mirage.dem,0,0,casual,false,152,152,61,3141,2026-03-26 16:47:11.686 +0000,Team B,3,0,24,false
+a3e6eabee0c9ab0d,/home/pierrer/PipelineCS/DL/103579/nuclear-tigeres-vs-gentle-mates-m1-ancient-p2.dem,0,0,casual,false,47,47,17,1094,2026-03-26 16:49:54.552 +0000,Nuclear TigeRES,3,0,24,false
+"2c4b7b99bdc9aa34",/home/pierrer/PipelineCS/DL/103579/nuclear-tigeres-vs-gentle-mates-m2-nuke.dem,0,0,casual,false,143,145,44,3239,2026-03-26 16:51:18.232 +0000,Team B,3,0,24,false
+"91609a6608f8a293",/home/pierrer/PipelineCS/DL/103579/nuclear-tigeres-vs-gentle-mates-m3-inferno.dem,0,0,casual,false,225,226,103,5378,2026-03-26 17:02:49.168 +0000,Team A,2,2,24,false
+ef76fcf08c9c41d4,/home/pierrer/PipelineCS/DL/103580/nemiga-vs-ex-ruby-m3-mirage.dem,0,0,casual,false,138,138,54,2976,2026-03-26 17:08:48.326 +0000,ex-RUBY,3,0,24,false
+"609799b658f786f7",/home/pierrer/PipelineCS/DL/103580/nemiga-vs-ex-ruby-m2-ancient.dem,0,0,casual,false,162,162,48,4015,2026-03-26 17:10:41.831 +0000,ex-RUBY,2,0,24,false
+ee2cfa583112bbed,/home/pierrer/PipelineCS/DL/103580/nemiga-vs-ex-ruby-m1-dust2.dem,0,0,casual,false,151,153,45,3904,2026-03-26 17:15:01.948 +0000,Nemiga,3,0,24,false
+"64219c2ff487875e",/home/pierrer/PipelineCS/DL/103581/allinners-vs-illwill-m2-dust2.dem,0,0,casual,false,135,136,50,2660,2026-03-26 17:18:26.039 +0000,illwill,2,0,24,false
+"41fe1816bc30c669",/home/pierrer/PipelineCS/DL/103581/allinners-vs-illwill-m1-mirage.dem,0,0,casual,false,157,157,39,3436,2026-03-26 17:22:56.048 +0000,illwill,3,0,24,false
+f84a029cd835cc79,/home/pierrer/PipelineCS/DL/103582/fluxo-vs-nc-m2-nuke.dem,0,0,casual,false,116,116,33,2618,2026-03-26 17:25:44.078 +0000,Team B,3,0,24,false
+"4f6c9d02c7bc274",/home/pierrer/PipelineCS/DL/103582/fluxo-vs-nc-m1-anubis.dem,0,0,casual,false,126,126,39,2684,2026-03-26 17:27:45.914 +0000,Team B,3,0,24,false
+b1885df0ee45aa54,/home/pierrer/PipelineCS/DL/103583/fake-do-biru-vs-yawara-m2-dust2.dem,0,0,casual,false,120,121,41,2351,2026-03-26 17:30:46.721 +0000,Team B,3,0,24,false
+d10ce9b4b35db17b,/home/pierrer/PipelineCS/DL/103583/fake-do-biru-vs-yawara-m1-mirage.dem,0,0,casual,false,141,142,46,2871,2026-03-26 17:32:27.062 +0000,Team B,3,0,24,false
+be41d72a8cdd50e8,/home/pierrer/PipelineCS/DL/103583/fake-do-biru-vs-yawara-m3-overpass.dem,0,0,casual,false,137,149,52,3137,2026-03-26 17:34:35.116 +0000,Team A,2,0,24,false
+"42c95ab5bb33fbc9",/home/pierrer/PipelineCS/DL/103584/kolesie-vs-fnatic-m2-mirage.dem,0,0,casual,false,94,94,31,2150,2026-03-26 17:37:23.219 +0000,Team A,2,0,24,false
+"9e69fe42c6a759fb",/home/pierrer/PipelineCS/DL/103584/kolesie-vs-fnatic-m1-ancient-p2.dem,0,0,casual,false,100,100,33,2139,2026-03-26 17:38:59.554 +0000,,0,0,24,false
+"654d40ac61c0eaed",/home/pierrer/PipelineCS/DL/103585/ursa-vs-bc-game-m1-dust2.dem,0,0,casual,false,199,202,69,4120,2026-03-26 17:42:30.461 +0000,Team B,2,1,24,false
+"8f9d7916bf0b1742",/home/pierrer/PipelineCS/DL/103585/ursa-vs-bc-game-m2-anubis.dem,0,0,casual,false,168,168,56,3148,2026-03-26 17:46:33.053 +0000,Team B,3,0,24,false
+"92de1b53f67fffcd",/home/pierrer/PipelineCS/DL/103586/gamehunters-vs-herewegoagain-m1-mirage.dem,0,0,casual,false,129,136,42,2671,2026-03-26 17:49:48.760 +0000,GameHunters,2,0,24,false
+"9c8d21e21c3390e1",/home/pierrer/PipelineCS/DL/103586/gamehunters-vs-herewegoagain-m2-ancient.dem,0,0,casual,false,204,205,64,4389,2026-03-26 17:51:51.367 +0000,GameHunters,2,1,24,false
+edcd62cbccc337c2,/home/pierrer/PipelineCS/DL/103587/oramond-vs-bet-m-m1-ancient.dem,0,0,casual,false,265,283,116,6005,2026-03-26 17:56:32.006 +0000,BET-M,3,2,24,false
+"42d8bad9b90e9c7",/home/pierrer/PipelineCS/DL/103587/oramond-vs-bet-m-m2-mirage.dem,0,0,casual,false,134,135,48,2602,2026-03-26 17:59:24.171 +0000,BET-M,2,0,24,false
+"21dcf45a9eed6d84",/home/pierrer/PipelineCS/DL/103588/nc-vs-yawara-m1-anubis.dem,0,0,casual,false,149,149,31,3317,2026-03-26 18:01:45.668 +0000,Team B,3,0,24,false
+"2e0ccb276a0f195d",/home/pierrer/PipelineCS/DL/103588/nc-vs-yawara-m2-ancient.dem,0,0,casual,false,119,119,44,2554,2026-03-26 18:03:26.189 +0000,Team B,3,0,24,false
+"17050cb8651b49f1",/home/pierrer/PipelineCS/DL/103589/forze-reload-vs-masonic-m2-nuke.dem,0,0,casual,false,159,161,44,3144,2026-03-26 18:05:46.034 +0000,FORZE Reload,2,0,24,false
+"313f9694f6044536",/home/pierrer/PipelineCS/DL/103589/forze-reload-vs-masonic-m1-ancient.dem,0,0,casual,false,392,392,139,7817,2026-03-26 18:30:19.536 +0000,FORZE Reload,2,5,24,false
+dc92a0e1d230258,/home/pierrer/PipelineCS/DL/103590/k27-vs-fut-m1-nuke-p1.dem,0,1,competitive,false,81,83,23,1753,2026-03-26 18:35:25.058 +0000,Team A,2,0,24,false
+"4cd3de9691838b8b",/home/pierrer/PipelineCS/DL/103590/k27-vs-fut-m2-mirage.dem,0,0,casual,false,106,106,35,2196,2026-03-26 18:36:37.694 +0000,Team B,3,0,24,false
+"6c39cfc7f9d8bab6",/home/pierrer/PipelineCS/DL/103590/k27-vs-fut-m1-nuke-p2.dem,0,0,casual,false,56,56,12,1099,2026-03-26 18:37:43.913 +0000,Team A,2,0,24,false
+"33de35c026ecd383",/home/pierrer/PipelineCS/DL/103591/betboom-vs-genone-m2-nuke-p1.dem,0,1,competitive,false,237,237,57,5294,2026-03-26 18:41:42.461 +0000,Team A,2,2,24,false
+"2c371ad452ad8bd6",/home/pierrer/PipelineCS/DL/103591/betboom-vs-genone-m1-ancient.dem,0,0,casual,false,150,151,54,3802,2026-03-26 18:45:35.126 +0000,Team B,3,0,24,false
+"19200d3ab2e99adc",/home/pierrer/PipelineCS/DL/103591/betboom-vs-genone-m2-nuke-p2.dem,0,0,casual,false,45,45,15,1022,2026-03-26 18:47:01.025 +0000,Team B,2,3,24,false
+e2bf3b12c9a923b7,/home/pierrer/PipelineCS/DL/103591/betboom-vs-genone-m3-dust2.dem,0,0,casual,false,162,162,63,3651,2026-03-26 18:48:34.802 +0000,Team B,3,0,24,false
+c69e0efcc61ef109,/home/pierrer/PipelineCS/DL/103592/oddik-vs-bestia-m1-dust2-p3.dem,0,0,casual,false,0,0,0,0,2026-03-26 18:50:42.546 +0000,,0,0,24,false
+c7345237a5dfa992,/home/pierrer/PipelineCS/DL/103592/oddik-vs-bestia-m1-dust2-p1.dem,0,0,casual,false,98,98,34,1744,2026-03-26 18:51:23.167 +0000,ODDIK,3,0,24,false
+f42b390caf907f03,/home/pierrer/PipelineCS/DL/103592/oddik-vs-bestia-m1-dust2-p2.dem,0,1,competitive,false,69,69,27,1262,2026-03-26 18:52:30.239 +0000,BESTIA,3,0,24,false
+d1f2b40914788553,/home/pierrer/PipelineCS/DL/103592/oddik-vs-bestia-m2-ancient.dem,0,0,casual,false,154,154,61,4026,2026-03-26 18:54:02.921 +0000,Team B,3,0,24,false
+ac043a7b8a12fa2c,/home/pierrer/PipelineCS/DL/103593/eyeballers-vs-nemesis-m1-ancient-p1.dem,0,1,competitive,false,100,100,28,2688,2026-03-26 18:58:21.993 +0000,Team B,3,0,24,false
+"38ca2c43af583894",/home/pierrer/PipelineCS/DL/103593/eyeballers-vs-nemesis-m2-anubis-p1.dem,0,1,competitive,false,102,102,28,2379,2026-03-26 19:00:37.544 +0000,Team A,2,0,24,false
+"99cad6579edc5878",/home/pierrer/PipelineCS/DL/103593/eyeballers-vs-nemesis-m3-inferno-p1.dem,0,1,competitive,false,145,145,52,3491,2026-03-26 19:03:41.402 +0000,,0,0,24,false
+"5c3bb5c9692c9cc8",/home/pierrer/PipelineCS/DL/103593/eyeballers-vs-nemesis-m2-anubis-p2.dem,0,0,casual,false,54,54,13,1200,2026-03-26 19:07:02.904 +0000,EYEBALLERS,2,0,24,false
+"4644991b2742d7b6",/home/pierrer/PipelineCS/DL/103593/eyeballers-vs-nemesis-m1-ancient-p2.dem,0,0,casual,false,51,51,21,1155,2026-03-26 19:08:10.241 +0000,Team Nemesis,3,0,24,false
+"16abf70c8fc8f663",/home/pierrer/PipelineCS/DL/103593/eyeballers-vs-nemesis-m3-inferno-p2.dem,0,0,casual,false,138,139,55,3405,2026-03-26 19:09:56.928 +0000,Team Nemesis,2,3,24,false
+"3fc881868233db88",/home/pierrer/PipelineCS/DL/103595/nuclear-tigeres-vs-sangal-m3-anubis.dem,0,0,casual,false,115,115,39,2540,2026-03-26 21:46:43.641 +0000,Team A,2,0,24,false
+"630088bb1b27ebff",/home/pierrer/PipelineCS/DL/103595/nuclear-tigeres-vs-sangal-m2-mirage-p2.dem,0,1,competitive,false,15,15,6,253,2026-03-26 21:47:39.220 +0000,,0,0,24,false
+c86922d0f8fea8c6,/home/pierrer/PipelineCS/DL/103595/nuclear-tigeres-vs-sangal-m2-mirage-p1.dem,0,1,competitive,false,82,82,29,1822,2026-03-26 21:48:23.309 +0000,Sangal 1XBET,3,0,24,false
+a68ee15d9071726e,/home/pierrer/PipelineCS/DL/103595/nuclear-tigeres-vs-sangal-m1-ancient.dem,0,0,casual,false,146,147,61,3820,2026-03-26 21:50:04.464 +0000,Team B,3,0,24,false
+"6e0e8a618cacdda5",/home/pierrer/PipelineCS/DL/103595/nuclear-tigeres-vs-sangal-m2-mirage-p3.dem,0,0,casual,false,61,61,18,1716,2026-03-26 21:53:55.519 +0000,Sangal 1XBET,3,0,24,false
+"56f0db56dffd44dd",/home/pierrer/PipelineCS/DL/103596/shinden-vs-fluxo-m2-ancient-p1.dem,0,0,casual,false,30,30,12,538,2026-03-26 21:56:48.585 +0000,Team B,3,1,24,false
+"9ec6d7983bdd57bc",/home/pierrer/PipelineCS/DL/103596/shinden-vs-fluxo-m1-nuke.dem,0,0,casual,false,139,140,35,3125,2026-03-26 21:59:25.732 +0000,Team B,3,0,24,false
+"1d5f18612c41478e",/home/pierrer/PipelineCS/DL/103596/shinden-vs-fluxo-m2-ancient-p2.dem,0,1,competitive,false,188,193,75,4302,2026-03-26 22:02:34.119 +0000,,0,0,24,false
+"7840dabee8ab3148",/home/pierrer/PipelineCS/DL/103597/red-canids-vs-sharks-m2-inferno-p1.dem,0,0,casual,false,196,199,72,4779,2026-03-26 22:10:12.066 +0000,Team A,2,2,24,false
+"2ec3d9f47144d6b0",/home/pierrer/PipelineCS/DL/103597/red-canids-vs-sharks-m2-inferno-p2.dem,0,1,competitive,false,51,51,26,1105,2026-03-26 22:14:15.010 +0000,YNG Sharks,2,0,24,false
+"4b9f468f018eb6d7",/home/pierrer/PipelineCS/DL/103597/red-canids-vs-sharks-m1-nuke.dem,0,0,casual,false,108,109,27,2394,2026-03-26 22:15:46.847 +0000,Team B,3,0,24,false
+"4727868233e005e",/home/pierrer/PipelineCS/DL/103598/crashers-vs-pain-academy-m1-inferno.dem,0,0,casual,false,152,152,46,3224,2026-03-26 22:18:59.391 +0000,paiN Academy,2,0,24,false
+bc8da1d6025b2271,/home/pierrer/PipelineCS/DL/103598/crashers-vs-pain-academy-m2-overpass.dem,0,0,casual,false,141,142,50,2540,2026-03-26 22:22:54.989 +0000,Crashers,2,0,24,false
+"8797b74c6a944569",/home/pierrer/PipelineCS/DL/103598/crashers-vs-pain-academy-m3-dust2.dem,0,0,casual,false,147,150,53,2622,2026-03-26 22:26:11.367 +0000,Crashers,3,0,24,false
+cc96bd94935ccadc,/home/pierrer/PipelineCS/DL/103599/eternal-fire-vs-minlate-m2-nuke.dem,0,0,casual,false,141,141,40,3020,2026-03-26 22:30:04.885 +0000,Minlate,3,0,24,false
+"6ee1894cb4d6bdee",/home/pierrer/PipelineCS/DL/103599/eternal-fire-vs-minlate-m3-overpass.dem,0,0,casual,false,116,117,33,2187,2026-03-26 22:32:29.069 +0000,ETERNAL FIRE,2,0,24,false
+f105089e01a366e2,/home/pierrer/PipelineCS/DL/103599/eternal-fire-vs-minlate-m1-mirage.dem,0,0,casual,false,148,149,48,3249,2026-03-26 22:34:36.731 +0000,ETERNAL FIRE,3,0,24,false
+e0d75302c1915558,/home/pierrer/PipelineCS/DL/103600/gentle-mates-vs-hotu-m1-anubis.dem,0,0,casual,false,184,186,59,4156,2026-03-26 22:39:07.526 +0000,Team A,3,1,24,false
+f4717d3bec87a9f5,/home/pierrer/PipelineCS/DL/103600/gentle-mates-vs-hotu-m2-ancient.dem,0,0,casual,false,174,174,58,4148,2026-03-26 22:43:42.655 +0000,Team A,2,0,24,false
+"52adbfbb4ba3aaef",/home/pierrer/PipelineCS/DL/103610/sharks-vs-galorys-m1-nuke.dem,0,0,casual,false,132,133,47,2506,2026-03-26 23:33:46.738 +0000,Team B,3,0,24,false
+fbcda64af4f459e9,/home/pierrer/PipelineCS/DL/103610/sharks-vs-galorys-m2-overpass.dem,0,0,casual,false,144,144,50,2974,2026-03-26 23:35:33.312 +0000,Team A,2,0,24,false
+"76609dbef55c685a",/home/pierrer/PipelineCS/DL/103611/imperial-vs-red-canids-m1-nuke.dem,0,0,casual,false,137,137,48,2558,2026-03-26 23:38:39.050 +0000,Team B,3,0,24,false
+"2cb0358094e6e7d",/home/pierrer/PipelineCS/DL/103611/imperial-vs-red-canids-m2-overpass.dem,0,0,casual,false,165,166,68,3141,2026-03-26 23:41:21.634 +0000,Team B,3,0,24,false
+addeab3e73dfac5,/home/pierrer/PipelineCS/DL/103611/imperial-vs-red-canids-m3-mirage.dem,0,0,casual,false,147,147,44,2958,2026-03-26 23:43:58.769 +0000,Team B,3,0,24,false
+"78bd79f95393a72b",/home/pierrer/PipelineCS/DL/103612/bestia-vs-shinden-m2-nuke.dem,0,0,casual,false,131,132,37,2541,2026-03-26 23:47:33.286 +0000,Team B,3,0,24,false
+a8c57cc52209161f,/home/pierrer/PipelineCS/DL/103612/bestia-vs-shinden-m3-overpass.dem,0,0,casual,false,156,158,54,3487,2026-03-26 23:49:54.883 +0000,Team B,3,0,24,false
+"1aaf42cdb6da602c",/home/pierrer/PipelineCS/DL/103612/bestia-vs-shinden-m1-dust2.dem,0,0,casual,false,138,138,54,3127,2026-03-26 23:52:17.709 +0000,Team B,3,0,24,false
+d48a853d9c1e877e,/home/pierrer/PipelineCS/DL/103613/bcgame-vs-nemesis-m1-nuke.dem,0,0,casual,false,138,139,30,2648,2026-03-26 23:55:45.734 +0000,Team A,2,0,24,false
+baa6bbea8b2ffb45,/home/pierrer/PipelineCS/DL/103613/bcgame-vs-nemesis-m3-ancient.dem,0,0,casual,false,155,156,56,4080,2026-03-26 23:58:59.666 +0000,Team A,2,0,24,false
+"2b695c1803b50d24",/home/pierrer/PipelineCS/DL/103613/bcgame-vs-nemesis-m2-inferno.dem,0,0,casual,false,128,128,45,3436,2026-03-27 00:03:32.566 +0000,Team A,2,0,24,false
+"653656c267079f32",/home/pierrer/PipelineCS/DL/103614/masonic-vs-prestige-m1-dust2.dem,0,0,casual,false,118,118,45,2206,2026-03-27 00:08:36.522 +0000,Prestige,3,0,24,false
+"5fcf39d9e0b4c677",/home/pierrer/PipelineCS/DL/103614/masonic-vs-prestige-m2-nuke.dem,0,0,casual,false,164,164,38,3107,2026-03-27 00:10:19.363 +0000,Prestige,2,0,24,false
+f3818ed6890c4ee3,/home/pierrer/PipelineCS/DL/103615/forze-reload-vs-acend-m2-overpass.dem,0,0,casual,false,115,118,40,2579,2026-03-27 00:12:49.069 +0000,Acend,3,0,24,false
+"3bcc579735571249",/home/pierrer/PipelineCS/DL/103615/forze-reload-vs-acend-m1-ancient.dem,0,0,casual,false,156,158,58,3606,2026-03-27 00:14:56.909 +0000,Acend,2,0,24,false
+b68f1042be97f620,/home/pierrer/PipelineCS/DL/103616/genone-vs-unity-m3-ancient.dem,0,0,casual,false,157,158,67,3420,2026-03-27 00:17:49.671 +0000,GenOne,2,0,24,false
+b0c63ae71f799073,/home/pierrer/PipelineCS/DL/103616/genone-vs-unity-m2-inferno.dem,0,0,casual,false,120,122,49,2478,2026-03-27 00:19:40.112 +0000,UNiTY,2,0,24,false
+d78e33ef6effe70c,/home/pierrer/PipelineCS/DL/103616/genone-vs-unity-m1-overpass.dem,0,0,casual,false,156,156,50,3257,2026-03-27 00:22:02.920 +0000,GenOne,3,0,24,false
+"963672906ef564fe",/home/pierrer/PipelineCS/DL/103617/mouz-nxt-vs-allinners-m2-mirage.dem,0,0,casual,false,126,129,46,2384,2026-03-27 00:24:46.325 +0000,ALLINNERS,3,0,24,false
+"71ecb1e5aada9a15",/home/pierrer/PipelineCS/DL/103617/mouz-nxt-vs-allinners-m3-dust2.dem,0,0,casual,false,162,163,61,2963,2026-03-27 00:26:36.769 +0000,MOUZ NXT,2,0,24,false
+"28f3eb233c069079",/home/pierrer/PipelineCS/DL/103617/mouz-nxt-vs-allinners-m1-anubis.dem,0,0,casual,false,128,128,44,2312,2026-03-27 00:28:37.104 +0000,MOUZ NXT,2,0,24,false
+ef0a2055d4debc35,/home/pierrer/PipelineCS/DL/103618/mibr-vs-ctnex-m2-inferno.dem,0,0,casual,false,91,91,28,2061,2026-03-27 00:30:56.212 +0000,Team B,3,0,24,false
+cce09abab8ab8363,/home/pierrer/PipelineCS/DL/103618/mibr-vs-ctnex-m1-mirage.dem,0,0,casual,false,81,81,27,1519,2026-03-27 00:32:35.020 +0000,Team A,2,0,24,false
+"62445b77e1210be9",/home/pierrer/PipelineCS/DL/103619/phantom-vs-forze-reload-m1-mirage.dem,0,0,casual,false,140,152,55,2627,2026-03-27 00:35:48.201 +0000,Phantom,2,0,24,false
+"91043e961834be5c",/home/pierrer/PipelineCS/DL/103619/phantom-vs-forze-reload-m2-nuke.dem,0,0,casual,false,138,139,40,2945,2026-03-27 00:37:59.375 +0000,Phantom,3,0,24,false
+"2c61e42af43466e6",/home/pierrer/PipelineCS/DL/103620/keyd-stars-vs-9z-m1-mirage.dem,0,0,casual,false,81,81,24,2114,2026-03-27 00:40:16.586 +0000,Team A,2,0,24,false
+"387f04e3e824906a",/home/pierrer/PipelineCS/DL/103620/keyd-stars-vs-9z-m2-dust2.dem,0,0,casual,false,205,217,75,4710,2026-03-27 00:42:53.342 +0000,Team A,3,1,24,false
+"9bf0eddddeed8ff7",/home/pierrer/PipelineCS/DL/103621/gentle-mates-vs-genone-m1-ancient.dem,0,0,casual,false,131,131,51,2583,2026-03-27 00:47:18.165 +0000,Team A,2,0,24,false
+eae6dc83883100f7,/home/pierrer/PipelineCS/DL/103621/gentle-mates-vs-genone-m2-nuke.dem,0,0,casual,false,143,144,40,2834,2026-03-27 00:49:11.452 +0000,Team B,3,0,24,false
+"6453198612798e06",/home/pierrer/PipelineCS/DL/103622/truck-drivers-vs-prestige-m2-dust2.dem,0,0,casual,false,154,154,53,3175,2026-03-27 00:52:28.699 +0000,Truck Drivers,3,0,24,false
+"2f0c34cd76cb0d68",/home/pierrer/PipelineCS/DL/103622/truck-drivers-vs-prestige-m1-overpass.dem,0,0,casual,false,139,141,49,3030,2026-03-27 00:55:40.160 +0000,Truck Drivers,2,0,24,false
+d023384934f11de9,/home/pierrer/PipelineCS/DL/103623/lp-vs-four-magic-m2-inferno.dem,0,0,casual,false,128,128,45,3442,2026-03-27 00:58:43.026 +0000,LargadosyPelados,3,0,24,false
+"55bb74eeb004bfcd",/home/pierrer/PipelineCS/DL/103623/lp-vs-four-magic-m1-dust2.dem,0,0,casual,false,121,121,34,2489,2026-03-27 01:01:46.080 +0000,LargadosyPelados,2,0,24,false
+e9bbf2ce87ebb9e5,/home/pierrer/PipelineCS/DL/103624/fut-vs-eyeballers-m2-dust2-p2.dem,0,0,casual,false,43,43,17,790,2026-03-27 01:04:47.055 +0000,EYEBALLERS,2,0,24,false
+"616a486dd559b3ab",/home/pierrer/PipelineCS/DL/103624/fut-vs-eyeballers-m1-anubis-p1.dem,0,1,competitive,false,71,72,23,1419,2026-03-27 01:05:42.557 +0000,FUT Esports,2,0,24,false
+"5e04d12b8d884d33",/home/pierrer/PipelineCS/DL/103624/fut-vs-eyeballers-m1-anubis-p2.dem,0,1,competitive,false,16,16,8,253,2026-03-27 01:06:33.358 +0000,,0,0,24,false
+"2f0d782c4c89b6aa",/home/pierrer/PipelineCS/DL/103624/fut-vs-eyeballers-m2-dust2-p1.dem,0,1,competitive,false,73,73,31,1467,2026-03-27 01:07:33.659 +0000,EYEBALLERS,2,0,24,false
+"8ba463dcb9448fb7",/home/pierrer/PipelineCS/DL/103624/fut-vs-eyeballers-m1-anubis-p3.dem,0,0,casual,false,68,68,23,1703,2026-03-27 01:08:54.365 +0000,EYEBALLERS,2,0,24,false
+"44bbd5e76428761",/home/pierrer/PipelineCS/DL/103625/nuclear-tigeres-vs-kolesie-m1-ancient.dem,0,0,casual,false,195,197,67,4612,2026-03-27 01:11:50.629 +0000,Team A,3,1,24,false
+aefbb00921cba058,/home/pierrer/PipelineCS/DL/103625/nuclear-tigeres-vs-kolesie-m2-nuke.dem,0,0,casual,false,142,143,43,3212,2026-03-27 01:14:31.373 +0000,Team A,2,0,24,false
+d580b4141bd005e6,/home/pierrer/PipelineCS/DL/103626/masonic-vs-minlate-m1-mirage.dem,0,0,casual,false,150,152,49,3246,2026-03-27 01:17:53.969 +0000,Minlate,3,0,24,false
+"2a4000e42a26bb5c",/home/pierrer/PipelineCS/DL/103626/masonic-vs-minlate-m2-nuke.dem,0,0,casual,false,252,256,62,5195,2026-03-27 01:20:45.069 +0000,MASONIC,3,2,24,false
+"7a90d0854306e8b9",/home/pierrer/PipelineCS/DL/103626/masonic-vs-minlate-m3-anubis.dem,0,0,casual,false,156,156,66,2998,2026-03-27 01:23:25.358 +0000,Minlate,2,0,24,false
+"1ecc6fdb1ad6756c",/home/pierrer/PipelineCS/DL/103627/ctnex-vs-keyd-stars-m2-mirage.dem,0,0,casual,false,83,83,22,1733,2026-03-27 01:25:42.690 +0000,Team B,3,0,24,false
+"826ad4f39da55f0",/home/pierrer/PipelineCS/DL/103627/ctnex-vs-keyd-stars-m1-dust2.dem,0,0,casual,false,92,93,35,1954,2026-03-27 01:26:35.935 +0000,Team A,2,0,24,false
+"6aca9ea7f4956b5c",/home/pierrer/PipelineCS/DL/103628/big-academy-vs-nemesis-m2-nuke.dem,0,0,casual,false,147,148,45,3404,2026-03-27 01:29:20.295 +0000,Team A,2,0,24,false
+"3e4cf0c48bb4395b",/home/pierrer/PipelineCS/DL/103628/big-academy-vs-nemesis-m1-ancient.dem,0,0,casual,false,102,102,39,2374,2026-03-27 01:31:12.008 +0000,Team A,2,0,24,false
+"429989c4d318ba58",/home/pierrer/PipelineCS/DL/103628/big-academy-vs-nemesis-m3-dust2.dem,0,0,casual,false,244,246,82,5324,2026-03-27 01:34:26.168 +0000,Team B,3,2,24,false
+"14b70b5c45febf48",/home/pierrer/PipelineCS/DL/103629/liquid-vs-falcons-m2-dust2.dem,0,0,casual,false,145,146,43,2692,2026-03-27 01:39:52.331 +0000,Falcons,3,0,24,false
+e8f474c3c333dd85,/home/pierrer/PipelineCS/DL/103629/liquid-vs-falcons-m1-nuke.dem,0,0,casual,false,193,194,55,3989,2026-03-27 01:42:40.291 +0000,Falcons,3,1,24,false
+"91b389a446a4dbd",/home/pierrer/PipelineCS/DL/103630/hotu-vs-9ine-m2-dust2.dem,0,0,casual,false,92,92,26,1949,2026-03-27 01:46:35.013 +0000,Team B,3,0,24,false
+"37a84f08a2399ebc",/home/pierrer/PipelineCS/DL/103630/hotu-vs-9ine-m1-overpass.dem,0,0,casual,false,122,122,41,3198,2026-03-27 01:48:41.102 +0000,Team A,2,0,24,false
+"7074e878a9d9d9d2",/home/pierrer/PipelineCS/DL/103631/los-kogutos-vs-illwill-m1-nuke.dem,0,0,casual,false,132,133,36,2944,2026-03-27 01:51:31.563 +0000,Los Kogutos,2,0,24,false
+a1d78f7cde4e833b,/home/pierrer/PipelineCS/DL/103631/los-kogutos-vs-illwill-m2-mirage.dem,0,0,casual,false,144,144,40,3032,2026-03-27 01:53:29.515 +0000,Los Kogutos,3,0,24,false
+c9b9157b5c59f89a,/home/pierrer/PipelineCS/DL/103632/betboom-vs-ursa-m1-dust2-p1.dem,0,1,competitive,false,20,20,9,432,2026-03-27 01:55:12.620 +0000,Team A,3,0,24,false
+dc37112aceedfa21,/home/pierrer/PipelineCS/DL/103632/betboom-vs-ursa-m2-mirage-p3.dem,0,0,casual,false,35,35,11,625,2026-03-27 01:55:39.959 +0000,BetBoom Team,3,0,24,false
+fbfd61a8bfb2556,/home/pierrer/PipelineCS/DL/103632/betboom-vs-ursa-m1-dust2-p2.dem,0,0,casual,false,136,136,37,2710,2026-03-27 01:57:17.564 +0000,Ursa,3,0,24,false
+c3f44fe1eab22c53,/home/pierrer/PipelineCS/DL/103632/betboom-vs-ursa-m2-mirage-p1.dem,0,1,competitive,false,8,8,2,184,2026-03-27 01:58:43.795 +0000,Ursa,3,0,24,false
+"87ce682ad0c8870c",/home/pierrer/PipelineCS/DL/103632/betboom-vs-ursa-m2-mirage-p2.dem,0,1,competitive,false,70,71,20,1162,2026-03-27 01:59:26.064 +0000,Team B,3,0,24,false
+f7c9277945f487de,/home/pierrer/PipelineCS/DL/103633/yawara-vs-prison-breakers-m1-ancient.dem,0,0,casual,false,154,155,55,3234,2026-03-27 02:01:58.046 +0000,Yawara,2,0,24,false
+e84bb6eb99f991ea,/home/pierrer/PipelineCS/DL/103633/yawara-vs-prison-breakers-m2-mirage.dem,0,0,casual,false,88,88,22,1587,2026-03-27 02:03:22.349 +0000,Prison Breakers,2,0,24,false
+"5628916f864f3096",/home/pierrer/PipelineCS/DL/103633/yawara-vs-prison-breakers-m3-dust2.dem,0,0,casual,false,221,221,78,4165,2026-03-27 02:05:12.754 +0000,Yawara,2,1,24,false
+"845921b1f3d24654",/home/pierrer/PipelineCS/DL/103634/oddik-vs-imperial-m2-overpass.dem,0,0,casual,false,114,116,52,2909,2026-03-27 02:08:26.895 +0000,Team B,3,0,24,false
+"2b156f6b9eaefa9f",/home/pierrer/PipelineCS/DL/103634/oddik-vs-imperial-m1-anubis.dem,0,0,casual,false,146,146,46,2772,2026-03-27 02:11:23.941 +0000,Team B,3,0,24,false
+"810ebc215df37e73",/home/pierrer/PipelineCS/DL/103635/eyeballers-vs-nuclear-tigeres-m1-inferno.dem,0,0,casual,false,128,128,41,2913,2026-03-27 02:15:32.638 +0000,Team B,3,0,24,false
+"6001a40aad334cc",/home/pierrer/PipelineCS/DL/103635/eyeballers-vs-nuclear-tigeres-m2-mirage.dem,0,0,casual,false,142,142,54,3445,2026-03-27 02:18:41.697 +0000,Team B,3,0,24,false
+cb0cc59f3947d2f8,/home/pierrer/PipelineCS/DL/103635/eyeballers-vs-nuclear-tigeres-m3-anubis.dem,0,0,casual,false,127,127,43,3094,2026-03-27 02:20:36.624 +0000,Team A,2,0,24,false
+"61c59eecc0f9f095",/home/pierrer/PipelineCS/DL/103636/gentle-mates-vs-nemesis-m1-ancient-p1.dem,0,1,competitive,false,83,83,28,1686,2026-03-27 02:23:00.400 +0000,Team A,2,0,24,false
+ee9898773ef07a6a,/home/pierrer/PipelineCS/DL/103636/gentle-mates-vs-nemesis-m1-ancient-p2.dem,0,0,casual,false,49,52,13,1427,2026-03-27 02:23:55.940 +0000,Gentle Mates,2,0,24,false
+"5c24f4bc1eb6dbef",/home/pierrer/PipelineCS/DL/103636/gentle-mates-vs-nemesis-m2-nuke.dem,0,0,casual,false,149,149,49,3227,2026-03-27 02:25:29.630 +0000,Team B,3,0,24,false
+"43f512ea70b4ce7a",/home/pierrer/PipelineCS/DL/103637/9z-vs-shinden-m1-dust2.dem,0,0,casual,false,153,157,61,3321,2026-03-27 02:29:10.043 +0000,Team A,2,0,24,false
+"8dc0a562688b2e7a",/home/pierrer/PipelineCS/DL/103637/9z-vs-shinden-m2-nuke.dem,0,0,casual,false,160,160,43,3409,2026-03-27 02:34:25.661 +0000,Team B,3,0,24,false
+"527e8f5956881611",/home/pierrer/PipelineCS/DL/103638/am-vs-1win-m1-ancient.dem,0,0,casual,false,145,148,47,3732,2026-03-27 02:37:59.752 +0000,"1win",2,0,24,false
+"81c42a2ea887ddf8",/home/pierrer/PipelineCS/DL/103638/am-vs-1win-m2-dust2.dem,0,0,casual,false,99,99,32,2108,2026-03-27 02:39:58.171 +0000,"1win",3,0,24,false
+"9633b2940e86c1a8",/home/pierrer/PipelineCS/DL/103639/gaimin-gladiators-vs-a-fundacao-m1-dust2.dem,0,0,casual,false,106,106,43,2356,2026-03-27 02:41:51.209 +0000,Team B,3,0,24,false
+"54fd1f5e1a2b5bed",/home/pierrer/PipelineCS/DL/103639/gaimin-gladiators-vs-a-fundacao-m2-nuke.dem,0,0,casual,false,87,87,19,1614,2026-03-27 02:43:12.782 +0000,Team A,2,0,24,false
+aae5c8235df84555,/home/pierrer/PipelineCS/DL/103640/heroic-vs-furia-m1-mirage.dem,0,0,casual,false,102,112,39,2493,2026-03-27 02:45:19.189 +0000,HEROIC,3,0,24,false
+"2c50b73b764f1dfe",/home/pierrer/PipelineCS/DL/103640/heroic-vs-furia-m3-nuke.dem,0,0,casual,false,155,157,47,3395,2026-03-27 02:47:23.023 +0000,FURIA,3,0,24,false
+d7fdcb079df7beb6,/home/pierrer/PipelineCS/DL/103640/heroic-vs-furia-m2-dust2.dem,0,0,casual,false,95,97,27,2301,2026-03-27 02:49:27.652 +0000,FURIA,3,0,24,false
+"41cf74bf5a9da5f3",/home/pierrer/PipelineCS/DL/103641/bounty-hunters-vs-bad-luck-m2-ancient.dem,0,0,casual,false,135,137,49,3172,2026-03-27 02:51:52.471 +0000,Bounty Hunters,3,0,24,false
+"305ce9e799abb7e2",/home/pierrer/PipelineCS/DL/103641/bounty-hunters-vs-bad-luck-m1-anubis.dem,0,0,casual,false,137,137,42,2783,2026-03-27 02:53:50.474 +0000,Bounty Hunters,3,0,24,false
+"66c413347ad94050",/home/pierrer/PipelineCS/DL/103642/red-canids-vs-bestia-academy-m1-overpass-p1.dem,0,0,casual,false,60,70,25,1221,2026-03-27 02:55:53.692 +0000,Team A,3,0,24,false
+"4cd346a29dd96222",/home/pierrer/PipelineCS/DL/103642/red-canids-vs-bestia-academy-m1-overpass-p2.dem,0,0,casual,false,46,46,14,959,2026-03-27 02:56:58.840 +0000,Team A,2,0,24,false
+"528422fb7b9b9ea1",/home/pierrer/PipelineCS/DL/103643/ursa-vs-gentle-mates-m1-mirage.dem,0,0,casual,false,156,157,40,3271,2026-03-27 03:00:21.856 +0000,Team A,2,0,24,false
+"5a8350ea0e7528ce",/home/pierrer/PipelineCS/DL/103643/ursa-vs-gentle-mates-m2-nuke.dem,0,0,casual,false,123,123,32,2528,2026-03-27 03:03:35.803 +0000,Team B,3,0,24,false
+ff002e9b4ba80ab6,/home/pierrer/PipelineCS/DL/103644/forze-reload-vs-eternal-fire-m3-dust2.dem,0,0,casual,false,221,224,76,4250,2026-03-27 03:07:14.159 +0000,FORZE Reload,2,0,24,false
+"315c2968095fe213",/home/pierrer/PipelineCS/DL/103644/forze-reload-vs-eternal-fire-m1-mirage.dem,0,0,casual,false,141,141,48,2967,2026-03-27 03:09:22.177 +0000,ETERNAL FIRE,3,0,24,false
+"93f6caa90cb3f862",/home/pierrer/PipelineCS/DL/103644/forze-reload-vs-eternal-fire-m2-ancient.dem,0,0,casual,false,153,153,51,3495,2026-03-27 03:11:28.556 +0000,FORZE Reload,3,0,24,false
+f3a209789b9e1563,/home/pierrer/PipelineCS/DL/103645/red-canids-vs-bestia-m2-ancient.dem,0,0,casual,false,131,132,47,2768,2026-03-27 03:14:30.946 +0000,Team A,2,0,24,false
+dd1e9d956253db5e,/home/pierrer/PipelineCS/DL/103645/red-canids-vs-bestia-m1-nuke.dem,0,0,casual,false,105,106,34,2176,2026-03-27 03:16:28.724 +0000,Team B,3,0,24,false
+"63489421a548b044",/home/pierrer/PipelineCS/DL/103646/gaimin-gladiators-vs-bestia-academy-m1-ancient.dem,0,0,casual,false,95,95,32,2105,2026-03-27 03:18:33.174 +0000,Team A,2,0,24,false
+"7608fcdf4c7642d4",/home/pierrer/PipelineCS/DL/103646/gaimin-gladiators-vs-bestia-academy-m2-dust2.dem,0,0,casual,false,137,137,45,2834,2026-03-27 03:20:02.887 +0000,Team B,3,0,24,false
+e7a1c6d322024c54,/home/pierrer/PipelineCS/DL/103647/imperial-vs-shinden-m2-overpass.dem,0,0,casual,false,248,250,73,5105,2026-03-27 03:25:01.224 +0000,Team A,2,2,24,false
+"181bed020ff0545",/home/pierrer/PipelineCS/DL/103647/imperial-vs-shinden-m1-nuke-p1.dem,0,1,competitive,false,137,140,32,2897,2026-03-27 03:29:21.581 +0000,Imperial,2,0,24,false
+e2171f5401c3287e,/home/pierrer/PipelineCS/DL/103647/imperial-vs-shinden-m1-nuke-p2.dem,0,0,casual,false,58,58,15,1174,2026-03-27 03:31:03.676 +0000,Team B,2,1,24,false
+"333d7f4325d9145f",/home/pierrer/PipelineCS/DL/103648/9ine-vs-nuclear-tigeres-m1-ancient.dem,0,0,casual,false,162,163,61,4363,2026-03-27 03:34:21.179 +0000,Team B,3,0,24,false
+"65500a61e0c496f2",/home/pierrer/PipelineCS/DL/103648/9ine-vs-nuclear-tigeres-m2-nuke.dem,0,0,casual,false,124,124,37,3065,2026-03-27 03:36:50.551 +0000,Team A,2,0,24,false
+"355557a65edecf7f",/home/pierrer/PipelineCS/DL/103648/9ine-vs-nuclear-tigeres-m3-dust2.dem,0,0,casual,false,152,152,52,3536,2026-03-27 03:39:06.017 +0000,Team A,2,0,24,false
+f3f7d892f3ff218,/home/pierrer/PipelineCS/DL/103649/red-canids-vs-a-fudacao-m2-inferno.dem,0,0,casual,false,100,100,37,2173,2026-03-27 03:41:33.891 +0000,Team A,2,0,24,false
+"8138dcf4c13fa8f0",/home/pierrer/PipelineCS/DL/103649/red-canids-vs-a-fudacao-m1-nuke.dem,0,0,casual,false,124,125,33,2118,2026-03-27 03:43:14.767 +0000,Team B,3,0,24,false
+fb12fe4a302e57d9,/home/pierrer/PipelineCS/DL/103650/bestia-vs-shinden-m2-dust2-p2.dem,0,0,casual,false,135,137,45,2998,2026-03-27 03:46:17.830 +0000,Team B,3,0,24,false
+f32782b18168feb2,/home/pierrer/PipelineCS/DL/103650/bestia-vs-shinden-m1-nuke.dem,0,0,casual,false,252,253,78,5574,2026-03-27 03:50:34.805 +0000,Team A,2,2,24,false
+f438fc58aa486c5,/home/pierrer/PipelineCS/DL/103650/bestia-vs-shinden-m2-dust2-p1.dem,0,1,competitive,false,8,8,2,75,2026-03-27 03:54:59.826 +0000,ShindeN,3,0,24,false
