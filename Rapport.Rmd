@@ -13,7 +13,7 @@ date: ""
 
 :::: {style="text-align: justify;"}
 ::: {align="center"}
-<img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&strip=all" width="500" style="margin-bottom: 20px;">
+<img src="https://www.pcworld.com/wp-content/uploads/2023/04/Counter-Strike-2.jpg?quality=50&amp;strip=all" width="500" style="margin-bottom: 20px;"/>
 :::
 
 ## Table des Matières
@@ -99,7 +99,7 @@ Ici on a 522 demo files enregistrés avec :
 
 ::: {style="display:flex; justify-content : center; align-content:center;"}
 | Nombre d'échantillon | Nom de la map | Radar | Aperçu |
-|-----------------|----------------------|-----------------|-----------------|
+|-----------------|---------------------|-----------------|-----------------|
 | 103 | de_mirage | <img src="./images/maps/cs2/radars/de_mirage.png" width="200"/> | <img src="./images/maps/cs2/thumbnails/de_mirage.png" width="200"/> |
 | 51 | de_overpass | <img src="./images/maps/cs2/radars/de_overpass.png" width="200"/> | <img src="./images/maps/cs2/thumbnails/de_overpass.png" width="200"/> |
 | 37 | de_anubis | <img src="./images/maps/cs2/radars/de_anubis.png" width="200"/> | <img src="./images/maps/cs2/thumbnails/de_anubis.png" width="200"/> |
@@ -280,47 +280,40 @@ Le traitement de nos données suit un flux automatisé divisé en trois étapes 
 :::
 :::::::::::::::::::::::::::::::::::
 
-
 ### Prise de position concernant la base de données
 
 Nous avons retiré des tables vides générées par CSDM :
 
-- steam_account_overrides
-- steam_account_tags
-- hostage_rescued
-- faceit_accounts
-- faceit_match_players
-- faceit_match_teams
-- hostage_pick_up_start
-- hostage_picked_up
-- hostage_positions
-- round_tags
-- round_comments
-- renown_accounts
-- player_comments
-- ignored_steam_accounts
-- faceit_matches
-- comments
-- checksum_tags
-- 5eplay_accounts
-- demo_paths
-- download_history
+-   steam_account_overrides
+-   steam_account_tags
+-   hostage_rescued
+-   faceit_accounts
+-   faceit_match_players
+-   faceit_match_teams
+-   hostage_pick_up_start
+-   hostage_picked_up
+-   hostage_positions
+-   round_tags
+-   round_comments
+-   renown_accounts
+-   player_comments
+-   ignored_steam_accounts
+-   faceit_matches
+-   comments
+-   checksum_tags
+-   5eplay_accounts
+-   demo_paths
+-   download_history
 
 *Certaines de ces tables vides étaient à prévoir car nos demo files ne contiennent que des parties compétitives avec bombe, donc sans otages.*
 
-De plus certaines tables ne sont pas utiles elle servent simplement au fonctionnement de l'application :
-- tags
-- timestamps
-- migrations
-- cameras
+De plus certaines tables ne sont pas utiles elle servent simplement au fonctionnement de l'application : - tags - timestamps - migrations - cameras
 
 <br>
 
 > On peut identifier des sous-groupes qui correspondent aux rounds joués dans une certaine map.
 
-
 <br>
-
 
 ## Plan d'analyse {#plan-danalyse}
 
@@ -1556,7 +1549,8 @@ ggplot(df_victimes_plot, aes(x = x, y = y)) +
   geom_abline(slope = slope_v, intercept = intercept_v, color = "black", linewidth = 1) +
   
   coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
-  theme(legend.position = "none")
+  theme(legend.position = "none")+
+  ggtitle("Heatmap des morts")
 ```
 
 ```{r}
@@ -1585,7 +1579,8 @@ ggplot(df_tueurs_plot, aes(x = x, y = y)) +
   geom_abline(slope = slope_v, intercept = intercept_v, color = "black", linewidth = 1) +
   
   coord_equal(ratio=1, xlim=c(max(select(killer_xy, killer_x)), min(select(killer_xy, killer_x))), ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
-  theme(legend.position = "none")
+  theme(legend.position = "none")+
+  ggtitle("Heatmap des tueurs")
 ```
 
 On observe que les zones de forte densité se concentrent majoritairement au sein du *no man’s land*. En croisant ces résultats avec les visualisations séparant les densités par camp, il apparaît que les principaux pics de densité propres à chaque équipe se situent de part et d’autre de cette zone centrale.
