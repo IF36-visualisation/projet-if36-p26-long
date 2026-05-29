@@ -99,7 +99,7 @@ Ici on a 522 demo files enregistrés avec :
 
 ::: {style="display:flex; justify-content : center; align-content:center;"}
 | Nombre d'échantillon | Nom de la map | Radar | Aperçu |
-|-----------------|---------------------|-----------------|-----------------|
+|------------------|--------------------|------------------|------------------|
 | 103 | de_mirage | <img src="./images/maps/cs2/radars/de_mirage.png" width="200"/> | <img src="./images/maps/cs2/thumbnails/de_mirage.png" width="200"/> |
 | 51 | de_overpass | <img src="./images/maps/cs2/radars/de_overpass.png" width="200"/> | <img src="./images/maps/cs2/thumbnails/de_overpass.png" width="200"/> |
 | 37 | de_anubis | <img src="./images/maps/cs2/radars/de_anubis.png" width="200"/> | <img src="./images/maps/cs2/thumbnails/de_anubis.png" width="200"/> |
