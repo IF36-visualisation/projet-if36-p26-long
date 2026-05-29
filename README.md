@@ -7,6 +7,8 @@
 
 </div>
 
+Lien pour la shiny app {https://if36-shiny.collineos.ovh/}
+
 ## Table des Matières
 
 - [Introduction](#introduction)
