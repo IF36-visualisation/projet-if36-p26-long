@@ -7,7 +7,7 @@
 
 </div>
 
-Lien pour la shiny app https://if36-shiny.collineos.ovh
+Lien pour la shiny app https://if36-shiny.collineos.ovh <br>
 Lien pour la page github https://if36-visualisation.github.io/projet-if36-p26-long/
 
 ## Table des Matières
