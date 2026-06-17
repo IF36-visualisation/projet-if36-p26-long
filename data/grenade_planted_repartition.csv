@@ -1,0 +1,17 @@
+"map_name","site","nb_plantees","nb_explosees","nb_desamorcees"
+de_ancient,A,497,198,125
+de_ancient,B,631,220,157
+de_anubis,A,222,80,64
+de_anubis,B,219,87,40
+de_dust2,A,542,196,134
+de_dust2,B,387,177,68
+de_inferno,A,375,196,70
+de_inferno,B,378,175,96
+de_mirage,A,644,224,157
+de_mirage,B,372,164,70
+de_nuke,A,441,165,94
+de_nuke,B,392,162,109
+de_overpass,A,234,98,48
+de_overpass,B,278,122,55
+de_train,A,65,29,7
+de_train,B,71,17,29

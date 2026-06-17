@@ -1,0 +1,96 @@
+"map_name","side","grenade_name","total_grenades"
+de_ancient,CT,Decoy Grenade,45
+de_ancient,CT,Flashbang,4916
+de_ancient,CT,HE Grenade,2857
+de_ancient,CT,Incendiary Grenade,107
+de_ancient,CT,Molotov,5311
+de_ancient,CT,Smoke Grenade,6628
+de_ancient,T,Decoy Grenade,27
+de_ancient,T,Flashbang,4663
+de_ancient,T,HE Grenade,5473
+de_ancient,T,Incendiary Grenade,5020
+de_ancient,T,Molotov,214
+de_ancient,T,Smoke Grenade,5644
+de_anubis,CT,Decoy Grenade,18
+de_anubis,CT,Flashbang,1913
+de_anubis,CT,HE Grenade,1325
+de_anubis,CT,Incendiary Grenade,67
+de_anubis,CT,Molotov,2165
+de_anubis,CT,Smoke Grenade,2456
+de_anubis,T,Decoy Grenade,11
+de_anubis,T,Flashbang,1497
+de_anubis,T,HE Grenade,1591
+de_anubis,T,Incendiary Grenade,1801
+de_anubis,T,Molotov,60
+de_anubis,T,Smoke Grenade,2253
+de_dust2,CT,Decoy Grenade,105
+de_dust2,CT,Flashbang,4911
+de_dust2,CT,HE Grenade,1263
+de_dust2,CT,Incendiary Grenade,85
+de_dust2,CT,Molotov,3805
+de_dust2,CT,Smoke Grenade,4903
+de_dust2,T,Decoy Grenade,25
+de_dust2,T,Flashbang,3717
+de_dust2,T,HE Grenade,3961
+de_dust2,T,Incendiary Grenade,3721
+de_dust2,T,Molotov,180
+de_dust2,T,Smoke Grenade,4837
+de_inferno,CT,Decoy Grenade,40
+de_inferno,CT,Flashbang,3619
+de_inferno,CT,HE Grenade,2482
+de_inferno,CT,Incendiary Grenade,101
+de_inferno,CT,Molotov,3792
+de_inferno,CT,Smoke Grenade,3986
+de_inferno,T,Decoy Grenade,15
+de_inferno,T,Flashbang,2822
+de_inferno,T,HE Grenade,3623
+de_inferno,T,Incendiary Grenade,3448
+de_inferno,T,Molotov,90
+de_inferno,T,Smoke Grenade,4056
+de_mirage,CT,Decoy Grenade,45
+de_mirage,CT,Flashbang,4528
+de_mirage,CT,HE Grenade,1888
+de_mirage,CT,Incendiary Grenade,97
+de_mirage,CT,Molotov,4347
+de_mirage,CT,Smoke Grenade,6351
+de_mirage,T,Decoy Grenade,29
+de_mirage,T,Flashbang,4092
+de_mirage,T,HE Grenade,4357
+de_mirage,T,Incendiary Grenade,4704
+de_mirage,T,Molotov,193
+de_mirage,T,Smoke Grenade,4994
+de_nuke,CT,Decoy Grenade,33
+de_nuke,CT,Flashbang,3358
+de_nuke,CT,HE Grenade,2363
+de_nuke,CT,Incendiary Grenade,82
+de_nuke,CT,Molotov,3975
+de_nuke,CT,Smoke Grenade,5391
+de_nuke,T,Decoy Grenade,6
+de_nuke,T,Flashbang,2340
+de_nuke,T,HE Grenade,3936
+de_nuke,T,Incendiary Grenade,4134
+de_nuke,T,Molotov,226
+de_nuke,T,Smoke Grenade,4544
+de_overpass,CT,Decoy Grenade,22
+de_overpass,CT,Flashbang,2699
+de_overpass,CT,HE Grenade,1406
+de_overpass,CT,Incendiary Grenade,57
+de_overpass,CT,Molotov,2866
+de_overpass,CT,Smoke Grenade,3031
+de_overpass,T,Decoy Grenade,7
+de_overpass,T,Flashbang,2444
+de_overpass,T,HE Grenade,2477
+de_overpass,T,Incendiary Grenade,2736
+de_overpass,T,Molotov,80
+de_overpass,T,Smoke Grenade,3189
+de_train,CT,Decoy Grenade,3
+de_train,CT,Flashbang,528
+de_train,CT,HE Grenade,485
+de_train,CT,Incendiary Grenade,18
+de_train,CT,Molotov,711
+de_train,CT,Smoke Grenade,792
+de_train,T,Flashbang,471
+de_train,T,HE Grenade,683
+de_train,T,Incendiary Grenade,604
+de_train,T,Molotov,20
+de_train,T,Smoke Grenade,683
