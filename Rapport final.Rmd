@@ -116,6 +116,11 @@ Afin de simplifier la lecture des graphiques, nous adopterons les conventions su
 
 Nous commençons par une exploration approfondie d'une seule carte, *Mirage*, la plus représentée dans notre jeu de données (103 matchs). L'idée est de confronter une croyance répandue parmi les joueurs (certaines cartes favoriseraient un camp en raison de leur design) à des données issues de parties réelles, puis de pousser jusqu'à une analyse spatiale fine des affrontements.
 
+Afin de simplifier la lecture des graphiques, nous adopterons les conventions suivantes :
+
+- Les Terroristes seront représentés par la couleur **orange**
+- Les Anti-Terroristes seront représentés par la couleur **bleue**
+
 *Mirage* est souvent perçue par les joueurs comme **favorable aux Anti-Terroristes**. C'est cette intuition que nous allons mettre à l'épreuve.
 
 *La même analyse pourrait être reproduite sur les autres cartes : il suffirait de modifier les fichiers CSV utilisés.*
@@ -157,6 +162,7 @@ scale_fill_manual(values = c(
 "Terroriste" = "#F99E1C"
 ))
 ```
+
 ![](images/pierre1.png)
 
 Sur le papier, et compte tenu du nombre limité de matchs disponibles (103 matchs), la différence observée reste relativement faible. On peut alors se demander si cette tendance devient plus significative lorsque l'on considère le nombre de rounds gagnés par match, plutôt que le total brut.
@@ -179,7 +185,9 @@ y = "Nombre de Rounds"
 scale_fill_manual(values = c("Anti-Terroriste" = "#00428C","Terroriste" = "#F99E1C")) +
 theme_minimal()
 ```
+
 ![](images/pierre2.png)
+
 D'un point de vue statistique, il est difficile de conclure à une différence significative entre les deux camps. La dispersion des valeurs est importante, comme le montre l'étendue des distributions, ce qui limite la capacité à identifier un avantage clair.
 
 Il est donc nécessaire d'aller plus loin dans l'analyse afin de déterminer si un éventuel avantage en faveur des Anti-Terroristes peut être mis en évidence de manière plus robuste.
@@ -227,7 +235,9 @@ scale_fill_manual(values = c(
 "Terroriste" = "#F99E1C"
 ))
 ```
+
 ![](images/pierre3.png)
+
 On observe une différence d'environ 1 000 kills, ce qui peut être significatif dans l'économie d'une partie. Toutefois, afin de s'assurer de la pertinence de cette observation, nous allons rapporter le nombre de kills au nombre de kills par camp et par match.
 
 #### Y a-t-il une différence de kills par match ?
@@ -256,16 +266,15 @@ values = c("Terroriste" = "#F99E1C","Anti-Terroriste" = "#00428C")
 ) + theme_minimal()
 ```
 
+![](images/pierre4.png)
+
 *Les valeurs NA correspondent aux autres types de kills ne résultant pas d'un affrontement direct entre les deux équipes.*
 
-![](images/pierre4.png)
 De même que pour le nombre moyen de manches gagnées par match, la variabilité des données ne permet pas de conclure clairement à un avantage d'un camp sur l'autre. On peut éventuellement conjecturer un léger avantage en faveur des Anti-Terroristes, mais les résultats ne sont pas suffisamment robustes pour en tirer une conclusion définitive.
 
 ## Analyse spatiale : la carte influence-t-elle les combats ?
 
 À partir de ce point, nous utilisons une terminologie associée aux différentes zones de la carte. Une carte annotée est fournie afin de faciliter la compréhension des analyses qui suivent.
-
-![](images/carte.png)
 
 Par ailleurs, nous avons mis en place un masque pour simplifier l'affichage des graphiques. Nous avons utilisé la carte ***Mirage*** disponible dans notre jeu de données, en conservant les zones utiles *(blanches)* et en rendant le fond *(zones jouables)* transparent. Ce masque est ensuite appliqué sur les graphiques afin de ne conserver que les zones pertinentes pour l'analyse.
 
@@ -395,6 +404,8 @@ fill="Status"
 theme_minimal()
 ```
 
+![](images/pierre5.png)
+
 ```{r, eval=FALSE}
 df_match_prop <- group_by(rounds_bomb_status, match_checksum, has_bomb)
 df_match_prop <- summarise(df_match_prop, n = n(), .groups = "drop")
@@ -417,6 +428,8 @@ fill="Status"
 ) +
 theme_minimal()
 ```
+
+![](images/pierre6.png)
 
 La distribution des proportions de rounds avec et sans bombe par match reste relativement stable, indiquant que la structure des matchs est globalement homogène sur cet aspect. On observe néanmoins une certaine variabilité, suggérant des styles de jeu légèrement différents selon les rencontres.
 
@@ -453,6 +466,8 @@ fill="Camp"
 theme_minimal()
 ```
 
+![](images/pierre7.png)
+
 Lorsque la bombe n'est pas plantée, l'avantage semble revenir aux Anti-Terroristes. Leur position de défense et leur capacité de temporisation peuvent expliquer ce résultat.
 
 *Pour confirmer cette observation, il serait pertinent d'analyser plus en détail les durées des rounds, les conditions de victoire, ainsi que la proportion de rounds se terminant par l'élimination complète de l'équipe adverse.*
@@ -476,6 +491,8 @@ aes(image = "images/de_mirage_mask.png"),
 size = 1.32
 )
 ```
+
+![](images/pierre8.png)
 
 Les règles du jeu imposent le placement de la bombe dans des zones dédiées, appelées sites A et B. Cependant, on observe que le site B présente une zone particulièrement utilisée pour le plant.
 
@@ -508,6 +525,8 @@ y = "Occurence",
 fill="Etat de la bombe"
 )
 ```
+
+![](images/pierre9.png)
 
 On remarque que les bombes sont moins souvent désamorcées que dans les autres cas (explosions ou absence de désamorçage après avoir été plantées). Cette tendance est-elle similaire pour chaque site ?
 
@@ -571,6 +590,8 @@ fill="Etat de la bombe"
 )
 ```
 
+![](images/pierre10.png)
+
 L'analyse des issues de bombe montre une différence de comportement entre les deux sites.
 
 Sur le site A, les rounds se terminent plus fréquemment par des bombes plantées sans désamorçage, suivies des explosions. Cela suggère une meilleure réussite des Terroristes une fois la bombe installée sur ce site.
@@ -610,6 +631,8 @@ fill="Gagnant"
 ) +
 theme_minimal()
 ```
+
+![](images/pierre11.png)
 
 Dès qu'une bombe est plantée, l'avantage bascule en faveur des Terroristes, que ce soit sur le site A ou sur le site B. À l'inverse, en l'absence de bombe, l'avantage revient aux Anti-Terroristes.
 
@@ -666,9 +689,13 @@ ggtitle(title)
 plot_heatmap(victim_xy, "Mort - Général")
 ```
 
+![](images/pierre12.png)
+
 ```{r, eval=FALSE}
 plot_heatmap(killer_xy, "Killer - Général")
 ```
+
+![](images/pierre13.png)
 
 Ici, on n'observe pas de différence marquée entre les zones où se trouvent les tueurs et celles où se trouvent les victimes. Les densités restent globalement similaires sur l'ensemble de la carte.
 
@@ -699,6 +726,8 @@ p3 <- plot_heatmap(filter(victim_xy, side == "terro"), "Mort - Terrorists")
 p4 <- plot_heatmap(filter(victim_xy, side == "anti"), "Mort - Anti-Terrorists")
 (p1 + p2 ) / (p3 + p4)
 ```
+
+![](images/pierre14.png)
 
 On observe des cartes de chaleur similaires dans leur structure globale. Cependant, les zones les plus marquées ne sont pas identiques selon les camps. Chez les Terroristes, on observe une forte concentration de morts au niveau de Top Mid, Palace et Tetris, tandis que chez les Anti-Terroristes, celles-ci se situent davantage au niveau de Window, Stairs et Ticket.
 
@@ -798,6 +827,8 @@ geom_point(size = 0.1, alpha = 0.01) +
 coord_equal()
 ```
 
+![](images/pierre15.png)
+
 On retrouve plusieurs lignes connues des joueurs, notamment la ligne de Window vers Top Mid, ainsi que des échanges à double sens entre Tetris et Ticket, ou encore entre Palace et Tetris.
 
 *Dans cette analyse, l'axe Z n'est pas pris en compte. Ce choix est motivé par le fait que cette dimension est difficile à représenter de manière lisible et qu'elle n'apporte qu'une information limitée à quelques situations spécifiques, notamment sur des positions comme Van vers Balcony ou encore la distinction entre Shadow et Palace.*
@@ -826,6 +857,8 @@ labels = c("2" = "Terroriste", "3" = "Anti-Terroriste")
 ) +
 theme_minimal()
 ```
+
+![](images/pierre16.png)
 
 On observe que certaines lignes sont davantage utilisées par les Anti-Terroristes ou par les Terroristes. Cela peut s'expliquer par leur orientation, souvent dirigée vers des positions contrôlées par le camp adverse.
 
@@ -901,6 +934,8 @@ ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
 theme_minimal()
 ```
 
+![](images/pierre17.png)
+
 *Ce résultat est à prendre avec précaution, ici la coloration se base sur le camp dominant, mais ne tient pas compte de la répartition exacte, il suffit d'un tir de différence pour que la couleur change.*
 
 ### Peut-on séparer la carte en deux zones distinctes en fonction des deux camps par rapport à leurs morts / kills ?
@@ -952,6 +987,8 @@ labs(title="Séparation de la carte en fonction du camp du tueur", color="Camp d
 coord_equal()
 ```
 
+![](images/pierre18.png)
+
 #### Victim
 
 ```{r, eval=FALSE}
@@ -996,6 +1033,8 @@ labs(title="Séparation de la carte en fonction du camp de la victime", color="C
 coord_equal()
 ```
 
+![](images/pierre19.png)
+
 Si on superpose ces deux droites on obtient le graphique suivant :
 
 #### Superposition
@@ -1028,6 +1067,8 @@ size = 1
 labs(title = "Segmentation par Kill et par Victim")+
 coord_equal()
 ```
+
+![](images/pierre20.png)
 
 On observe l'apparition d'un *no man's land* au centre de la carte. La superposition avec les autres visualisations permet de mettre en évidence des éléments particulièrement intéressants concernant la répartition des engagements entre les deux camps.
 
@@ -1094,6 +1135,8 @@ ylim=c(max(select(killer_xy, killer_y)), min(select(killer_xy, killer_y))))+
 theme(legend.position = "none")
 ```
 
+![](images/pierre21.png)
+
 On observe que les lignes naissent dans l'un ou l'autre camp et qu'à une exception près, leur camp d'origine détermine celui qui les utilise le plus.
 
 ```{r, eval=FALSE}
@@ -1121,6 +1164,8 @@ theme(legend.position = "none")+
 ggtitle("Heatmap des morts")
 ```
 
+![](images/pierre22.png)
+
 ```{r, eval=FALSE}
 # On prépare les données tueurs
 df_tueurs_plot <-
@@ -1147,6 +1192,8 @@ theme(legend.position = "none")+
 ggtitle("Heatmap des tueurs")
 ```
 
+![](images/pierre23.png)
+
 On observe que les zones de forte densité se concentrent majoritairement au sein du *no man's land*. En croisant ces résultats avec les visualisations séparant les densités par camp, il apparaît que les principaux pics de densité propres à chaque équipe se situent de part et d'autre de cette zone centrale.
 
 ## Conclusion du cas Mirage
@@ -1168,6 +1215,7 @@ Enfin, les analyses de clustering et de densité montrent que les engagements ne
 - L'équilibre global de la carte résulte de cette opposition de styles plutôt que d'une égalité parfaite sur tous les aspects.
 
 Ainsi, *Mirage* n'est pas une carte déséquilibrée, mais une carte où l'avantage dépend du contexte du round et de la capacité de chaque camp à imposer sa phase de jeu.
+
 
 ------------------------------------------------------------------------
 
