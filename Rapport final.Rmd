@@ -94,6 +94,8 @@ Quelques précautions avant d'entrer dans l'analyse. Nos données proviennent ex
 
 # Exploration
 
+Counter-Strike soulève sans cesse des questions quand on y joue : un placement, une arme, un timing, une dépense d'argent. Beaucoup d'intuitions s'accumulent partie après partie sans jamais être vérifiées. Nous avons regroupé notre exploration en quatre parties. Nous ouvrons sur une étude de cas approfondie d'une carte (**Mirage**), puis nous élargissons à trois familles de facteurs qui décident d'un round : le contrôle des **sites et de la bombe**, l'**arsenal et l'économie**, et enfin les **croyances de joueurs**. L'objectif est de montrer que l'équilibre de CS ne tient pas d'une symétrie parfaite, mais d'un compromis entre styles de jeu et phases de round.
+
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(ggplot2)
@@ -106,10 +108,7 @@ set.seed(42)
 library(tidyverse)
 library(ggridges)
 ```
-Afin de simplifier la lecture des graphiques, nous adopterons les conventions suivantes :
 
-- Les Terroristes seront représentés par la couleur **orange**
-- Les Anti-Terroristes seront représentés par la couleur **bleue*
 ------------------------------------------------------------------------
 
 # I - Mirage, cas d'étude
@@ -1248,7 +1247,7 @@ Ainsi nous obtenons un tableur de 16 entrées avec chacune 3 valeurs : map_name,
 library(readr)
 library(dplyr)
 library(ggplot2)
-donnes <- read_csv("grenade_exploded.csv")
+donnes <- read_csv("data/grenade_exploded.csv")
 
 ggplot(donnes, aes(x = map_name, y = nb_explosions, fill = site)) +
 geom_bar(stat = "identity", position = "dodge") +
@@ -1336,7 +1335,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
-donnes2 <- read_csv("grenade_planted_repartition.csv")
+donnes2 <- read_csv("data/grenade_planted_repartition.csv")
 
 donnes2 <- donnes2 %>%
 tidyr::pivot_longer(
@@ -1373,7 +1372,7 @@ theme_minimal()
 ```
 
 ```{r}
-donnes2 <- read_csv("grenade_planted_repartition.csv")
+donnes2 <- read_csv("data/grenade_planted_repartition.csv")
 
 donnes2 <- donnes2 %>%
 tidyr::pivot_longer(
@@ -1419,7 +1418,7 @@ La première information qui nous marque avec ces graphiques est la proportion d
 On se demande si lorsqu'un joueur pose une bombe smoke (fumigène) près d'un site de bombe, cela augmente la probabilité que les Terroristes gagnent en posant la bombe. On a donc pris, pour chaque manche où une bombe smoke a été utilisée, le taux de victoire des Terroristes. On a aussi restreint les observations aux smokes posées près des sites de bombes, mais en n'ayant les résultats que pour 4 cartes, car il faut renseigner à la main les coordonnées de chaque site de bombe. On obtient donc ces bar charts :
 
 ```{r, fig.width=12, fig.height=8}
-smokes <- read_csv("smokes_all.csv")
+smokes <- read_csv("data/smokes_all.csv")
 smokes %>%
 mutate(winner_side = factor(winner_side, levels = c(2, 3), labels = c("CT", "T"))) %>%
 mutate(site = factor(site, levels = c("A", "B"), labels = c("Site A", "Site B"))) %>%
@@ -1437,8 +1436,8 @@ labs(title = "Taux de victoire quand une smoke est posée près d'un bombsite", 
 On voit donc bien qu'il y a un taux de victoire plus élevé pour les Terroristes sur 3 des 4 cartes, mais pas pour dust2. Cela pourrait venir du fait que les CT gagnent en général plus souvent sur cette carte, et cela n'a pas été pris en compte dans la visualisation. Il faudrait donc recommencer la visu, en comparant le taux de victoire d'une manche quand une smoke est posée avec le taux de victoire d'une manche en général.
 
 ```{r, fig.width=12, fig.height=8}
-smokes <- read_csv("smokes_all.csv")
-win_rate_per_round <- read_csv("win_rate_per_round.csv")
+smokes <- read_csv("data/smokes_all.csv")
+win_rate_per_round <- read_csv("data/win_rate_per_round.csv")
 
 win_rate_per_round <- win_rate_per_round %>%
 mutate(map = str_remove(map, "^de_"))
@@ -1498,11 +1497,11 @@ SELECT thrower_side FROM grenade_positions
 
 Le résultat de cette requête est donc une table d'une seule colonne, et contenant pas moins de 140 770 359 entrées.
 
-```{r}
+```{r, eval=FALSE}
 library(readr)
 library(dplyr)
 library(ggplot2)
-dataset <- read_csv("Result - 1 2026-04-20 23-52-40.csv")
+dataset <- read_csv("data/Result - 1 2026-04-20 23-52-40.csv")
 
 donnes_sum = count(dataset, thrower_side)
 donnes <- mutate(donnes_sum, thrower_side = case_when(
@@ -1524,7 +1523,7 @@ scale_fill_manual(values = c(
 "Contre-Terroristes" = "#00428C"
 ))
 ```
-
+![](images/emeliner.png)
 À travers cette visualisation et en raison du grand échantillonnage, on peut voir une tendance d'utilisation de grenades légèrement plus élevée du côté Terroriste. Cela permet également de se rendre compte que l'utilisation de grenades par les Contre-Terroristes est également très fréquente et ne dépend donc pas uniquement du camp.
 
 Pour compléter le graphique, nous allons regarder si cette tendance persiste sur toutes les cartes. De plus, je me demande les proportions d'utilisation des différents types de grenades, let's find out !
@@ -1544,7 +1543,7 @@ ORDER BY d.map_name, side, gp.grenade_name
 Le résultat de cette requête est donc une table de 4 colonnes (map_name, side, grenade_name et total, correspond au nombre de grenades en fonction des 3 critères précédents), et contenant 95 entrées.
 
 ```{r}
-dataset <- read_csv("grenade_emeline 2026-05-16 20-22-34.csv")
+dataset <- read_csv("data/grenade_emeline 2026-05-16 20-22-34.csv")
 
 donnes <- dataset |>
 group_by(map_name, side) |>
@@ -1573,7 +1572,7 @@ Regardons maintenant la répartition des grenades utilisées.
 **Attendu des résultats.** Je pense que l'on va retrouver une grande majorité de grenades fumigènes dû à la pratique de la smoke, sans forcément de prédominance ou schéma particulier pour les autres grenades.
 
 ```{r fig.width=16, fig.height=15}
-donnes <- read_csv("grenade_emeline 2026-05-16 20-22-34.csv")
+donnes <- read_csv("data/grenade_emeline 2026-05-16 20-22-34.csv")
 
 ggplot(donnes, aes(x = side, y = total_grenades, fill = grenade_name))+
 geom_col(position = "stack") +
@@ -1631,7 +1630,7 @@ WHERE number BETWEEN 1 AND 12
 ```
 
 ```{r, message=FALSE}
-pistol <- read_csv("line_pistol.csv")
+pistol <- read_csv("data/line_pistol.csv")
 
 pistol_winners <- pistol %>%
 filter(number == 1) %>%
@@ -1674,7 +1673,7 @@ JOIN demos d ON r.match_checksum = d.checksum
 ```
 
 ```{r, message=FALSE}
-maps <- read_csv("avantage_map.csv")
+maps <- read_csv("data/avantage_map.csv")
 maps$map_name <- gsub("de_", "", maps$map_name)
 
 maps <- maps %>%
@@ -1716,7 +1715,7 @@ axis.text.x = element_blank()
 Pour ce graphique, on se demande si le premier kill d'un round est décisif, et donc s'il est important pour une équipe d'aller chercher cette première élimination à tout prix. Cela pourrait dire aussi que mourir bêtement en premier diminue de beaucoup les chances de gagner ce round. Le graphique suivant a donc été construit en comptant le nombre de fois où le side du gagnant de la manche est le même que le side du joueur qui a fait le premier kill, en rapportant cela au nombre total de manches :
 
 ```{r}
-kills <- read_csv("kills_all.csv")
+kills <- read_csv("data/kills_all.csv")
 kills_summary <- kills %>%
 mutate(same_side = winner_side == killer_side) %>%
 count(same_side) %>%
@@ -1736,7 +1735,7 @@ theme_minimal()
 On voit donc bien qu'il y a presque 75% de manches où la manche a été gagnée par l'équipe du joueur ayant fait le premier kill. Cependant, un autre paramètre peut être pris en compte pour augmenter (ou diminuer) cette statistique, et c'est le type d'économie choisi par l'équipe ayant fait le premier kill de la manche en cours. En effet, si une équipe fait le premier kill mais qu'elle a choisi d'économiser sur ce round, alors il reste de bonnes chances qu'elle perde ce round quand même. Le prochain graphique contient donc les données du premier, mais en ne gardant que les rounds où le type d'économie est le même pour chaque équipe :
 
 ```{r}
-kills <- read_csv("kills_all_2.csv")
+kills <- read_csv("data/kills_all_2.csv")
 kills_summary <- kills %>%
 mutate(same_side = winner_side == killer_side) %>%
 count(same_side) %>%
@@ -1756,7 +1755,7 @@ theme_minimal()
 En retirant les rounds déséquilibrés, on obtient un résultat plus juste, et légèrement inférieur au premier graphique. Cependant, une visualisation de cette valeur cette fois-ci par round pourrait révéler une nouvelle tendance. On garde ici le dataset du précédent graphique :
 
 ```{r, fig.width=10}
-kills <- read_csv("kills_all_2.csv")
+kills <- read_csv("data/kills_all_2.csv")
 
 kills_summary <- kills %>%
 mutate(same_side = winner_side == killer_side) %>%
@@ -1784,7 +1783,7 @@ Une première observation qui peut être faite est qu'au deuxième round, l'équ
 Pour répondre à la question, nous allons d'abord nous intéresser à la répartition d'achat des armes sur CS. Ce premier graphique montre la répartition de ces achats pour 8 cartes.
 
 ```{r, fig.width=12, fig.height=8}
-purchases <- read_csv("weapon_buys.csv")
+purchases <- read_csv("data/weapon_buys.csv")
 
 purchases_summary <- purchases %>%
 group_by(map_name, weapon_name) %>%
@@ -1856,7 +1855,7 @@ Deux armes se dégagent, l'AK-47 et la M4A1, avec une répartition régulière p
 Nous allons maintenant mettre cela en perspective avec la répartition des kills des armes pour chacune de ces cartes :
 
 ```{r, fig.width=12, fig.height=8}
-purchases <- read_csv("weapon_kills.csv")
+purchases <- read_csv("data/weapon_kills.csv")
 
 purchases_summary <- purchases %>%
 group_by(map_name, weapon_name) %>%
@@ -1952,7 +1951,7 @@ GROUP BY 1, 2;
 ```
 
 ```{r, message=FALSE}
-prec <- read_csv("precision_mouvement.csv")
+prec <- read_csv("data/precision_mouvement.csv")
 
 prec <- prec %>%
 mutate(
@@ -1998,7 +1997,7 @@ WHERE LOWER(k.weapon_name) IN ('ak-47','m4a1','awp','mp9','mac-10')
 ```
 
 ```{r, message=FALSE}
-timing <- read_csv("timing_kills.csv")
+timing <- read_csv("data/timing_kills.csv")
 
 timing %>%
 mutate(arme = case_when(
@@ -2033,8 +2032,8 @@ FROM clutches
 WHERE opponent_count <= 5
 ```
 
-```{r, message=FALSE}
-clutchs <- read_csv("rclutch.csv")
+```{r, , eval=FALSE}
+clutchs <- read_csv("data/rclutch.csv")
 
 clutch_stats <- clutchs %>%
 filter(opponent_count <= 5) %>%
@@ -2058,7 +2057,7 @@ y = "Taux de victoire (%)"
 ylim(0, 100) +
 theme_minimal(base_size = 13)
 ```
-
+![](images/magdar.png)
 **Interprétation.** Le graphique répond clairement à la question : on observe une chute drastique du taux de victoire à mesure que le désavantage augmente. Le 1v1 (58%) mérite une attention particulière, car on pourrait s'attendre à un taux plus proche de 50%. Cela peut s'expliquer par le fait que, pour qu'une telle situation soit enregistrée comme un clutch 1v1, l'adversaire a nécessairement survécu à un clutch adverse juste avant (1v2, 1v3...), et arrive donc potentiellement affaibli, mal positionné ou à court de ressources.
 
 On peut aussi être surpris par un taux aussi faible dès le 1v3, ce qui peut s'expliquer par le fait que les données ne concernent que le pro play, où l'on choisit plus souvent d'économiser dans ces situations. Cette visualisation permet donc de mesurer à quel point un clutch en 1v3, 1v4 ou 1v5 représente un exploit statistique. Ces taux sont toutefois à nuancer : la table enregistre également les situations où le joueur a délibérément choisi de sauvegarder son équipement sans combattre, comptabilisées comme un clutch perdu. Les vrais taux de réussite lorsqu'un joueur tente réellement le clutch sont donc probablement plus élevés que ce que le graphique indique.
@@ -2127,10 +2126,10 @@ library(tidyr)
 #Chargement des données
 #On aurait du utiliser le steamID mais on suppose que chaque
 #joueur ne change pas de nom ( on le sait )
-demos = read.csv("demos.csv")
-matches = read.csv("matches.csv")
-messages = read.csv("messages.csv")
-players = read.csv("players.csv")
+demos = read.csv("data/demos.csv")
+matches = read.csv("data/matches.csv")
+messages = read.csv("data/messages.csv")
+players = read.csv("data/players.csv")
 
 n_player <- count(distinct(players, name)) #884 joueurs
 player_n_partie <- arrange(count(players, name), desc(n))
@@ -2693,3 +2692,75 @@ En effet, la répartition des victoires et des défaites parmi les joueurs qui e
 Par ailleurs, l'étude du timing des messages révèle qu'ils sont principalement concentrés en début et en milieu de match, avec une dominance pour le milieu de partie, ce qui contredit l'hypothèse initiale selon laquelle les messages seraient surtout envoyés en fin de match.
 
 Enfin, l'analyse des communications avec les "gg" montre que, dans la majorité des cas, un "gg" envoyé par une équipe appelle un "gg" en retour de l'équipe adverse, ce qui suggère un comportement globalement fair-play parmi les joueurs.
+
+------------------------------------------------------------------------
+
+# Conclusion
+
+## En résumé
+
+À travers cette base de données, nous avons pu examiner les différents aspects qui composent le jeu Counter-Strike 2. Par l'analyse des pratiques des joueurs, sur les clutch et le pistol round, ou encore leurs préférences d'armes et d'utilisation de la bombe, nous avons pu comprendre à quoi correspondait un profil de joueur moyen (professionnel) dans ses choix, ses capacités et l'impact de ces derniers. Également la diversité que renferme le jeu, notamment sur les choix des armes et grenades durant les parties, et celles qui sont les plus mortelles. Cette étude permet, par ailleurs, de constater que le jeu est très équilibré, que les camps de Terroristes et de Contre-Terroristes se trouvent avec une égalité de chances de victoire, même s'il existe une légère tendance pour un camp ou pour l'autre suivant les cartes. Un travail plus centré sur Mirage met en avant la complexité des cartes, avec les nombreuses lignes de tir possibles et différentes localisations des tueurs et tués. Notre panel de Dataviz est large et couvre même des pratiques moins concrètes comme la superstition liée aux poulets de la carte Inferno ou les pratiques écrites des joueurs.
+
+Nous avons pu réaliser ces graphiques à partir d'un échantillon de 522 matchs, avec des données sur 8 cartes différentes. Cette large base permet donc de considérer que nos graphiques sont suffisamment représentatifs pour être considérés comme fiables, sauf pour la carte Train avec uniquement 10 entrées, ce qui est trop peu. Un projet de plus grande ampleur est totalement faisable et serait très intéressant pour approfondir les recherches d'informations et de schémas sur le jeu, avec une base de données encore plus grande pour obtenir la plus haute fiabilité possible.
+
+Deux logiciels ont été manipulés : RStudio pour la grande majorité des réalisations de Dataviz, ainsi que la Shiny App pour laquelle on code nos instructions pour les graphiques en R ; et en second Power BI, application où l'on vient sélectionner les options de représentation et d'ajustement jusqu'à obtenir notre graphique final.
+
+## Un mot de chaque membre
+
+**Pierre :** Ce projet m'a particulièrement passionné, de la mise en place du pipeline à la conception des algorithmes de machine learning, jusqu'à l'analyse des résultats pour en tirer des conclusions pertinentes. J'ai trouvé cette expérience extrêmement enrichissante, et j'aurais aimé pouvoir approfondir davantage l'exploration de ces données. Les perspectives offertes par ce type de dataset sont immenses : on pourrait, par exemple, entraîner des algorithmes pour développer des bots performants ou concevoir des générateurs de stratégies en temps réel. Cependant, pour aller plus loin, il serait essentiel d'enrichir le dataset avec des données supplémentaires (historique plus long, variables externes, etc.) afin de dégager de vraies tendances et non plus des conjectures. Cette approche permettrait de valider plus robustement les hypothèses et d'ouvrir la voie à des applications plus ambitieuses. Enfin, ce projet m'a permis de manipuler un volume important de données, une expérience que j'ai grandement appréciée et qui a renforcé mon intérêt pour le big data, l'analyse prédictive et l'intelligence artificielle.
+
+**Emeline :** J'ai énormément apprécié travailler sur ce projet, avec la manipulation d'une base de données aussi large qui est une première, ainsi que sur RStudio et Power BI. Cela m'a permis de découvrir le fonctionnement concret de la dataviz, et la nécessité de prévoir la visualisation que l'on souhaite réaliser, même en ignorant le résultat, pour ne pas se perdre dans les possibilités presque infinies qui s'offrent à nous, surtout pour Power BI. J'aurais apprécié d'avoir une partie explicative pour nous aider à comprendre comment récupérer des données sur le sujet de notre choix, de manière générale, avec différents outils que l'on peut utiliser ; ce serait le seul aspect qu'il me manque sur le projet.
+
+**Nicolas :** Ce qui m'a marqué, c'est l'importance du travail en amont pour fournir à la visualisation des données propres, cohérentes avec le message que l'on veut faire passer.
+
+**Magdalena :** Ce que j'ai le plus aimé dans ce projet, c'est d'avoir un dataset aussi riche à explorer : en tant que joueuse, c'était passionnant de pouvoir formuler mes propres questions sur le jeu et d'aller y chercher des réponses dans les données. La partie R a été plus difficile pour moi, mais c'est justement ce qui m'a fait progresser, et je ressors de ce projet avec une bien meilleure aisance sur la manipulation et la visualisation de données. Avec un dataset pareil, on s'est peut-être même un peu perdus tant on a multiplié les questions, et avec du recul j'aurais aimé avoir le temps d'en creuser certaines davantage ou mieux structurer nos recherches plutôt que d'en survoler autant.
+
+------------------------------------------------------------------------
+
+# Annexe
+
+## Répartition du travail
+
+En ce qui concerne la partie Exploration de la base de données, nous avons opté pour faire entre 3 et 4 questions chacun, au choix et en fonction de nos affinités avec les questions.
+
+**Pierre :**
+
+- Est-ce qu'une carte favorise un camp par rapport à l'autre ?
+- Est-ce que les messages dans le chat ont une influence sur la partie ?
+
+**Emeline :**
+
+- La grenade est-elle plus utilisée par les Terroristes ou les Contre-Terroristes ?
+- Sur chaque carte, quel site mène le plus souvent à la victoire des Terroristes ?
+- Tuer un poulet sur Inferno est-il corrélé à la victoire du round ?
+
+**Nicolas :**
+
+- La pose d'une smoke sur une bombe augmente-t-elle la probabilité de victoire des Terroristes ?
+- Le premier kill d'un round est-il décisif ?
+- Quelles sont les armes les plus utilisées ?
+
+**Magdalena :**
+
+- Quelle est la probabilité de gagner un clutch selon le désavantage numérique (1v5, 1v4, etc.) ?
+- Le "run and gun" est-il efficace, et pour quelles armes ?
+- À quel moment du round tue-t-on, selon l'arme ?
+- Avantage structurel T vs CT par carte
+- Le pistol round confère-t-il un avantage durable sur les rounds suivants ?
+
+La réalisation des différents rendus (présentation, rapports, etc.) a été faite par le groupe Long, sans répartition particulière.
+
+## Glossaire {#glossaire}
+
+- **Traded** : Un joueur est considéré comme "tradé" lorsqu'il meurt, mais qu'un coéquipier élimine immédiatement son tueur.
+- **Tick** : L'unité de mesure de la fréquence de rafraîchissement du serveur. Le serveur met à jour l'état du jeu (position des joueurs, tirs, etc.) à un intervalle régulier.
+- **Frame** : Une image unique affichée par l'écran.
+- **Decoy** : Une grenade leurre.
+- **Clutch** : Une situation de jeu où un joueur se retrouve seul face à plusieurs adversaires. Réussir le "clutch" signifie remporter la manche malgré l'infériorité numérique.
+- **Pistol Round** : Le tout premier round de chaque mi-temps (round 1 et round 13). Tout le monde commence avec 800\$ et uniquement des pistolets. La victoire ici est cruciale car elle donne un avantage financier immédiat pour les rounds suivants.
+- **Eco (Economy Round)** : Un round où l'équipe dépense le moins d'argent possible (souvent 0\$) afin d'économiser pour le round suivant. Le but est de pouvoir acheter un équipement complet (fusils, grenades, kevlar) plus tard.
+- **Full Eco** : Identique à l'Eco, mais plus strict. Les joueurs n'achètent absolument rien, pas même un pistolet, afin de garantir une accumulation maximale de fonds pour le round d'après.
+- **Full Buy** : L'opposé de l'Eco. L'équipe dépense une grande partie de son argent pour s'équiper au mieux : fusil d'assaut principal (AK-47 ou M4), kevlar + casque, et une série complète de grenades.
+- **Force-buy** : Une situation où l'équipe décide d'acheter tout ce qu'elle peut, même si le budget est incomplet, pour tenter de gagner un round important alors que les finances sont fragiles. C'est un pari risqué pour tenter de briser l'économie adverse.
+
+
