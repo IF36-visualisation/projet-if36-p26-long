@@ -2742,11 +2742,11 @@ En ce qui concerne la partie Exploration de la base de données, nous avons opt�
 
 **Magdalena :**
 
+- Le pistol round confère-t-il un avantage durable ?
+- Quel côté (T ou CT) a un avantage structurel selon les maps ?
+- Courir ou s'arrêter : le "run and gun" est-il efficace ?
+- Quand tue-t-on dans le round, selon l'arme ?
 - Quelle est la probabilité de gagner un clutch selon le désavantage numérique (1v5, 1v4, etc.) ?
-- Le "run and gun" est-il efficace, et pour quelles armes ?
-- À quel moment du round tue-t-on, selon l'arme ?
-- Avantage structurel T vs CT par carte
-- Le pistol round confère-t-il un avantage durable sur les rounds suivants ?
 
 La réalisation des différents rendus (présentation, rapports, etc.) a été faite par le groupe Long, sans répartition particulière.
 
